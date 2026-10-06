@@ -308,21 +308,22 @@
     <div class="hero-form">
       <h3>Запись за 1 минуту</h3>
       <p>Перезвоним в течение 10 минут и подберём удобное время</p>
-      <form onsubmit="event.preventDefault(); alert('Заявка отправлена!'); this.reset();">
-        <input type="text" placeholder="Ваше имя" required>
-        <input type="tel" placeholder="Телефон" required>
-        <select required>
-          <option value="">Выберите услугу</option>
-          <option>Диагностика</option>
-          <option>ТО (техобслуживание)</option>
-          <option>Ремонт двигателя</option>
-          <option>Кузовной ремонт</option>
-          <option>Детейлинг / полировка</option>
-          <option>Шиномонтаж</option>
-        </select>
-        <button type="submit">Записаться</button>
-        <small>Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</small>
-      </form>
+      <form action="https://formspree.io/f/mdeakprb" method="POST">
+  <input type="hidden" name="_subject" value="Заявка с сайта REDLINE (hero)">
+  <input type="text" name="name" placeholder="Ваше имя" required>
+  <input type="tel" name="phone" placeholder="Телефон" required>
+  <select name="service" required>
+    <option value="">Выберите услугу</option>
+    <option>Диагностика</option>
+    <option>ТО (техобслуживание)</option>
+    <option>Ремонт двигателя</option>
+    <option>Кузовной ремонт</option>
+    <option>Детейлинг / полировка</option>
+    <option>Шиномонтаж</option>
+  </select>
+  <button type="submit">Записаться</button>
+  <small>Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</small>
+</form>
     </div>
   </div>
 </section>
@@ -551,16 +552,17 @@
   <div class="container">
     <h2 class="section-title">Запишитесь <em>онлайн</em></h2>
     <p class="section-sub" style="margin-bottom:40px;">Оставьте заявку — перезвоним за 10 минут, подберём время и ответим на вопросы</p>
-    <form class="cta-form" onsubmit="event.preventDefault(); alert('Заявка отправлена! Мы свяжемся с вами в течение 10 минут.'); this.reset();">
-      <input type="text" placeholder="Ваше имя" required>
-      <input type="tel" placeholder="Телефон" required>
-      <input type="text" placeholder="Марка авто и услуга">
-      <label class="form-consent">
-        <input type="checkbox" required>
-        <span>Я согласен на обработку персональных данных и принимаю <a href="privacy.html" target="_blank">политику конфиденциальности</a></span>
-      </label>
-      <button type="submit" class="btn">Записаться</button>
-    </form>
+    <form class="cta-form" action="https://formspree.io/f/mdeakprb" method="POST">
+  <input type="hidden" name="_subject" value="Заявка с сайта REDLINE (низ)">
+  <input type="text" name="name" placeholder="Ваше имя" required>
+  <input type="tel" name="phone" placeholder="Телефон" required>
+  <input type="text" name="car" placeholder="Марка авто и услуга">
+  <label class="form-consent">
+    <input type="checkbox" name="consent" required>
+    <span>Я согласен на обработку персональных данных и принимаю <a href="privacy.html" target="_blank">политику конфиденциальности</a></span>
+  </label>
+  <button type="submit" class="btn">Записаться</button>
+</form>
   </div>
 </section>
 

@@ -359,12 +359,13 @@
     <div class="hero-card">
       <h3>Завтрак ждёт</h3>
       <p>Забронируйте столик — встретим вас с горячим кофе</p>
-      <form onsubmit="event.preventDefault(); alert('Спасибо! Столик забронирован. Мы перезвоним для подтверждения.'); this.reset();">
-        <input type="text" placeholder="Ваше имя" required>
-        <input type="tel" placeholder="Телефон" required>
-        <button type="submit">Забронировать</button>
-        <small>Отвечаем в течение 10 минут</small>
-      </form>
+      <form action="https://formspree.io/f/mdeakprb" method="POST">
+  <input type="hidden" name="_subject" value="Бронь столика — Бариста (hero)">
+  <input type="text" name="name" placeholder="Ваше имя" required>
+  <input type="tel" name="phone" placeholder="Телефон" required>
+  <button type="submit">Забронировать</button>
+  <small>Отвечаем в течение 10 минут</small>
+</form>
       <div class="hero-stats">
         <div>
           <div class="hero-stat-num">7:00</div>
@@ -546,27 +547,28 @@
       <div class="booking-form">
         <h3>Оставить заявку</h3>
         <p>Мы перезвоним и подтвердим бронь</p>
-        <form onsubmit="event.preventDefault(); alert('Спасибо! Заявка принята. Мы свяжемся с вами в течение 10 минут.'); this.reset();">
-          <input type="text" placeholder="Ваше имя" required>
-          <input type="tel" placeholder="Телефон" required>
-          <div class="form-row">
-            <input type="date" required>
-            <input type="time" required>
-          </div>
-          <select required>
-            <option value="">Сколько гостей?</option>
-            <option>1-2 человека</option>
-            <option>3-4 человека</option>
-            <option>5-6 человек</option>
-            <option>Больше 6 (свяжемся для уточнения)</option>
-          </select>
-          <textarea rows="3" placeholder="Комментарий (необязательно)"></textarea>
-          <label class="form-consent">
-            <input type="checkbox" required>
-            <span>Я согласен на обработку персональных данных и принимаю <a href="privacy.html" target="_blank">политику конфиденциальности</a></span>
-          </label>
-          <button type="submit">Забронировать столик</button>
-        </form>
+        <form action="https://formspree.io/f/mdeakprb" method="POST">
+  <input type="hidden" name="_subject" value="Бронь столика — Бариста (основная)">
+  <input type="text" name="name" placeholder="Ваше имя" required>
+  <input type="tel" name="phone" placeholder="Телефон" required>
+  <div class="form-row">
+    <input type="date" name="date" required>
+    <input type="time" name="time" required>
+  </div>
+  <select name="guests" required>
+    <option value="">Сколько гостей?</option>
+    <option>1-2 человека</option>
+    <option>3-4 человека</option>
+    <option>5-6 человек</option>
+    <option>Больше 6 (свяжемся для уточнения)</option>
+  </select>
+  <textarea name="comment" rows="3" placeholder="Комментарий (необязательно)"></textarea>
+  <label class="form-consent">
+    <input type="checkbox" name="consent" required>
+    <span>Я согласен на обработку персональных данных и принимаю <a href="privacy.html" target="_blank">политику конфиденциальности</a></span>
+  </label>
+  <button type="submit">Забронировать столик</button>
+</form>
       </div>
     </div>
   </div>
