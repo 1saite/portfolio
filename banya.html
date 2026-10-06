@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сибирская Баня — Строительство бань и каркасных домов в Красноярске</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', 'Segoe UI', sans-serif; color: #2a2a2a; line-height: 1.65; background: #fdfbf7; overflow-x: hidden; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 100px 0; position: relative; }
+  .section-title { font-family: 'Playfair Display', Georgia, serif; font-size: 44px; text-align: center; margin-bottom: 18px; font-weight: 700; color: #1a3a2e; line-height: 1.15; }
+  .section-title em { color: #c9a961; font-style: italic; }
+  .section-sub { text-align: center; color: #6b6b6b; font-size: 17px; max-width: 640px; margin: 0 auto 60px; }
+
+  header { background: rgba(26,58,46,0.98); color: #fff; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(201,169,97,0.2); backdrop-filter: blur(10px); }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; display: flex; align-items: center; gap: 12px; letter-spacing: 0.5px; }
+  .logo-icon { width: 38px; height: 38px; background: #c9a961; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #1a3a2e; font-size: 20px; font-weight: 700; font-family: 'Inter', sans-serif; }
+  .logo em { color: #c9a961; font-style: normal; }
+  .menu { display: flex; gap: 32px; list-style: none; }
+  .menu a { color: #fff; text-decoration: none; font-size: 15px; font-weight: 500; transition: 0.3s; position: relative; }
+  .menu a:hover { color: #c9a961; }
+  .nav-phone { display: flex; align-items: center; gap: 18px; }
+  .nav-phone a { color: #fff; text-decoration: none; font-weight: 600; font-size: 15px; }
+  .nav-btn { background: #c9a961; color: #1a3a2e; padding: 11px 22px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 700; transition: 0.3s; }
+  .nav-btn:hover { background: #d9b971; }
+  .burger { display: none; background: none; border: none; color: #fff; font-size: 26px; cursor: pointer; }
+
+  .hero { min-height: 92vh; background: linear-gradient(135deg, #0f241c 0%, #1a3a2e 50%, #2d5a48 100%); color: #fff; display: flex; align-items: center; padding: 80px 0; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 70%; height: 200%; background: radial-gradient(circle, rgba(201,169,97,0.12), transparent 60%); pointer-events: none; }
+  .hero::after { content: ''; position: absolute; bottom: -10%; left: -10%; width: 50%; height: 100%; background: radial-gradient(circle, rgba(201,169,97,0.06), transparent 60%); pointer-events: none; }
+  .hero-inner { text-align: center; position: relative; z-index: 2; width: 100%; }
+  .hero-tag { display: inline-block; background: rgba(201,169,97,0.15); border: 1px solid rgba(201,169,97,0.4); color: #c9a961; padding: 8px 20px; border-radius: 30px; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 30px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: 68px; line-height: 1.05; margin-bottom: 26px; font-weight: 900; letter-spacing: -1px; }
+  .hero h1 em { color: #c9a961; font-style: italic; }
+  .hero p.lead { font-size: 20px; max-width: 640px; margin: 0 auto 50px; opacity: 0.9; font-weight: 400; }
+  .hero-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 900px; margin: 0 auto 55px; }
+  .hero-feature { text-align: center; }
+  .hero-feature-icon { width: 56px; height: 56px; background: rgba(201,169,97,0.15); border: 1px solid rgba(201,169,97,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 24px; }
+  .hero-feature h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .hero-feature p { font-size: 13px; opacity: 0.7; }
+  .hero-buttons { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { display: inline-block; background: #c9a961; color: #1a3a2e; padding: 18px 44px; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 700; border: none; cursor: pointer; transition: 0.3s; letter-spacing: 0.3px; }
+  .btn-primary:hover { background: #d9b971; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(201,169,97,0.3); }
+  .btn-outline { display: inline-block; background: transparent; color: #fff; padding: 18px 44px; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 600; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; transition: 0.3s; }
+  .btn-outline:hover { border-color: #c9a961; color: #c9a961; }
+
+  .stats { background: #f5f0e6; padding: 60px 0; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; color: #1a3a2e; line-height: 1; margin-bottom: 10px; }
+  .stat-num em { color: #c9a961; font-style: normal; }
+  .stat-label { font-size: 14px; color: #6b6b6b; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+
+  .about { background: #fdfbf7; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+  .about-img { height: 480px; background: linear-gradient(135deg, #1a3a2e, #2d5a48); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #c9a961; font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; position: relative; overflow: hidden; }
+  .about-img::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.3)); }
+  .about-img span { position: relative; z-index: 2; }
+  .about-content h2 { font-family: 'Playfair Display', serif; font-size: 40px; color: #1a3a2e; margin-bottom: 25px; line-height: 1.15; }
+  .about-content h2 em { color: #c9a961; font-style: italic; }
+  .about-content p { color: #555; font-size: 16px; margin-bottom: 20px; line-height: 1.75; }
+  .about-list { list-style: none; margin-top: 30px; }
+  .about-list li { display: flex; gap: 14px; margin-bottom: 16px; font-size: 15px; color: #333; }
+  .about-list li::before { content: '✓'; background: #c9a961; color: #1a3a2e; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+
+  .services { background: #fff; }
+  .accordion { max-width: 900px; margin: 0 auto; }
+  .acc-item { background: #f5f0e6; border-radius: 14px; margin-bottom: 14px; overflow: hidden; transition: 0.3s; }
+  .acc-item.open { background: #fff; box-shadow: 0 10px 30px rgba(26,58,46,0.1); }
+  .acc-head { display: grid; grid-template-columns: 60px 1fr auto 40px; align-items: center; gap: 20px; padding: 26px 32px; cursor: pointer; }
+  .acc-num { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: #c9a961; }
+  .acc-head h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: #1a3a2e; font-weight: 700; }
+  .acc-price { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: #1a3a2e; white-space: nowrap; }
+  .acc-icon { width: 36px; height: 36px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #c9a961; font-size: 22px; font-weight: 300; transition: 0.3s; }
+  .acc-item.open .acc-icon { background: #c9a961; color: #fff; transform: rotate(45deg); }
+  .acc-body { max-height: 0; overflow: hidden; transition: 0.4s; padding: 0 32px; }
+  .acc-item.open .acc-body { max-height: 400px; padding: 0 32px 28px; }
+  .acc-body p { color: #555; font-size: 15px; margin-bottom: 18px; line-height: 1.7; }
+  .acc-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .acc-tags span { background: #f5f0e6; color: #1a3a2e; padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+
+  .projects { background: #f5f0e6; overflow: hidden; }
+  .projects-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 45px; }
+  .projects-head h2 { font-family: 'Playfair Display', serif; font-size: 44px; color: #1a3a2e; line-height: 1.15; }
+  .projects-head h2 em { color: #c9a961; font-style: italic; }
+  .carousel-nav { display: flex; gap: 12px; }
+  .carousel-nav button { width: 50px; height: 50px; border-radius: 50%; background: #fff; border: 2px solid #c9a961; color: #1a3a2e; font-size: 20px; cursor: pointer; transition: 0.3s; }
+  .carousel-nav button:hover { background: #c9a961; color: #fff; }
+  .carousel-track { display: flex; gap: 25px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 20px; scrollbar-width: none; }
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .project-card { flex: 0 0 380px; background: #fff; border-radius: 16px; overflow: hidden; transition: 0.3s; box-shadow: 0 8px 25px rgba(0,0,0,0.06); }
+  .project-card:hover { transform: translateY(-6px); box-shadow: 0 20px 45px rgba(0,0,0,0.12); }
+  .project-img { height: 260px; background: linear-gradient(135deg, #2d5a48, #1a3a2e); display: flex; align-items: center; justify-content: center; color: #c9a961; font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; position: relative; }
+  .project-badge { position: absolute; top: 18px; left: 18px; background: #c9a961; color: #1a3a2e; padding: 6px 14px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .project-info { padding: 28px; }
+  .project-info h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: #1a3a2e; margin-bottom: 12px; }
+  .project-specs { display: flex; gap: 18px; margin-bottom: 20px; font-size: 14px; color: #888; flex-wrap: wrap; }
+  .project-specs span { display: inline-flex; align-items: center; }
+  .project-specs span::before { content: '·'; margin-right: 8px; color: #c9a961; font-weight: 900; }
+  .project-specs span:first-child::before { display: none; }
+  .project-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; border-top: 1px solid #f0eadd; }
+  .project-price { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: #1a3a2e; }
+  .project-price small { font-family: 'Inter', sans-serif; font-size: 12px; color: #888; font-weight: 500; display: block; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .project-link { color: #c9a961; text-decoration: none; font-size: 14px; font-weight: 600; }
+
+  .workflow { background: #fdfbf7; }
+  .timeline { max-width: 800px; margin: 0 auto; position: relative; padding-left: 60px; }
+  .timeline::before { content: ''; position: absolute; left: 22px; top: 20px; bottom: 20px; width: 2px; background: linear-gradient(to bottom, #c9a961, #1a3a2e); }
+  .tl-item { position: relative; padding-bottom: 45px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-dot { position: absolute; left: -60px; top: 0; width: 46px; height: 46px; background: #fff; border: 3px solid #c9a961; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: #1a3a2e; z-index: 2; }
+  .tl-content { background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 3px solid #c9a961; }
+  .tl-content h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: #1a3a2e; margin-bottom: 10px; }
+  .tl-content p { color: #666; font-size: 15px; }
+
+  .works { background: #f5f0e6; }
+  .works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+  .work-card { background: #fff; border-radius: 14px; overflow: hidden; transition: 0.3s; }
+  .work-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+  .work-img { height: 220px; background: linear-gradient(135deg, #2d5a48, #1a3a2e); display: flex; align-items: center; justify-content: center; color: #c9a961; font-size: 14px; font-weight: 600; }
+  .work-info { padding: 24px; }
+  .work-info h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: #1a3a2e; margin-bottom: 8px; }
+  .work-info .meta { font-size: 14px; color: #888; margin-bottom: 14px; }
+  .work-info .price { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: #c9a961; }
+
+  .team { background: #fff; }
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
+  .team-card { text-align: center; background: #f5f0e6; padding: 35px 20px; border-radius: 14px; }
+  .team-avatar { width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, #2d5a48, #1a3a2e); margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; color: #c9a961; font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; }
+  .team-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 6px; color: #1a3a2e; }
+  .team-card .role { color: #c9a961; font-size: 14px; margin-bottom: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .team-card p { font-size: 14px; color: #666; }
+
+  .guarantees-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+  .guarantee { background: #f5f0e6; padding: 30px; border-radius: 12px; border-top: 4px solid #c9a961; }
+  .guarantee h3 { font-size: 18px; margin-bottom: 12px; color: #1a3a2e; font-weight: 700; }
+  .guarantee p { font-size: 15px; color: #555; }
+
+  .reviews { background: #f5f0e6; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+  .review-card { background: #fff; padding: 35px; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+  .review-stars { color: #c9a961; font-size: 18px; margin-bottom: 18px; letter-spacing: 3px; }
+  .review-card p { font-size: 15px; color: #444; margin-bottom: 22px; line-height: 1.7; }
+  .review-author { display: flex; align-items: center; gap: 14px; }
+  .review-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #1a3a2e, #2d5a48); color: #c9a961; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; }
+  .review-name { font-weight: 700; color: #1a3a2e; font-size: 15px; }
+  .review-city { font-size: 13px; color: #999; }
+
+  .faq { background: #fff; }
+  .faq-list { max-width: 850px; margin: 0 auto; }
+  .faq-item { background: #f5f0e6; border-radius: 12px; margin-bottom: 14px; overflow: hidden; }
+  .faq-q { padding: 24px 30px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #1a3a2e; }
+  .faq-q::after { content: '+'; font-size: 26px; color: #c9a961; transition: 0.3s; font-weight: 300; }
+  .faq-a { padding: 0 30px 24px; color: #555; font-size: 15px; display: none; line-height: 1.7; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-q::after { content: '−'; }
+
+  .cta { background: linear-gradient(135deg, #1a3a2e 0%, #0f241c 100%); color: #fff; text-align: center; padding: 100px 0; position: relative; overflow: hidden; }
+  .cta::before { content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 200%; background: radial-gradient(circle, rgba(201,169,97,0.1), transparent 60%); }
+  .cta-inner { position: relative; z-index: 2; }
+  .cta h2 { font-family: 'Playfair Display', serif; font-size: 44px; margin-bottom: 18px; font-weight: 900; }
+  .cta h2 em { color: #c9a961; font-style: italic; }
+  .cta p { font-size: 18px; margin-bottom: 40px; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .cta-form { max-width: 520px; margin: 0 auto; display: grid; gap: 14px; }
+  .cta-form input { padding: 18px 24px; border: none; border-radius: 10px; font-size: 16px; font-family: inherit; background: rgba(255,255,255,0.95); }
+  .cta-form input:focus { outline: 2px solid #c9a961; }
+  .cta-form button { padding: 20px; background: #c9a961; color: #1a3a2e; border: none; border-radius: 10px; font-size: 17px; font-weight: 700; cursor: pointer; transition: 0.3s; font-family: inherit; }
+  .cta-form button:hover { background: #d9b971; transform: translateY(-2px); box-shadow: 0 15px 35px rgba(201,169,97,0.3); }
+  .form-consent { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: #b8c4b9; line-height: 1.5; cursor: pointer; text-align: left; margin-top: 4px; }
+  .form-consent input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: #c9a961; cursor: pointer; }
+  .form-consent a { color: #c9a961; text-decoration: none; }
+  .form-consent a:hover { text-decoration: underline; }
+
+  footer { background: #0f241c; color: #8ba89a; padding: 70px 0 30px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 45px; margin-bottom: 50px; }
+  .footer-brand .logo { color: #fff; margin-bottom: 18px; }
+  .footer-brand p { font-size: 14px; line-height: 1.7; margin-bottom: 20px; }
+  .footer-social { display: flex; gap: 12px; }
+  .footer-social a { width: 40px; height: 40px; background: rgba(201,169,97,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #c9a961; text-decoration: none; font-size: 16px; transition: 0.3s; font-weight: 700; }
+  .footer-social a:hover { background: #c9a961; color: #0f241c; }
+  .footer-col h4 { color: #fff; font-size: 15px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+  .footer-col a, .footer-col p { color: #8ba89a; font-size: 14px; text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; }
+  .footer-col a:hover { color: #c9a961; }
+  .footer-sub { display: flex; gap: 8px; margin-top: 12px; }
+  .footer-sub input { flex: 1; padding: 12px 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(201,169,97,0.2); border-radius: 8px; color: #fff; font-family: inherit; font-size: 14px; min-width: 0; }
+  .footer-sub input::placeholder { color: #667; }
+  .footer-sub button { padding: 12px 18px; background: #c9a961; border: none; border-radius: 8px; color: #0f241c; font-weight: 700; cursor: pointer; font-family: inherit; }
+  .footer-bottom { border-top: 1px solid rgba(201,169,97,0.1); padding-top: 25px; display: flex; justify-content: space-between; font-size: 13px; flex-wrap: wrap; gap: 12px; }
+
+  /* ============ АДАПТИВ ============ */
+  @media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    .hero h1 { font-size: 54px; }
+    .about-grid { gap: 40px; }
+  }
+  @media (max-width: 900px) {
+    section { padding: 70px 0; }
+    .container { padding: 0 18px; }
+    .menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #1a3a2e; flex-direction: column; padding: 20px 24px; gap: 16px; border-top: 1px solid rgba(201,169,97,0.2); }
+    .menu.open { display: flex; }
+    .burger { display: block; }
+    .nav-phone a:first-child { display: none; }
+    .hero h1 { font-size: 40px; letter-spacing: -0.5px; }
+    .hero p.lead { font-size: 17px; margin-bottom: 35px; }
+    .hero-features { grid-template-columns: 1fr; gap: 25px; margin-bottom: 40px; }
+    .hero-feature-icon { width: 48px; height: 48px; font-size: 20px; }
+    .btn-primary, .btn-outline { padding: 15px 30px; font-size: 15px; }
+    .about-grid { grid-template-columns: 1fr; gap: 35px; }
+    .about-img { height: 320px; }
+    .about-content h2 { font-size: 30px; }
+    .section-title, .projects-head h2, .cta h2 { font-size: 30px; }
+    .section-sub { font-size: 15px; margin-bottom: 40px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; gap: 25px; }
+    .stat-num { font-size: 38px; }
+    .stat-label { font-size: 12px; }
+
+    /* Аккордеон */
+    .acc-head { grid-template-columns: 40px 1fr 30px; padding: 20px; gap: 12px; }
+    .acc-price { display: none; }
+    .acc-head h3 { font-size: 17px; }
+    .acc-num { font-size: 17px; }
+    .acc-body { padding: 0 20px; }
+    .acc-item.open .acc-body { padding: 0 20px 22px; }
+    .acc-icon { width: 30px; height: 30px; font-size: 18px; }
+
+    /* Проекты */
+    .projects-head { flex-direction: column; align-items: flex-start; gap: 20px; margin-bottom: 30px; }
+    .carousel-nav button { width: 44px; height: 44px; font-size: 18px; }
+    .project-card { flex: 0 0 290px; }
+    .project-img { height: 200px; font-size: 38px; }
+    .project-info { padding: 22px; }
+    .project-info h3 { font-size: 20px; }
+    .project-price { font-size: 22px; }
+
+    /* Таймлайн */
+    .timeline { padding-left: 40px; }
+    .timeline::before { left: 14px; }
+    .tl-dot { left: -40px; width: 36px; height: 36px; font-size: 16px; border-width: 2px; }
+    .tl-content { padding: 22px 24px; }
+    .tl-content h3 { font-size: 18px; }
+
+    /* Работы */
+    .works-grid { gap: 20px; }
+    .work-img { height: 180px; }
+    .work-info h3 { font-size: 18px; }
+
+    /* Команда */
+    .team-grid { gap: 20px; }
+    .team-card { padding: 25px 18px; }
+    .team-avatar { width: 90px; height: 90px; font-size: 32px; margin-bottom: 14px; }
+
+    /* Гарантии */
+    .guarantees-grid { gap: 15px; }
+    .guarantee { padding: 24px; }
+
+    /* Отзывы */
+    .reviews-grid { gap: 15px; }
+    .review-card { padding: 26px; }
+
+    /* FAQ */
+    .faq-q { padding: 20px 22px; font-size: 15px; }
+    .faq-a { padding: 0 22px; font-size: 14px; }
+    .faq-item.open .faq-a { padding: 0 22px 20px; }
+
+    /* CTA */
+    .cta { padding: 70px 0; }
+    .cta p { font-size: 16px; margin-bottom: 30px; }
+    .cta-form input { padding: 15px 18px; font-size: 15px; }
+    .cta-form button { padding: 16px; font-size: 15px; }
+
+    /* Футер */
+    footer { padding: 50px 0 25px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 25px; margin-bottom: 30px; }
+    .footer-bottom { flex-direction: column; text-align: center; gap: 12px; }
+  }
+  @media (max-width: 420px) {
+    .hero h1 { font-size: 32px; }
+    .section-title, .projects-head h2, .cta h2 { font-size: 26px; }
+    .stat-num { font-size: 32px; }
+    .project-card { flex: 0 0 260px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <div class="logo-icon">Б</div>
+      Сибирская <em>Баня</em>
+    </div>
+    <ul class="menu">
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#projects">Проекты</a></li>
+      <li><a href="#work">Работы</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+    <div class="nav-phone">
+      <a href="tel:+73913000000">+7 (391) 300-00-00</a>
+      <a href="#form" class="nav-btn">Рассчитать</a>
+    </div>
+    <button class="burger" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-tag">Строим в Сибири с 2011 года</div>
+      <h1>Бани и дома <em>из дерева</em><br>под ключ в Красноярске</h1>
+      <p class="lead">Своя пилорама, своя бригада, фиксированная цена. Сдаём объект за 30–45 дней с гарантией 5 лет.</p>
+      <div class="hero-features">
+        <div class="hero-feature">
+          <div class="hero-feature-icon">🌲</div>
+          <h4>Своя пилорама</h4>
+          <p>Материал без наценок посредников</p>
+        </div>
+        <div class="hero-feature">
+          <div class="hero-feature-icon">📐</div>
+          <h4>Фиксированная цена</h4>
+          <p>Прописана в договоре, не меняется</p>
+        </div>
+        <div class="hero-feature">
+          <div class="hero-feature-icon">🛡️</div>
+          <h4>Гарантия 5 лет</h4>
+          <p>На конструктив и сборку объекта</p>
+        </div>
+      </div>
+      <div class="hero-buttons">
+        <a href="#form" class="btn-primary">Рассчитать стоимость</a>
+        <a href="#projects" class="btn-outline">Смотреть проекты</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container stats-grid">
+    <div><div class="stat-num">14<em> лет</em></div><div class="stat-label">Строим в Сибири</div></div>
+    <div><div class="stat-num">420<em>+</em></div><div class="stat-label">Объектов сдано</div></div>
+    <div><div class="stat-num">45<em> дней</em></div><div class="stat-label">Средний срок стройки</div></div>
+    <div><div class="stat-num">5<em> лет</em></div><div class="stat-label">Гарантия на конструктив</div></div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="container about-grid">
+    <div class="about-img"><span>Фото производства / бригады</span></div>
+    <div class="about-content">
+      <h2>Мы не посредники.<br><em>Мы строим сами.</em></h2>
+      <p>«Сибирская Баня» — это семейная компания из Красноярска. У нас своя пилорама под Дивногорском, своя бригада плотников и свой транспорт. Мы не перепродаём чужие услуги — мы отвечаем за каждый этап.</p>
+      <p>За 14 лет мы построили больше 420 бань и домов по всему краю — от Красноярска до Емельяново и Сосновоборска. Большинство клиентов приходят по рекомендации.</p>
+      <ul class="about-list">
+        <li>Своя пилорама — пилим брус и бревно под конкретный проект</li>
+        <li>Своя бригада — не наёмные шабашники, работают годами</li>
+        <li>Фиксированная смета — цена прописана в договоре</li>
+        <li>Гарантия 5 лет — приедем и исправим бесплатно</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <h2 class="section-title">Что мы <em>строим</em></h2>
+    <p class="section-sub">Выберите категорию — покажем, что входит и сколько стоит</p>
+    <div class="accordion">
+      <div class="acc-item open">
+        <div class="acc-head">
+          <span class="acc-num">01</span>
+          <h3>Бани из бруса</h3>
+          <span class="acc-price">от 380 000 ₽</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">
+          <p>Профилированный или клееный брус. Классическая сибирская баня — тёплая, надёжная, служит десятилетиями. Размеры от 3×4 до 6×6.</p>
+          <div class="acc-tags"><span>Парилка</span><span>Моечная</span><span>Комната отдыха</span><span>Терраса</span></div>
+        </div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head">
+          <span class="acc-num">02</span>
+          <h3>Бани из бревна</h3>
+          <span class="acc-price">от 450 000 ₽</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">
+          <p>Оцилиндрованное бревно естественной влажности. Настоящая русская баня с характером — дышит, держит тепло, выглядит аутентично.</p>
+          <div class="acc-tags"><span>Сруб</span><span>Ручная рубка</span><span>Конопатка</span><span>Шлифовка</span></div>
+        </div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head">
+          <span class="acc-num">03</span>
+          <h3>Каркасные бани</h3>
+          <span class="acc-price">от 290 000 ₽</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">
+          <p>Самый быстрый и недорогой вариант. Под ключ за 30 дней. Утепление под сибирские морозы — можно топить круглый год.</p>
+          <div class="acc-tags"><span>Каркас</span><span>Утеплитель 150 мм</span><span>Быстрый монтаж</span><span>Экономия</span></div>
+        </div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head">
+          <span class="acc-num">04</span>
+          <h3>Каркасные дома для ПМЖ</h3>
+          <span class="acc-price">от 1 800 000 ₽</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">
+          <p>Для постоянного проживания в Сибири. Утепление 200 мм, тёплый пол, все коммуникации. Зимой — тепло, счета минимальные.</p>
+          <div class="acc-tags"><span>Утепление 200 мм</span><span>Тёплый пол</span><span>Коммуникации</span><span>Отделка</span></div>
+        </div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head">
+          <span class="acc-num">05</span>
+          <h3>Дома из бруса</h3>
+          <span class="acc-price">от 2 400 000 ₽</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">
+          <p>Профилированный брус естественной влажности или камерной сушки. Классический сибирский дом — надёжный и красивый.</p>
+          <div class="acc-tags"><span>Профилированный брус</span><span>Камерная сушка</span><span>Усадка</span><span>Финишная отделка</span></div>
+        </div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head">
+          <span class="acc-num">06</span>
+          <h3>Беседки и террасы</h3>
+          <span class="acc-price">от 120 000 ₽</span>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body">
+          <p>Открытые и закрытые беседки, террасы к дому, летние кухни. Под ключ за 2-3 недели. Проект под ваш участок.</p>
+          <div class="acc-tags"><span>Открытые</span><span>Закрытые</span><span>С мангалом</span><span>Террасы</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="projects-head">
+      <h2>Популярные <em>проекты</em></h2>
+      <div class="carousel-nav">
+        <button onclick="document.getElementById('track').scrollBy({left:-400,behavior:'smooth'})">←</button>
+        <button onclick="document.getElementById('track').scrollBy({left:400,behavior:'smooth'})">→</button>
+      </div>
+    </div>
+    <div class="carousel-track" id="track">
+      <div class="project-card">
+        <div class="project-img"><span class="project-badge">Хит</span>3×4</div>
+        <div class="project-info">
+          <h3>Баня «Компакт»</h3>
+          <div class="project-specs"><span>3×4 м</span><span>25 м²</span><span>30 дней</span></div>
+          <div class="project-footer">
+            <div class="project-price"><small>Под ключ</small>290 000 ₽</div>
+            <a href="#form" class="project-link">Заказать →</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img"><span class="project-badge">Топ</span>4×6</div>
+        <div class="project-info">
+          <h3>Баня «Классика»</h3>
+          <div class="project-specs"><span>4×6 м</span><span>34 м²</span><span>35 дней</span></div>
+          <div class="project-footer">
+            <div class="project-price"><small>Под ключ</small>480 000 ₽</div>
+            <a href="#form" class="project-link">Заказать →</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img">6×6</div>
+        <div class="project-info">
+          <h3>Баня «Сибирь»</h3>
+          <div class="project-specs"><span>6×6 м</span><span>72 м²</span><span>45 дней</span></div>
+          <div class="project-footer">
+            <div class="project-price"><small>Под ключ</small>890 000 ₽</div>
+            <a href="#form" class="project-link">Заказать →</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img">120м²</div>
+        <div class="project-info">
+          <h3>Каркасный дом</h3>
+          <div class="project-specs"><span>120 м²</span><span>2 этажа</span><span>60 дней</span></div>
+          <div class="project-footer">
+            <div class="project-price"><small>Под ключ</small>2 100 000 ₽</div>
+            <a href="#form" class="project-link">Заказать →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="workflow" id="work">
+  <div class="container">
+    <h2 class="section-title">Как мы <em>работаем</em></h2>
+    <p class="section-sub">Прозрачный процесс от первого звонка до сдачи объекта</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot">1</div>
+        <div class="tl-content"><h3>Заявка</h3><p>Звонок или заявка на сайте. Отвечаем в течение 20 минут, задаём вопросы, обсуждаем предварительный бюджет.</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">2</div>
+        <div class="tl-content"><h3>Выезд на участок</h3><p>Бесплатно приезжаем, смотрим участок, обсуждаем проект, расположение, коммуникации. Замеряем.</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">3</div>
+        <div class="tl-content"><h3>Проект и смета</h3><p>Готовим проект, фиксируем цену, материал и сроки в договоре. Предоплата — 30% на закупку материала.</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">4</div>
+        <div class="tl-content"><h3>Стройка</h3><p>Работаем по графику. Каждую неделю отправляем фотоотчёт. Оплата — по этапам, за принятую работу.</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">5</div>
+        <div class="tl-content"><h3>Сдача объекта</h3><p>Принимаете работу вместе с бригадиром. Даём письменную гарантию 5 лет на конструктив и сборку.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="works" id="works">
+  <div class="container">
+    <h2 class="section-title">Наши <em>работы</em></h2>
+    <p class="section-sub">420+ объектов в Красноярске и пригороде</p>
+    <div class="works-grid">
+      <div class="work-card">
+        <div class="work-img">ФОТО: баня 4×6, Дивногорск</div>
+        <div class="work-info"><h3>Баня 4×6 из бруса</h3><div class="meta">Дивногорск · 35 дней · под ключ</div><div class="price">520 000 ₽</div></div>
+      </div>
+      <div class="work-card">
+        <div class="work-img">ФОТО: каркасный дом, Сосновоборск</div>
+        <div class="work-info"><h3>Каркасный дом 120 м²</h3><div class="meta">Сосновоборск · 60 дней · для ПМЖ</div><div class="price">2 100 000 ₽</div></div>
+      </div>
+      <div class="work-card">
+        <div class="work-img">ФОТО: баня 6×6, Емельяново</div>
+        <div class="work-info"><h3>Баня 6×6 «Сибирь»</h3><div class="meta">Емельяново · 45 дней · двухэтажная</div><div class="price">920 000 ₽</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team">
+  <div class="container">
+    <h2 class="section-title">Наша <em>команда</em></h2>
+    <p class="section-sub">Люди, которые будут строить ваш объект</p>
+    <div class="team-grid">
+      <div class="team-card"><div class="team-avatar">В</div><h3>Виктор Смирнов</h3><div class="role">Руководитель</div><p>14 лет в строительстве. Лично ведёт каждый объект</p></div>
+      <div class="team-card"><div class="team-avatar">Н</div><h3>Николай Фёдоров</h3><div class="role">Бригадир</div><p>Отвечает за качество сборки. 20 лет опыта</p></div>
+      <div class="team-card"><div class="team-avatar">И</div><h3>Игорь Волков</h3><div class="role">Плотник</div><p>Работает с деревом с 18 лет. Знает, как ведёт себя брус</p></div>
+      <div class="team-card"><div class="team-avatar">О</div><h3>Ольга Кузнецова</h3><div class="role">Менеджер</div><p>Ведёт клиента от заявки до сдачи. Отвечает в течение часа</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="guarantees">
+  <div class="container">
+    <h2 class="section-title">Наши <em>гарантии</em></h2>
+    <p class="section-sub">Отвечаем за результат, а не только за слова</p>
+    <div class="guarantees-grid">
+      <div class="guarantee"><h3>Фиксированная цена</h3><p>Цена прописывается в договоре. Если материал подорожал — это наши проблемы.</p></div>
+      <div class="guarantee"><h3>Гарантия 5 лет</h3><p>На конструктив и сборку. Если что-то поведёт — приедем и исправим.</p></div>
+      <div class="guarantee"><h3>Сроки в договоре</h3><p>За каждый день просрочки — 0,5% от стоимости. Работаем по графику.</p></div>
+      <div class="guarantee"><h3>Материал от производителя</h3><p>Своя пилорама. Не перекупщики. Отвечаем за каждую доску.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="container">
+    <h2 class="section-title">Отзывы <em>клиентов</em></h2>
+    <p class="section-sub">Реальные отзывы из Яндекс.Карт и 2ГИС</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>Построили баню 4×6 за 38 дней. Всё чётко, без задержек. Материал отличный, брус ровный. Парилка — огонь.</p>
+        <div class="review-author"><div class="review-avatar">А</div><div><div class="review-name">Андрей</div><div class="review-city">Дивногорск</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>Долго выбирали подрядчика. Здесь единственные, кто показал реальные объекты, а не картинки из интернета. Не пожалели.</p>
+        <div class="review-author"><div class="review-avatar">С</div><div><div class="review-name">Сергей</div><div class="review-city">Емельяново</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>Строили каркасный дом для ПМЖ. Всё по договору, каждую неделю фотоотчёт. Зимой живём — тепло, счета небольшие.</p>
+        <div class="review-author"><div class="review-avatar">М</div><div><div class="review-name">Марина</div><div class="review-city">Сосновоборск</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <h2 class="section-title">Частые <em>вопросы</em></h2>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q">Сколько стоит построить баню под ключ?<span class="faq-icon">+</span></div><div class="faq-a">Каркасная — от 290 000 ₽. Из бруса 4×6 — от 480 000 ₽. Из бревна — от 550 000 ₽. Точную цену даём после выезда на участок.</div></div>
+      <div class="faq-item"><div class="faq-q">Сколько длится стройка?<span class="faq-icon">+</span></div><div class="faq-a">Баня — 30–45 дней. Каркасный дом — 45–70 дней. Срок фиксируем в договоре, за просрочку платим неустойку.</div></div>
+      <div class="faq-item"><div class="faq-q">Строите зимой?<span class="faq-icon">+</span></div><div class="faq-a">Да. Каркас и брус можно строить круглый год. Зимой даже лучше: дерево не ведёт, меньше влажности.</div></div>
+      <div class="faq-item"><div class="faq-q">Что входит в «под ключ»?<span class="faq-icon">+</span></div><div class="faq-a">Фундамент, каркас или сруб, кровля, утепление, отделка, печь, электрика. Полный цикл — можно заезжать и топить.</div></div>
+      <div class="faq-item"><div class="faq-q">Работаете по краю?<span class="faq-icon">+</span></div><div class="faq-a">Да. Красноярск, Дивногорск, Сосновоборск, Емельяново, Берёзовка и до 100 км от города.</div></div>
+      <div class="faq-item"><div class="faq-q">Можно ли посмотреть готовые объекты?<span class="faq-icon">+</span></div><div class="faq-a">Да. Покажем 2–3 объекта в вашем районе, познакомим с хозяевами — они расскажут о работе с нами.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="form">
+  <div class="container cta-inner">
+    <h2>Рассчитаем стоимость <em>за 1 день</em></h2>
+    <p>Оставьте заявку — выедем на участок бесплатно и дадим точную смету</p>
+    <form class="cta-form" onsubmit="event.preventDefault(); alert('Заявка отправлена! Мы свяжемся с вами в течение 20 минут.'); this.reset();">
+      <input type="text" placeholder="Ваше имя" required>
+      <input type="tel" placeholder="Телефон" required>
+      <label class="form-consent">
+        <input type="checkbox" required>
+        <span>Я согласен на обработку персональных данных и принимаю <a href="privacy.html" target="_blank">политику конфиденциальности</a></span>
+      </label>
+      <button type="submit">Получить расчёт</button>
+    </form>
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><div class="logo-icon">Б</div> Сибирская <em>Баня</em></div>
+        <p>Строим бани и каркасные дома в Красноярске и крае с 2011 года. 420+ объектов. Гарантия 5 лет.</p>
+        <div class="footer-social">
+          <a href="#" title="Telegram">T</a>
+          <a href="#" title="VK">V</a>
+          <a href="#" title="WhatsApp">W</a>
+          <a href="#" title="Instagram">I</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Услуги</h4>
+        <a href="#services">Бани из бруса</a>
+        <a href="#services">Бани из бревна</a>
+        <a href="#services">Каркасные бани</a>
+        <a href="#services">Каркасные дома</a>
+        <a href="#services">Беседки и террасы</a>
+      </div>
+      <div class="footer-col">
+        <h4>Компания</h4>
+        <a href="#work">Как работаем</a>
+        <a href="#works">Наши работы</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#form">Оставить заявку</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <a href="tel:+73913000000">+7 (391) 300-00-00</a>
+        <a href="mailto:info@sib-banya.ru">info@sib-banya.ru</a>
+        <p>г. Красноярск, ул. Лесная, 45, офис 12</p>
+        <div class="footer-sub">
+          <input type="email" placeholder="Email для новостей">
+          <button type="button" onclick="alert('Подписка оформлена!')">→</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Сибирская Баня. Все права защищены.</span>
+      <span><a href="privacy.html" style="color:#8ba89a;text-decoration:none;">Политика конфиденциальности</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+  });
+
+  document.querySelectorAll('.acc-head').forEach(head => {
+    head.addEventListener('click', () => {
+      const item = head.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.menu').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
