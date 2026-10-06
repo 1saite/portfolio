@@ -113,7 +113,27 @@
   .process-num { font-size: 60px; font-weight: 900; color: #f0f0f0; line-height: 1; margin-bottom: 20px; letter-spacing: -3px; }
   .process-card h3 { font-size: 20px; font-weight: 800; color: #111; margin-bottom: 12px; letter-spacing: -0.3px; }
   .process-card p { font-size: 14px; color: #666; line-height: 1.65; }
-  /* КЕЙСЫ */
+   /* ГАРАНТИИ */
+  .guarantees-section { background: #fff; }
+  .guarantees-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .guarantee-item { background: #fafafa; border-radius: 20px; padding: 40px 32px; border: 1.5px solid transparent; transition: 0.3s; position: relative; overflow: hidden; }
+  .guarantee-item::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #ff5722; transform: scaleX(0); transform-origin: left; transition: 0.4s; }
+  .guarantee-item:hover { border-color: #111; transform: translateY(-6px); box-shadow: 0 20px 45px rgba(0,0,0,0.08); }
+  .guarantee-item:hover::before { transform: scaleX(1); }
+  .guarantee-icon { font-size: 40px; margin-bottom: 22px; line-height: 1; }
+  .guarantee-item h3 { font-size: 20px; font-weight: 800; color: #111; margin-bottom: 14px; letter-spacing: -0.3px; line-height: 1.25; }
+  .guarantee-item p { font-size: 14px; color: #666; line-height: 1.7; }
+
+  @media (max-width: 1024px) {
+    .guarantees-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    .guarantees-grid { grid-template-columns: 1fr; gap: 16px; }
+    .guarantee-item { padding: 30px 24px; }
+    .guarantee-icon { font-size: 34px; margin-bottom: 16px; }
+    .guarantee-item h3 { font-size: 18px; }
+  }
+ /* КЕЙСЫ */
   .cases-section { background: #fafafa; }
   .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .case-card { background: #fff; border-radius: 24px; padding: 40px 36px; border: 1.5px solid #f0f0f0; transition: 0.3s; display: flex; flex-direction: column; }
@@ -348,7 +368,7 @@
 <section class="hero">
   <div class="container">
     <div class="hero-inner">
-      <div class="hero-badge">Свободен для новых проектов</div>
+            <div class="hero-badge">Свободен для 2 проектов</div>
       <h1>Сайты и тексты, <br>которые приносят <em>заявки</em></h1>
       <p>Делаю лендинги под ключ для локального бизнеса — от текста до готового сайта. Красноярск и удалённо по России.</p>
       <div class="hero-buttons">
@@ -702,7 +722,38 @@
     </div>
   </div>
 </section>
+<section class="guarantees-section">
+  <div class="container">
+    <div class="section-head" style="text-align:center;margin:0 auto 60px;">
+      <div class="section-eyebrow">Гарантии</div>
+      <h2 class="section-title">Что если <em>не понравится?</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Работаю честно — и отвечаю за результат. Вот что вы получаете, кроме самого сайта.</p>
+    </div>
 
+    <div class="guarantees-grid">
+      <div class="guarantee-item">
+        <div class="guarantee-icon">📝</div>
+        <h3>2 раунда правок</h3>
+        <p>Первая версия почти никогда не идеальна. После сдачи у вас есть 2 бесплатных раунда правок — поправим то, что не понравилось.</p>
+      </div>
+      <div class="guarantee-item">
+        <div class="guarantee-icon">💰</div>
+        <h3>Возврат 50%</h3>
+        <p>Если после 2 раундов правок результат вас всё ещё не устроит — вернём половину стоимости. Без вопросов и споров.</p>
+      </div>
+      <div class="guarantee-item">
+        <div class="guarantee-icon">⏱️</div>
+        <h3>Сроки в договоре</h3>
+        <p>Срок сдачи фиксируем в договоре. За каждый день просрочки по моей вине — 0,5% от стоимости обратно.</p>
+      </div>
+      <div class="guarantee-item">
+        <div class="guarantee-icon">🔧</div>
+        <h3>30 дней поддержки</h3>
+        <p>После сдачи остаюсь на связи 30 дней. Мелкие правки, вопросы по сайту, консультации — бесплатно.</p>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="reviews" style="background:#fff;">
   <div class="container">
     <div class="section-head">
