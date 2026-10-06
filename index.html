@@ -113,19 +113,30 @@
   .process-card h3 { font-size: 20px; font-weight: 800; color: #111; margin-bottom: 12px; letter-spacing: -0.3px; }
   .process-card p { font-size: 14px; color: #666; line-height: 1.65; }
 
-  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
-  .portfolio-card { border-radius: 20px; overflow: hidden; background: #fafafa; transition: 0.3s; text-decoration: none; color: inherit; display: block; border: 1.5px solid #f0f0f0; }
-  .portfolio-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px rgba(0,0,0,0.1); border-color: #111; }
-  .portfolio-thumb { height: 240px; position: relative; display: flex; align-items: center; justify-content: center; }
-  .portfolio-thumb::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at bottom right, rgba(255,87,34,0.3), transparent 60%); }
-  .portfolio-thumb-text { position: relative; font-size: 60px; font-weight: 900; color: rgba(255,255,255,0.9); letter-spacing: -2px; z-index: 2; }
+  /* ПОРТФОЛИО */
+  .portfolio-filters { display: flex; justify-content: center; gap: 10px; margin-bottom: 45px; flex-wrap: wrap; }
+  .filter-btn { background: #fff; border: 2px solid #f0f0f0; color: #666; padding: 10px 24px; border-radius: 100px; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.3s; font-family: inherit; }
+  .filter-btn:hover { border-color: #ff5722; color: #ff5722; }
+  .filter-btn.active { background: #111; color: #fff; border-color: #111; }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .portfolio-card { border-radius: 20px; overflow: hidden; background: #fafafa; transition: 0.3s; text-decoration: none; color: inherit; display: block; border: 1.5px solid #f0f0f0; position: relative; }
+  .portfolio-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px rgba(0,0,0,0.12); border-color: #111; }
+  .portfolio-card.hidden { display: none; }
+  .portfolio-thumb { height: 240px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .portfolio-thumb::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at bottom right, rgba(255,87,34,0.35), transparent 60%); }
+  .portfolio-thumb-text { position: relative; font-size: 56px; font-weight: 900; color: rgba(255,255,255,0.95); letter-spacing: -2px; z-index: 2; text-align: center; line-height: 1; }
   .thumb-1 { background: linear-gradient(135deg, #0f1c3f 0%, #1e3a6f 100%); }
   .thumb-2 { background: linear-gradient(135deg, #1a3a2e 0%, #2d5a48 100%); }
   .thumb-3 { background: linear-gradient(135deg, #0a0a0a 0%, #2a2a2a 100%); }
-  .portfolio-info { padding: 28px; }
-  .portfolio-tag { display: inline-block; background: #fff5f0; color: #ff5722; padding: 5px 12px; border-radius: 100px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+  .thumb-4 { background: linear-gradient(135deg, #4a2c17 0%, #8b5a2b 100%); }
+  .thumb-5 { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); }
+  .thumb-6 { background: linear-gradient(135deg, #ff5722 0%, #c1121f 100%); }
+  .portfolio-info { padding: 26px 28px; }
+  .portfolio-tag { display: inline-block; background: #fff5f0; color: #ff5722; padding: 5px 12px; border-radius: 100px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
   .portfolio-info h3 { font-size: 20px; font-weight: 800; color: #111; margin-bottom: 8px; letter-spacing: -0.3px; }
-  .portfolio-info p { font-size: 14px; color: #666; }
+  .portfolio-info p { font-size: 14px; color: #666; line-height: 1.5; }
+  .portfolio-link-icon { position: absolute; top: 20px; right: 20px; width: 40px; height: 40px; background: rgba(255,255,255,0.95); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #111; font-size: 18px; z-index: 3; opacity: 0; transform: translateY(-6px); transition: 0.3s; }
+  .portfolio-card:hover .portfolio-link-icon { opacity: 1; transform: translateY(0); }
 
   .benefits-section { background: #111; color: #fff; border-radius: 40px; margin: 0 24px; padding: 110px 0; }
   .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px 70px; margin-top: 50px; }
@@ -192,6 +203,7 @@
   .ms-telegram .ms-icon { background: #229ED9; }
   .ms-phone .ms-icon { background: #16a34a; }
 
+  /* АДАПТИВ */
   @media (max-width: 1024px) {
     .hero h1 { font-size: 60px; letter-spacing: -2px; }
     .packages { grid-template-columns: 1fr; gap: 30px; max-width: 500px; margin: 0 auto; }
@@ -242,9 +254,12 @@
     .process-grid { grid-template-columns: 1fr; gap: 16px; }
     .process-card { padding: 30px 24px; }
     .process-num { font-size: 46px; margin-bottom: 14px; }
-    .portfolio-grid { grid-template-columns: 1fr; gap: 20px; }
-    .portfolio-thumb { height: 190px; }
-    .portfolio-thumb-text { font-size: 44px; }
+    .portfolio-filters { gap: 8px; margin-bottom: 30px; }
+    .filter-btn { padding: 9px 18px; font-size: 13px; }
+    .portfolio-grid { grid-template-columns: 1fr; gap: 16px; }
+    .portfolio-thumb { height: 200px; }
+    .portfolio-thumb-text { font-size: 42px; }
+    .portfolio-info { padding: 22px; }
     .benefits-section { margin: 0 12px; border-radius: 26px; padding: 70px 0; }
     .benefits-grid { gap: 30px; margin-top: 30px; }
     .benefit { flex-direction: column; gap: 12px; }
@@ -282,7 +297,7 @@
     .trust-num { font-size: 32px; }
     .niches-list { gap: 16px; }
     .niche-tag { font-size: 14px; }
-    .portfolio-thumb-text { font-size: 36px; }
+    .portfolio-thumb-text { font-size: 34px; }
   }
 </style>
 </head>
@@ -315,8 +330,8 @@
       </div>
       <div class="hero-trust">
         <div>
-          <div class="trust-num">5<em>+</em></div>
-          <div class="trust-label">проектов<br>в портфолио</div>
+          <div class="trust-num">6<em>+</em></div>
+          <div class="trust-label">готовых сайтов<br>в портфолио</div>
         </div>
         <div>
           <div class="trust-num">5<em> дней</em></div>
@@ -356,9 +371,7 @@
     <div class="packages">
       <div class="package">
         <div class="package-name">Старт</div>
-        <div class="package-price">
-          <div class="package-price-value">15 000 <small>₽</small></div>
-        </div>
+        <div class="package-price"><div class="package-price-value">15 000 <small>₽</small></div></div>
         <div class="package-desc">Для тех, кому нужен простой лендинг, чтобы начать получать заявки из интернета.</div>
         <ul class="package-list">
           <li>Лендинг из 5 блоков</li>
@@ -374,9 +387,7 @@
       <div class="package featured">
         <div class="package-badge">Хит продаж</div>
         <div class="package-name">Стандарт</div>
-        <div class="package-price">
-          <div class="package-price-value">25 000 <small>₽</small></div>
-        </div>
+        <div class="package-price"><div class="package-price-value">25 000 <small>₽</small></div></div>
         <div class="package-desc">Полноценный лендинг со всей структурой — блоки болей, отработка возражений, FAQ, отзывы.</div>
         <ul class="package-list">
           <li>Лендинг из 9-10 блоков</li>
@@ -393,9 +404,7 @@
 
       <div class="package">
         <div class="package-name">Под ключ</div>
-        <div class="package-price">
-          <div class="package-price-value">40 000 <small>₽</small></div>
-        </div>
+        <div class="package-price"><div class="package-price-value">40 000 <small>₽</small></div></div>
         <div class="package-desc">Лендинг + тексты для соцсетей + контент-план. Полное сопровождение на старте.</div>
         <ul class="package-list">
           <li>Всё из пакета «Стандарт»</li>
@@ -450,7 +459,8 @@
       <div class="niche-tag">Строительство</div>
       <div class="niche-tag">Авто</div>
       <div class="niche-tag">Бани и дома</div>
-      <div class="niche-tag">Услуги</div>
+      <div class="niche-tag">Кафе</div>
+      <div class="niche-tag">Салоны красоты</div>
       <div class="niche-tag">Локальный бизнес</div>
     </div>
   </div>
@@ -477,24 +487,78 @@
     <div class="section-head">
       <div class="section-eyebrow">Портфолио</div>
       <h2 class="section-title">Мои <em>работы</em></h2>
-      <p class="section-sub">Три примера сайтов для разных ниш. Каждый — с нуля: текст, дизайн, вёрстка.</p>
+      <p class="section-sub">Шесть сайтов для разных ниш. Каждый — с нуля: текст, дизайн, вёрстка. Кликните, чтобы открыть живой сайт.</p>
     </div>
-    <div class="portfolio-grid">
-      <a href="remontpro.html" class="portfolio-card">
+
+    <div class="portfolio-filters">
+      <button class="filter-btn active" onclick="filterPortfolio(event, 'all')">Все работы</button>
+      <button class="filter-btn" onclick="filterPortfolio(event, 'build')">Строительство</button>
+      <button class="filter-btn" onclick="filterPortfolio(event, 'auto')">Авто</button>
+      <button class="filter-btn" onclick="filterPortfolio(event, 'services')">Услуги</button>
+    </div>
+
+    <div class="portfolio-grid" id="portfolioGrid">
+
+      <a href="remontpro.html" target="_blank" class="portfolio-card" data-cat="build">
+        <div class="portfolio-link-icon">↗</div>
         <div class="portfolio-thumb thumb-1"><div class="portfolio-thumb-text">РЕМОНТ</div></div>
-        <div class="portfolio-info"><span class="portfolio-tag">Ремонт квартир</span><h3>РемонтПро</h3><p>Лендинг для компании по ремонту квартир в Красноярске. Деловая палитра, блоки болей, прайс, форма заявки.</p></div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Строительство</span>
+          <h3>РемонтПро</h3>
+          <p>Лендинг для компании по ремонту квартир в Красноярске. Деловая палитра, боли клиентов, прайс, форма заявки.</p>
+        </div>
       </a>
-      <a href="banya.html" class="portfolio-card">
+
+      <a href="banya.html" target="_blank" class="portfolio-card" data-cat="build">
+        <div class="portfolio-link-icon">↗</div>
         <div class="portfolio-thumb thumb-2"><div class="portfolio-thumb-text">БАНЯ</div></div>
-        <div class="portfolio-info"><span class="portfolio-tag">Бани и дома</span><h3>Сибирская Баня</h3><p>Сайт для строительной компании. Тёплая палитра, аккордеон услуг, карусель проектов, вертикальный таймлайн.</p></div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Строительство</span>
+          <h3>Сибирская Баня</h3>
+          <p>Сайт для строительной компании. Аккордеон услуг, карусель проектов, вертикальный таймлайн, тёплая палитра.</p>
+        </div>
       </a>
-      <a href="redline.html" class="portfolio-card">
+
+      <a href="redline.html" target="_blank" class="portfolio-card" data-cat="auto">
+        <div class="portfolio-link-icon">↗</div>
         <div class="portfolio-thumb thumb-3"><div class="portfolio-thumb-text">REDLINE</div></div>
-        <div class="portfolio-info"><span class="portfolio-tag">Автосервис</span><h3>REDLINE</h3><p>Сайт автосервиса и детейлинга. Тёмная спортивная тема, бегущая строка, прайс-таблица, галерея работ.</p></div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Авто</span>
+          <h3>REDLINE</h3>
+          <p>Сайт автосервиса и детейлинга. Тёмная спортивная тема, прайс-таблица, бегущая строка, галерея работ.</p>
+        </div>
       </a>
-    </div>
-    <div style="text-align:center;margin-top:60px;">
-      <a href="#contact" class="btn-primary">Хочу такой же сайт</a>
+
+      <a href="cafe.html" target="_blank" class="portfolio-card" data-cat="services">
+        <div class="portfolio-link-icon">↗</div>
+        <div class="portfolio-thumb thumb-4"><div class="portfolio-thumb-text">БАРИСТА</div></div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Кафе</span>
+          <h3>Бариста</h3>
+          <p>Сайт кофейни в Зеленогорске. Табы меню, форма брони, автостатус «открыто/закрыто». Тёплая палитра.</p>
+        </div>
+      </a>
+
+      <a href="estet.html" target="_blank" class="portfolio-card" data-cat="services">
+        <div class="portfolio-link-icon">↗</div>
+        <div class="portfolio-thumb thumb-5"><div class="portfolio-thumb-text">ESTET</div></div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Салон красоты</span>
+          <h3>Estet</h3>
+          <p>Салон красоты в Канске. Премиум-стиль: мастера, аккордеон услуг, masonry-галерея, wizard-запись.</p>
+        </div>
+      </a>
+
+      <a href="index.html" class="portfolio-card" data-cat="services">
+        <div class="portfolio-link-icon">↗</div>
+        <div class="portfolio-thumb thumb-6"><div class="portfolio-thumb-text">ВЛАДИМИР</div></div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Личный сайт</span>
+          <h3>Владимир Рункелов</h3>
+          <p>Этот сайт. Пакеты услуг, до/после, отзывы, FAQ, мультиссылка. Минимализм и оранжевый акцент.</p>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
@@ -632,6 +696,18 @@
     document.getElementById('msOverlay').classList.remove('active');
   }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMS(); });
+
+  function filterPortfolio(evt, cat) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    evt.currentTarget.classList.add('active');
+    document.querySelectorAll('.portfolio-card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
 </script>
 
 </body>
