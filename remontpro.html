@@ -252,13 +252,14 @@
     <div class="hero-form">
       <h3>Расчёт за 1 день</h3>
       <p>Оставьте заявку — перезвоним за 15 минут</p>
-      <form onsubmit="event.preventDefault(); alert('Заявка отправлена!'); this.reset();">
-        <input type="text" placeholder="Ваше имя" required>
-        <input type="tel" placeholder="Телефон" required>
-        <input type="text" placeholder="Площадь квартиры, м²">
-        <button type="submit">Получить расчёт</button>
-        <small>Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</small>
-      </form>
+      <form action="https://formspree.io/f/mdeakprb" method="POST">
+  <input type="hidden" name="_subject" value="Заявка с сайта РемонтПро (hero)">
+  <input type="text" name="name" placeholder="Ваше имя" required>
+  <input type="tel" name="phone" placeholder="Телефон" required>
+  <input type="text" name="area" placeholder="Площадь квартиры, м²">
+  <button type="submit">Получить расчёт</button>
+  <small>Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</small>
+</form>
     </div>
   </div>
 </section>
@@ -391,15 +392,16 @@
   <div class="container">
     <h2>Рассчитаем стоимость за 1 день</h2>
     <p>Оставьте заявку — прораб свяжется и договорится о бесплатном замере</p>
-    <form class="form" onsubmit="event.preventDefault(); alert('Заявка отправлена! Мы свяжемся с вами в течение 15 минут.'); this.reset();">
-      <input type="text" placeholder="Ваше имя" required>
-      <input type="tel" placeholder="Телефон" required>
-      <label class="form-consent">
-        <input type="checkbox" required>
-        <span>Я согласен на обработку персональных данных и принимаю <a href="privacy.html" target="_blank">политику конфиденциальности</a></span>
-      </label>
-      <button type="submit" class="btn">Получить расчёт</button>
-    </form>
+    <form class="form" action="https://formspree.io/f/mdeakprb" method="POST">
+  <input type="hidden" name="_subject" value="Заявка с сайта РемонтПро (низ)">
+  <input type="text" name="name" placeholder="Ваше имя" required>
+  <input type="tel" name="phone" placeholder="Телефон" required>
+  <label class="form-consent">
+    <input type="checkbox" name="consent" required>
+    <span>Я согласен на обработку персональных данных и принимаю <a href="privacy.html" target="_blank">политику конфиденциальности</a></span>
+  </label>
+  <button type="submit" class="btn">Получить расчёт</button>
+</form>
   </div>
 </section>
 
