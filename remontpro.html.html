@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>РемонтПро — Ремонт квартир под ключ в Красноярске</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a2e; line-height: 1.6; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 80px 0; }
+  .section-title { font-size: 34px; text-align: center; margin-bottom: 15px; font-weight: 700; }
+  .section-title span { color: #ff7a00; }
+  .section-sub { text-align: center; color: #666; font-size: 17px; max-width: 650px; margin: 0 auto 50px; }
+
+  header { background: #0f1c3f; color: #fff; padding: 16px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 22px; font-weight: 700; letter-spacing: 1px; }
+  .logo span { color: #ff7a00; }
+  .header-right { display: flex; align-items: center; gap: 25px; }
+  .header-phone { font-size: 17px; font-weight: 600; }
+  .header-phone a { color: #fff; text-decoration: none; }
+  .header-btn { background: #ff7a00; color: #fff; padding: 10px 22px; border-radius: 6px; text-decoration: none; font-size: 15px; font-weight: 600; transition: 0.3s; }
+  .header-btn:hover { background: #e66a00; }
+
+  .hero { background: linear-gradient(135deg, #0f1c3f 0%, #1e3a6f 100%); color: #fff; padding: 100px 0 90px; }
+  .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
+  .hero h1 { font-size: 44px; line-height: 1.15; margin-bottom: 22px; font-weight: 700; }
+  .hero h1 span { color: #ff7a00; }
+  .hero p { font-size: 19px; margin-bottom: 35px; opacity: 0.9; }
+  .hero-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 35px; }
+  .hero-feature { display: flex; align-items: center; gap: 12px; font-size: 16px; }
+  .hero-feature::before { content: '✓'; background: #ff7a00; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+  .hero-form { background: #fff; color: #1a1a2e; padding: 35px 30px; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+  .hero-form h3 { font-size: 22px; margin-bottom: 8px; }
+  .hero-form p { font-size: 14px; color: #666; margin-bottom: 22px; }
+  .hero-form input { width: 100%; padding: 14px 16px; border: 2px solid #e0e5ee; border-radius: 8px; font-size: 15px; margin-bottom: 12px; font-family: inherit; }
+  .hero-form input:focus { outline: none; border-color: #ff7a00; }
+  .hero-form button { width: 100%; background: #ff7a00; color: #fff; padding: 15px; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+  .hero-form button:hover { background: #e66a00; }
+  .hero-form small { display: block; text-align: center; color: #999; font-size: 12px; margin-top: 12px; }
+
+  .btn { display: inline-block; background: #ff7a00; color: #fff; padding: 16px 40px; border-radius: 8px; text-decoration: none; font-size: 17px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; }
+  .btn:hover { background: #e66a00; transform: translateY(-2px); }
+
+  .stats { background: #0f1c3f; color: #fff; padding: 50px 0; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+  .stat-num { font-size: 42px; font-weight: 700; color: #ff7a00; line-height: 1; margin-bottom: 8px; }
+  .stat-label { font-size: 15px; opacity: 0.85; }
+
+  .pains { background: #f5f7fa; }
+  .pains-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+  .pain-card { background: #fff; padding: 32px; border-radius: 12px; border-left: 4px solid #ff7a00; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+  .pain-card h3 { font-size: 18px; margin-bottom: 12px; }
+  .pain-card p { color: #555; font-size: 15px; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+  .service-card { background: #f5f7fa; padding: 35px 30px; border-radius: 12px; transition: 0.3s; border: 2px solid transparent; }
+  .service-card:hover { background: #0f1c3f; color: #fff; border-color: #ff7a00; transform: translateY(-5px); }
+  .service-card:hover .price { color: #ff7a00; }
+  .service-card h3 { font-size: 20px; margin-bottom: 12px; }
+  .service-card p { font-size: 15px; opacity: 0.8; margin-bottom: 18px; }
+  .service-card .price { font-size: 24px; font-weight: 700; color: #0f1c3f; transition: 0.3s; }
+
+  .steps { background: #f5f7fa; }
+  .steps-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; }
+  .step { text-align: center; padding: 20px; }
+  .step-num { width: 65px; height: 65px; background: #ff7a00; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 700; margin: 0 auto 18px; }
+  .step h3 { font-size: 17px; margin-bottom: 10px; }
+  .step p { font-size: 14px; color: #666; }
+
+  .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+  .portfolio-card { border-radius: 12px; overflow: hidden; background: #f5f7fa; transition: 0.3s; }
+  .portfolio-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
+  .portfolio-img { height: 220px; background: linear-gradient(135deg, #1e3a6f, #0f1c3f); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; opacity: 0.9; }
+  .portfolio-info { padding: 22px 25px; }
+  .portfolio-info h3 { font-size: 18px; margin-bottom: 8px; }
+  .portfolio-info .meta { font-size: 14px; color: #666; margin-bottom: 12px; }
+  .portfolio-info .price { font-size: 18px; font-weight: 700; color: #ff7a00; }
+
+  .team { background: #f5f7fa; }
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
+  .team-card { text-align: center; background: #fff; padding: 30px 20px; border-radius: 12px; }
+  .team-avatar { width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, #1e3a6f, #0f1c3f); margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; color: #ff7a00; font-size: 36px; font-weight: 700; }
+  .team-card h3 { font-size: 18px; margin-bottom: 6px; }
+  .team-card .role { color: #ff7a00; font-size: 14px; margin-bottom: 12px; font-weight: 600; }
+  .team-card p { font-size: 14px; color: #666; }
+
+  .guarantees-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+  .guarantee { background: #f5f7fa; padding: 30px; border-radius: 12px; border-top: 4px solid #ff7a00; }
+  .guarantee h3 { font-size: 18px; margin-bottom: 12px; }
+  .guarantee p { font-size: 15px; color: #555; }
+
+  .reviews { background: #f5f7fa; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 25px; }
+  .review { background: #fff; padding: 30px; border-radius: 12px; position: relative; }
+  .review::before { content: '"'; font-size: 70px; color: #ff7a00; position: absolute; top: 5px; left: 22px; opacity: 0.25; font-family: Georgia, serif; line-height: 1; }
+  .review p { font-size: 15px; margin-bottom: 18px; padding-top: 20px; }
+  .review-author { font-weight: 600; color: #0f1c3f; }
+  .review-role { font-size: 13px; color: #888; }
+
+  .faq-item { background: #f5f7fa; margin-bottom: 14px; border-radius: 10px; overflow: hidden; }
+  .faq-q { padding: 22px 28px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 16px; }
+  .faq-q::after { content: '+'; font-size: 26px; color: #ff7a00; transition: 0.3s; }
+  .faq-a { padding: 0 28px 22px; color: #555; font-size: 15px; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-q::after { content: '−'; }
+
+  .cta { background: linear-gradient(135deg, #0f1c3f 0%, #1e3a6f 100%); color: #fff; text-align: center; }
+  .cta h2 { font-size: 34px; margin-bottom: 15px; }
+  .cta p { font-size: 18px; margin-bottom: 35px; opacity: 0.9; }
+  .form { max-width: 480px; margin: 0 auto; display: grid; gap: 14px; }
+  .form input { padding: 16px 20px; border: none; border-radius: 8px; font-size: 16px; font-family: inherit; }
+  .form input:focus { outline: 2px solid #ff7a00; }
+
+  footer { background: #0a1430; color: #8899bb; padding: 45px 0 30px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 30px; }
+  .footer-col h4 { color: #fff; margin-bottom: 15px; font-size: 16px; }
+  .footer-col p, .footer-col a { color: #8899bb; font-size: 14px; text-decoration: none; display: block; margin-bottom: 8px; }
+  .footer-col a:hover { color: #ff7a00; }
+  .footer-bottom { border-top: 1px solid #1a2a4a; padding-top: 20px; text-align: center; font-size: 13px; }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 30px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 25px; }
+    .section-title { font-size: 26px; }
+    .header-right { gap: 12px; }
+    .header-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">Ремонт<span>Про</span></div>
+    <div class="header-right">
+      <div class="header-phone"><a href="tel:+73912000000">+7 (391) 200-00-00</a></div>
+      <a href="#form" class="header-btn">Вызвать замерщика</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Ремонт квартир под ключ в Красноярске <span>за 45 дней</span></h1>
+      <p>Фиксированная смета. Оплата по этапам. Гарантия 3 года. Прораб с 15-летним стажем лично контролирует каждый этап.</p>
+      <div class="hero-features">
+        <div class="hero-feature">Бесплатный выезд замерщика в день обращения</div>
+        <div class="hero-feature">Смета, которая не меняется в процессе</div>
+        <div class="hero-feature">Материалы на 20% дешевле за счёт прямых поставщиков</div>
+        <div class="hero-feature">Штраф за просрочку — 0,5% от сметы в день</div>
+      </div>
+    </div>
+    <div class="hero-form">
+      <h3>Расчёт за 1 день</h3>
+      <p>Оставьте заявку — перезвоним за 15 минут</p>
+      <form onsubmit="event.preventDefault(); alert('Заявка отправлена!'); this.reset();">
+        <input type="text" placeholder="Ваше имя" required>
+        <input type="tel" placeholder="Телефон" required>
+        <input type="text" placeholder="Площадь квартиры, м²">
+        <button type="submit">Получить расчёт</button>
+        <small>Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</small>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container stats-grid">
+    <div><div class="stat-num">12</div><div class="stat-label">лет на рынке Красноярска</div></div>
+    <div><div class="stat-num">870+</div><div class="stat-label">квартир отремонтировано</div></div>
+    <div><div class="stat-num">45</div><div class="stat-label">дней средний срок ремонта</div></div>
+    <div><div class="stat-num">3 года</div><div class="stat-label">гарантия на работы</div></div>
+  </div>
+</section>
+
+<section class="pains">
+  <div class="container">
+    <h2 class="section-title">Знакомо? <span>Мы решаем эти проблемы</span></h2>
+    <p class="section-sub">Большинство клиентов приходят к нам после неудачного опыта с другими бригадами</p>
+    <div class="pains-grid">
+      <div class="pain-card"><h3>Смета выросла в 2 раза</h3><p>Сначала назвали одну цену, в процессе — другая. Мы фиксируем смету в договоре и не меняем её.</p></div>
+      <div class="pain-card"><h3>Ремонт длится полгода</h3><p>Бригада пропадает, сроки срываются. У нас — график работ и штрафы за просрочку.</p></div>
+      <div class="pain-card"><h3>Материалы «золотые»</h3><p>Закупают по завышенным ценам. Мы закупаем напрямую у поставщиков — экономия до 20%.</p></div>
+      <div class="pain-card"><h3>Не дозвониться после сдачи</h3><p>Гарантия только на словах. Мы даём письменную гарантию 3 года и выезжаем бесплатно.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <h2 class="section-title">Что мы <span>делаем</span></h2>
+    <p class="section-sub">Работаем с квартирами любой площади — от студий до пентхаусов</p>
+    <div class="services-grid">
+      <div class="service-card"><h3>Косметический ремонт</h3><p>Обои, покраска, полы, потолки, замена дверей</p><div class="price">от 4 500 ₽/м²</div></div>
+      <div class="service-card"><h3>Капитальный ремонт</h3><p>Стяжка, электрика, сантехника, полная отделка</p><div class="price">от 8 900 ₽/м²</div></div>
+      <div class="service-card"><h3>Дизайнерский ремонт</h3><p>Авторский проект, премиум-материалы, авторский надзор</p><div class="price">от 15 000 ₽/м²</div></div>
+      <div class="service-card"><h3>Ремонт санузла</h3><p>Плитка, разводка, установка сантехники под ключ</p><div class="price">от 65 000 ₽</div></div>
+      <div class="service-card"><h3>Ремонт новостройки</h3><p>От черновой до чистовой отделки. Работаем с застройщиками</p><div class="price">от 7 500 ₽/м²</div></div>
+      <div class="service-card"><h3>Ремонт вторички</h3><p>Демонтаж, перепланировка, полная замена коммуникаций</p><div class="price">от 9 500 ₽/м²</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="container">
+    <h2 class="section-title">Как мы <span>работаем</span></h2>
+    <p class="section-sub">Прозрачный процесс от заявки до сдачи объекта</p>
+    <div class="steps-list">
+      <div class="step"><div class="step-num">1</div><h3>Заявка</h3><p>Звонок или форма. Отвечаем за 15 минут</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Замер</h3><p>Выезд прораба бесплатно в день обращения</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Смета</h3><p>Фиксируем в договоре. Без скрытых доплат</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Ремонт</h3><p>Работаем по графику. Оплата по этапам</p></div>
+      <div class="step"><div class="step-num">5</div><h3>Сдача</h3><p>Принимаете работу. Гарантия 3 года</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio">
+  <div class="container">
+    <h2 class="section-title">Наши <span>работы</span></h2>
+    <p class="section-sub">870+ отремонтированных квартир в Красноярске и пригороде</p>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-img">Фото: двушка 62 м², Советский район</div>
+        <div class="portfolio-info"><h3>Двушка 62 м²</h3><div class="meta">Советский район · 40 дней · капитальный</div><div class="price">680 000 ₽</div></div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-img">Фото: трёшка 85 м², Центральный район</div>
+        <div class="portfolio-info"><h3>Трёшка 85 м²</h3><div class="meta">Центральный район · 55 дней · дизайнерский</div><div class="price">1 350 000 ₽</div></div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-img">Фото: студия 32 м², Октябрьский район</div>
+        <div class="portfolio-info"><h3>Студия 32 м²</h3><div class="meta">Октябрьский район · 28 дней · капитальный</div><div class="price">310 000 ₽</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team">
+  <div class="container">
+    <h2 class="section-title">Наша <span>команда</span></h2>
+    <p class="section-sub">Люди, которые будут делать ваш ремонт</p>
+    <div class="team-grid">
+      <div class="team-card"><div class="team-avatar">С</div><h3>Сергей Иванов</h3><div class="role">Главный прораб</div><p>15 лет опыта. Лично контролирует каждый объект</p></div>
+      <div class="team-card"><div class="team-avatar">А</div><h3>Алексей Петров</h3><div class="role">Инженер-сметчик</div><p>Составляет сметы, которые не меняются в процессе</p></div>
+      <div class="team-card"><div class="team-avatar">М</div><h3>Марина Сидорова</h3><div class="role">Дизайнер</div><p>Помогает с планировкой и подбором материалов</p></div>
+      <div class="team-card"><div class="team-avatar">Д</div><h3>Дмитрий Козлов</h3><div class="role">Менеджер</div><p>Ведёт клиента от заявки до сдачи объекта</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="guarantees">
+  <div class="container">
+    <h2 class="section-title">Наши <span>гарантии</span></h2>
+    <p class="section-sub">Мы отвечаем за результат, а не только за слова</p>
+    <div class="guarantees-grid">
+      <div class="guarantee"><h3>Фиксированная смета</h3><p>Смета прописывается в договоре. Если мы что-то не учли — это наши проблемы, а не ваши.</p></div>
+      <div class="guarantee"><h3>Гарантия 3 года</h3><p>Письменная гарантия на все виды работ. Выезд и устранение — бесплатно.</p></div>
+      <div class="guarantee"><h3>Сроки в договоре</h3><p>За каждый день просрочки платим 0,5% от сметы. Работаем строго по графику.</p></div>
+      <div class="guarantee"><h3>Оплата по этапам</h3><p>Вы платите только за принятый этап. Никаких предоплат за всю работу сразу.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="container">
+    <h2 class="section-title">Что говорят <span>клиенты</span></h2>
+    <p class="section-sub">Реальные отзывы из Яндекс.Карт и 2ГИС</p>
+    <div class="reviews-grid">
+      <div class="review"><p>Делали ремонт в двушке 62 м². Уложились в 40 дней вместо 45. Смета не выросла ни на рубль. Прораб Сергей — отдельное спасибо.</p><div class="review-author">Анна</div><div class="review-role">Советский район</div></div>
+      <div class="review"><p>Сравнивал 5 компаний. Здесь единственные, кто дал письменную гарантию и график работ. Не пожалел. Рекомендую.</p><div class="review-author">Дмитрий</div><div class="review-role">Центральный район</div></div>
+      <div class="review"><p>Помогли с дизайном, подобрали материалы дешевле, чем я сам находил. Сэкономили около 80 тысяч. Работой довольна.</p><div class="review-author">Елена</div><div class="review-role">Октябрьский район</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <h2 class="section-title">Частые <span>вопросы</span></h2>
+    <div class="faq-item"><div class="faq-q">Сколько стоит ремонт квартиры?</div><div class="faq-a">Зависит от площади и типа ремонта. Косметический — от 4 500 ₽/м², капитальный — от 8 900 ₽/м². Точную смету даём после бесплатного замера.</div></div>
+    <div class="faq-item"><div class="faq-q">Сколько длится ремонт?</div><div class="faq-a">Косметический — 2-3 недели. Капитальный — 40-60 дней. Срок фиксируем в договоре, за просрочку платим неустойку.</div></div>
+    <div class="faq-item"><div class="faq-q">Может ли смета вырасти в процессе?</div><div class="faq-a">Нет. Смета фиксируется в договоре. Если мы что-то не учли — это наши проблемы. Доплаты только если вы сами меняете задачу.</div></div>
+    <div class="faq-item"><div class="faq-q">Какая гарантия?</div><div class="faq-a">3 года на все работы. Если что-то пойдёт не так — выезжаем и исправляем бесплатно.</div></div>
+    <div class="faq-item"><div class="faq-q">Работаете с материалами клиента?</div><div class="faq-a">Да. Но если закупаем мы — экономия до 20% за счёт прямых поставщиков.</div></div>
+    <div class="faq-item"><div class="faq-q">Можно ли заехать в квартиру во время ремонта?</div><div class="faq-a">Зависит от типа ремонта. Косметический — да. Капитальный — не рекомендуем из-за пыли и шума.</div></div>
+  </div>
+</section>
+
+<section class="cta" id="form">
+  <div class="container">
+    <h2>Рассчитаем стоимость за 1 день</h2>
+    <p>Оставьте заявку — прораб свяжется и договорится о бесплатном замере</p>
+    <form class="form" onsubmit="event.preventDefault(); alert('Заявка отправлена! Мы свяжемся с вами в течение 15 минут.'); this.reset();">
+      <input type="text" placeholder="Ваше имя" required>
+      <input type="tel" placeholder="Телефон" required>
+      <button type="submit" class="btn">Получить расчёт</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>РемонтПро</h4>
+        <p>Ремонт квартир под ключ в Красноярске с 2013 года. 870+ объектов. Гарантия 3 года.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Услуги</h4>
+        <a href="#">Косметический ремонт</a>
+        <a href="#">Капитальный ремонт</a>
+        <a href="#">Дизайнерский ремонт</a>
+        <a href="#">Ремонт санузла</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <a href="tel:+73912000000">+7 (391) 200-00-00</a>
+        <a href="mailto:info@remontpro.ru">info@remontpro.ru</a>
+        <p>г. Красноярск, ул. Мира, 100, офис 305</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 РемонтПро. Все права защищены.</div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+  });
+</script>
+
+</body>
+</html>
