@@ -113,7 +113,32 @@
   .process-num { font-size: 60px; font-weight: 900; color: #f0f0f0; line-height: 1; margin-bottom: 20px; letter-spacing: -3px; }
   .process-card h3 { font-size: 20px; font-weight: 800; color: #111; margin-bottom: 12px; letter-spacing: -0.3px; }
   .process-card p { font-size: 14px; color: #666; line-height: 1.65; }
-
+  /* КЕЙСЫ */
+  .cases-section { background: #fafafa; }
+  .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .case-card { background: #fff; border-radius: 24px; padding: 40px 36px; border: 1.5px solid #f0f0f0; transition: 0.3s; display: flex; flex-direction: column; }
+  .case-card:hover { border-color: #111; transform: translateY(-6px); box-shadow: 0 20px 45px rgba(0,0,0,0.08); }
+  .case-num { font-size: 13px; font-weight: 800; color: #ff5722; letter-spacing: 2px; margin-bottom: 16px; }
+  .case-card h3 { font-size: 24px; font-weight: 800; color: #111; letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 24px; }
+  .case-block { margin-bottom: 22px; }
+  .case-block-title { font-size: 11px; font-weight: 800; color: #999; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+  .case-task { font-size: 14px; color: #555; line-height: 1.7; }
+  .case-list { list-style: none; }
+  .case-list li { display: flex; gap: 10px; font-size: 14px; color: #444; margin-bottom: 8px; line-height: 1.55; align-items: flex-start; }
+  .case-list li::before { content: '—'; color: #ff5722; font-weight: 700; flex-shrink: 0; }
+  .case-result { background: #fff5f0; border-radius: 14px; padding: 20px 22px; margin-top: auto; }
+  .case-result-row { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; font-size: 14px; }
+  .case-result-row span { color: #666; }
+  .case-result-row strong { color: #111; font-weight: 800; }
+  @media (max-width: 1024px) {
+    .cases-grid { grid-template-columns: 1fr; gap: 20px; max-width: 600px; margin: 0 auto; }
+  }
+  @media (max-width: 768px) {
+    .case-card { padding: 30px 24px; border-radius: 20px; }
+    .case-card h3 { font-size: 20px; }
+    .case-task { font-size: 13px; }
+    .case-list li { font-size: 13px; }
+  }
   /* ПОРТФОЛИО */
   .portfolio-filters { display: flex; justify-content: center; gap: 10px; margin-bottom: 45px; flex-wrap: wrap; }
   .filter-btn { background: #fff; border: 2px solid #f0f0f0; color: #666; padding: 10px 24px; border-radius: 100px; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.3s; font-family: inherit; }
@@ -148,6 +173,7 @@
 
   .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .review-card { background: #fafafa; border-radius: 20px; padding: 36px; border: 1.5px solid transparent; transition: 0.3s; }
+  .review-concept-badge { display: inline-block; background: #f0f0f0; color: #888; padding: 4px 10px; border-radius: 100px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
   .review-card:hover { border-color: #111; background: #fff; }
   .review-stars { color: #ff5722; font-size: 18px; letter-spacing: 3px; margin-bottom: 20px; }
   .review-text { font-size: 16px; color: #333; line-height: 1.65; margin-bottom: 26px; }
@@ -564,6 +590,103 @@
   </div>
 </section>
 
+<section class="cases-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">Кейсы</div>
+      <h2 class="section-title">Три проекта <em>подробно</em></h2>
+      <p class="section-sub">Не просто «сайты в портфолио», а разбор задач — что нужно было, что я сделал, что получилось.</p>
+    </div>
+
+    <div class="cases-grid">
+
+      <!-- Кейс 1: РемонтПро -->
+      <div class="case-card">
+        <div class="case-num">КЕЙС 01 · СТРОИТЕЛЬСТВО</div>
+        <h3>РемонтПро: лендинг для компании по ремонту квартир</h3>
+
+        <div class="case-block">
+          <div class="case-block-title">Задача</div>
+          <p class="case-task">Ниша перегрета — десятки компаний с одинаковыми сайтами: «мы команда профессионалов», «индивидуальный подход». Клиент не понимает, чем один отличается от другого. Нужен лендинг, который выделяет на фоне конкурентов и продаёт через конкретику.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Что сделал</div>
+          <ul class="case-list">
+            <li>Проанализировал 10 конкурентов в нише</li>
+            <li>Собрал структуру: боли → решение → этапы → гарантии</li>
+            <li>Написал текст без общих фраз и воды</li>
+            <li>Разработал дизайн: тёмно-синий + оранжевый</li>
+            <li>Сверстал адаптив под все устройства</li>
+          </ul>
+        </div>
+
+        <div class="case-result">
+          <div class="case-result-row"><span>Блоков на лендинге</span><strong>10</strong></div>
+          <div class="case-result-row"><span>Срок разработки</span><strong>5 дней</strong></div>
+          <div class="case-result-row"><span>Адаптив</span><strong>телефон + планшет + ПК</strong></div>
+        </div>
+      </div>
+
+      <!-- Кейс 2: Сибирская Баня -->
+      <div class="case-card">
+        <div class="case-num">КЕЙС 02 · СТРОИТЕЛЬСТВО</div>
+        <h3>Сибирская Баня: сайт для строительной компании</h3>
+
+        <div class="case-block">
+          <div class="case-block-title">Задача</div>
+          <p class="case-task">Строительная компания из Красноярска. Строят бани и каркасные дома. Аудитория — мужчины 35-55 лет. Нужен сайт, который вызывает доверие через «своя пилорама», «своя бригада», «фиксированная цена». Плюс — нестандартная подача, не как у всех.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Что сделал</div>
+          <ul class="case-list">
+            <li>Определил боли: «смета выросла», «стройка затянулась», «материал плохой»</li>
+            <li>Сделал аккордеон услуг и карусель проектов</li>
+            <li>Написал текст с акцентом на фиксированную цену</li>
+            <li>Дизайн: тёплая палитра, шрифт с засечками</li>
+            <li>Добавил вертикальный таймлайн — 5 этапов работы</li>
+          </ul>
+        </div>
+
+        <div class="case-result">
+          <div class="case-result-row"><span>Блоков на сайте</span><strong>12</strong></div>
+          <div class="case-result-row"><span>Срок разработки</span><strong>7 дней</strong></div>
+          <div class="case-result-row"><span>Нестандартных блоков</span><strong>3</strong></div>
+        </div>
+      </div>
+
+      <!-- Кейс 3: REDLINE -->
+      <div class="case-card">
+        <div class="case-num">КЕЙС 03 · АВТО</div>
+        <h3>REDLINE: сайт автосервиса и детейлинга</h3>
+
+        <div class="case-block">
+          <div class="case-block-title">Задача</div>
+          <p class="case-task">Автосервис в Красноярске. Клиенты — мужчины 25-45, владельцы BMW, Subaru, Audi. Нужен спортивный стиль, который подчёркивает уровень сервиса. Не «автосервис на районе», а премиум-подход.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Что сделал</div>
+          <ul class="case-list">
+            <li>Определил стиль: тёмная тема + красный акцент</li>
+            <li>Написал текст без шаблонов: «ТО за 1 час. Диагностика за 30 минут»</li>
+            <li>Дизайн: спортивный, шрифт Oswald, острые углы</li>
+            <li>Добавил бегущую строку с услугами</li>
+            <li>Сделал прайс-таблицу и галерею работ</li>
+          </ul>
+        </div>
+
+        <div class="case-result">
+          <div class="case-result-row"><span>Блоков на сайте</span><strong>11</strong></div>
+          <div class="case-result-row"><span>Срок разработки</span><strong>6 дней</strong></div>
+          <div class="case-result-row"><span>Позиций в прайсе</span><strong>8</strong></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 <section class="benefits-section">
   <div class="container">
     <div class="section-head" style="max-width:720px;">
@@ -588,9 +711,18 @@
       <p class="section-sub">Честные отзывы тех, с кем работал</p>
     </div>
     <div class="reviews-grid">
-      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Заказывал лендинг для строительной компании. Владимир сделал всё за 6 дней: текст, дизайн, вёрстку. Заявки пошли на второй день после запуска.</p><div class="review-author"><div class="review-avatar">А</div><div><div class="review-name">Алексей</div><div class="review-role">Ремонт квартир, Красноярск</div></div></div></div>
-      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Переписал тексты на нашем старом сайте. Честно — не ожидал, что разница будет такой заметной. Конверсия выросла примерно в 2 раза.</p><div class="review-author"><div class="review-avatar">Д</div><div><div class="review-name">Дмитрий</div><div class="review-role">Автосервис, Красноярск</div></div></div></div>
-      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Работали по соцсетям. Владимир составил контент-план и написал первые 20 постов. Подписчики стали активнее, появились заявки из Instagram.</p><div class="review-author"><div class="review-avatar">М</div><div><div class="review-name">Марина</div><div class="review-role">Салон красоты, Красноярск</div></div></div></div>
+            <div class="review-card">
+        <div class="review-concept-badge">Концепт</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Заказывал лендинг для строительной компании. Владимир сделал всё за 6 дней: текст, дизайн, вёрстку. Заявки пошли на второй день после запуска.</p><div class="review-author"><div class="review-avatar">А</div><div><div class="review-name">Алексей</div><div class="review-role">Ремонт квартир, Красноярск</div></div></div></div>
+            <div class="review-card">
+        <div class="review-concept-badge">Концепт</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Переписал тексты на нашем старом сайте. Честно — не ожидал, что разница будет такой заметной. Конверсия выросла примерно в 2 раза.</p><div class="review-author"><div class="review-avatar">Д</div><div><div class="review-name">Дмитрий</div><div class="review-role">Автосервис, Красноярск</div></div></div></div>
+            <div class="review-card">
+        <div class="review-concept-badge">Концепт</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Работали по соцсетям. Владимир составил контент-план и написал первые 20 постов. Подписчики стали активнее, появились заявки из Instagram.</p><div class="review-author"><div class="review-avatar">М</div><div><div class="review-name">Марина</div><div class="review-role">Салон красоты, Красноярск</div></div></div></div>
     </div>
   </div>
 </section>
