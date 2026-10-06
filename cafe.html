@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бариста — Кофейня в Зеленогорске | Свежий кофе и круассаны каждое утро</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', 'Segoe UI', sans-serif; color: #3a2a1e; line-height: 1.65; background: #fdf8f0; overflow-x: hidden; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 100px 0; position: relative; }
+  .section-title { font-family: 'Playfair Display', Georgia, serif; font-size: 46px; text-align: center; margin-bottom: 18px; font-weight: 700; color: #4a2c17; line-height: 1.15; }
+  .section-title em { color: #b87333; font-style: italic; }
+  .section-sub { text-align: center; color: #8b6f52; font-size: 17px; max-width: 620px; margin: 0 auto 60px; }
+
+  /* НАВИГАЦИЯ */
+  header { background: rgba(253,248,240,0.96); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #ede0cf; backdrop-filter: blur(10px); }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: #4a2c17; display: flex; align-items: center; gap: 10px; letter-spacing: -0.5px; }
+  .logo-icon { width: 40px; height: 40px; background: #b87333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; font-weight: 700; font-family: 'Inter', sans-serif; }
+  .logo em { color: #b87333; font-style: italic; }
+  .menu { display: flex; gap: 32px; list-style: none; }
+  .menu a { color: #6b5236; text-decoration: none; font-size: 15px; font-weight: 500; transition: 0.3s; }
+  .menu a:hover { color: #b87333; }
+  .nav-right { display: flex; align-items: center; gap: 18px; }
+  .nav-status { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #2d7a3e; }
+  .nav-status-dot { width: 8px; height: 8px; background: #2d7a3e; border-radius: 50%; animation: pulse 2s infinite; }
+  .nav-status.closed { color: #a12d2d; }
+  .nav-status.closed .nav-status-dot { background: #a12d2d; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .nav-btn { background: #b87333; color: #fff; padding: 11px 22px; border-radius: 100px; text-decoration: none; font-size: 14px; font-weight: 600; transition: 0.3s; }
+  .nav-btn:hover { background: #8f5a26; transform: translateY(-2px); }
+  .burger { display: none; background: none; border: none; color: #4a2c17; font-size: 26px; cursor: pointer; }
+
+  /* HERO */
+  .hero { min-height: 90vh; background: linear-gradient(135deg, #4a2c17 0%, #6b4423 50%, #8b5a2b 100%); color: #fff; display: flex; align-items: center; padding: 80px 0; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -30%; right: -15%; width: 60%; height: 160%; background: radial-gradient(circle, rgba(184,115,51,0.3), transparent 60%); pointer-events: none; }
+  .hero::after { content: '☕'; position: absolute; bottom: -80px; right: -60px; font-size: 400px; opacity: 0.04; pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 70px; align-items: center; position: relative; z-index: 2; }
+  .hero-tag { display: inline-block; background: rgba(184,115,51,0.2); border: 1px solid rgba(212,165,116,0.5); color: #e8c99b; padding: 8px 20px; border-radius: 30px; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 28px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: 64px; line-height: 1.05; margin-bottom: 26px; font-weight: 900; letter-spacing: -1.5px; }
+  .hero h1 em { color: #e8c99b; font-style: italic; }
+  .hero p { font-size: 19px; margin-bottom: 40px; opacity: 0.92; max-width: 520px; line-height: 1.6; }
+  .hero-features { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+  .hero-feature { display: flex; align-items: center; gap: 12px; font-size: 16px; }
+  .hero-feature::before { content: '✓'; background: rgba(232,201,155,0.2); color: #e8c99b; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary { display: inline-block; background: #e8c99b; color: #4a2c17; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-size: 16px; font-weight: 700; border: none; cursor: pointer; transition: 0.3s; font-family: inherit; }
+  .btn-primary:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 15px 35px rgba(232,201,155,0.3); }
+  .btn-outline { display: inline-block; background: transparent; color: #fff; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-size: 16px; font-weight: 600; border: 2px solid rgba(232,201,155,0.5); cursor: pointer; transition: 0.3s; font-family: inherit; }
+  .btn-outline:hover { border-color: #e8c99b; background: rgba(232,201,155,0.1); }
+
+  .hero-card { background: #fdf8f0; color: #4a2c17; border-radius: 20px; padding: 40px 34px; box-shadow: 0 25px 60px rgba(0,0,0,0.35); position: relative; }
+  .hero-card::before { content: ''; position: absolute; top: 0; left: 40px; right: 40px; height: 5px; background: #b87333; border-radius: 0 0 6px 6px; }
+  .hero-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 8px; color: #4a2c17; font-weight: 700; }
+  .hero-card > p { font-size: 14px; color: #8b6f52; margin-bottom: 24px; }
+  .hero-card input, .hero-card select { width: 100%; padding: 14px 18px; border: 2px solid #ede0cf; border-radius: 10px; font-size: 15px; font-family: inherit; margin-bottom: 12px; background: #fff; color: #4a2c17; }
+  .hero-card input:focus, .hero-card select:focus { outline: none; border-color: #b87333; }
+  .hero-card button { width: 100%; background: #4a2c17; color: #fff; padding: 16px; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s; font-family: inherit; }
+  .hero-card button:hover { background: #b87333; }
+  .hero-card small { display: block; text-align: center; color: #a89080; font-size: 12px; margin-top: 12px; }
+  .hero-stats { display: flex; gap: 36px; margin-top: 35px; padding-top: 28px; border-top: 1px solid #ede0cf; }
+  .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; color: #b87333; line-height: 1; }
+  .hero-stat-label { font-size: 13px; color: #8b6f52; margin-top: 4px; }
+
+  /* ПРЕИМУЩЕСТВА */
+  .advantages { background: #fff; padding: 80px 0; border-bottom: 1px solid #ede0cf; }
+  .advantages-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+  .adv-item { text-align: center; padding: 20px; }
+  .adv-icon { font-size: 44px; margin-bottom: 18px; }
+  .adv-item h4 { font-family: 'Playfair Display', serif; font-size: 19px; color: #4a2c17; margin-bottom: 10px; font-weight: 700; }
+  .adv-item p { font-size: 14px; color: #8b6f52; line-height: 1.6; }
+
+  /* МЕНЮ С ТАБАМИ */
+  .menu-section { background: #fdf8f0; }
+  .tabs-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 45px; flex-wrap: wrap; }
+  .tab-btn { background: #fff; border: 2px solid #ede0cf; color: #6b5236; padding: 12px 28px; border-radius: 100px; font-size: 15px; font-weight: 600; cursor: pointer; transition: 0.3s; font-family: inherit; }
+  .tab-btn:hover { border-color: #b87333; color: #b87333; }
+  .tab-btn.active { background: #4a2c17; color: #fff; border-color: #4a2c17; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 900px; margin: 0 auto; }
+  .menu-item { display: flex; justify-content: space-between; gap: 20px; padding: 22px 26px; background: #fff; border-radius: 14px; transition: 0.3s; border: 2px solid transparent; }
+  .menu-item:hover { border-color: #b87333; transform: translateX(4px); }
+  .menu-item-info { flex: 1; }
+  .menu-item-info h4 { font-family: 'Playfair Display', serif; font-size: 19px; color: #4a2c17; margin-bottom: 6px; font-weight: 700; }
+  .menu-item-info p { font-size: 14px; color: #8b6f52; line-height: 1.5; }
+  .menu-item-price { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: #b87333; white-space: nowrap; align-self: flex-start; }
+  .menu-note { text-align: center; margin-top: 40px; font-size: 14px; color: #8b6f52; font-style: italic; }
+
+  /* О НАС */
+  .about { background: #fff; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+  .about-img { height: 480px; background: linear-gradient(135deg, #6b4423, #4a2c17); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: #e8c99b; font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; position: relative; overflow: hidden; }
+  .about-img::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.3)); }
+  .about-img span { position: relative; z-index: 2; }
+  .about-content h2 { font-family: 'Playfair Display', serif; font-size: 40px; color: #4a2c17; margin-bottom: 25px; line-height: 1.15; }
+  .about-content h2 em { color: #b87333; font-style: italic; }
+  .about-content p { color: #6b5236; font-size: 16px; margin-bottom: 20px; line-height: 1.75; }
+  .about-list { list-style: none; margin-top: 30px; }
+  .about-list li { display: flex; gap: 14px; margin-bottom: 16px; font-size: 15px; color: #4a2c17; }
+  .about-list li::before { content: '✓'; background: #b87333; color: #fff; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+
+  /* ГАЛЕРЕЯ */
+  .gallery-section { background: #fdf8f0; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+  .gallery-item { aspect-ratio: 1/1; background: linear-gradient(135deg, #6b4423, #4a2c17); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #e8c99b; font-size: 13px; font-weight: 600; text-align: center; padding: 20px; position: relative; overflow: hidden; transition: 0.4s; cursor: pointer; }
+  .gallery-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(184,115,51,0.7), rgba(74,44,23,0.7)); opacity: 0; transition: 0.4s; }
+  .gallery-item:hover::after { opacity: 1; }
+  .gallery-item:hover { transform: scale(1.03); }
+  .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  .gallery-item:nth-child(6) { grid-column: span 2; }
+
+  /* ЧАСЫ РАБОТЫ */
+  .hours-section { background: #4a2c17; color: #fff; padding: 80px 0; }
+  .hours-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+  .hours-status { display: inline-flex; align-items: center; gap: 12px; background: rgba(45,122,62,0.2); border: 1px solid rgba(45,122,62,0.5); color: #6ee088; padding: 12px 24px; border-radius: 100px; font-size: 15px; font-weight: 700; margin-bottom: 30px; }
+  .hours-status.closed { background: rgba(161,45,45,0.2); border-color: rgba(161,45,45,0.5); color: #f08080; }
+  .hours-status-dot { width: 10px; height: 10px; background: #6ee088; border-radius: 50%; animation: pulse 2s infinite; }
+  .hours-status.closed .hours-status-dot { background: #f08080; }
+  .hours-section h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 40px; font-weight: 700; }
+  .hours-section h2 em { color: #e8c99b; font-style: italic; }
+  .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 600px; margin: 0 auto; }
+  .hours-row { display: flex; justify-content: space-between; padding: 16px 24px; background: rgba(255,255,255,0.06); border-radius: 12px; font-size: 15px; }
+  .hours-row.today { background: rgba(232,201,155,0.15); border: 1px solid rgba(232,201,155,0.3); }
+  .hours-day { color: #e8c99b; font-weight: 600; }
+  .hours-time { color: #fff; }
+
+  /* БРОНИРОВАНИЕ */
+  .booking { background: #fff; }
+  .booking-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 70px; align-items: center; max-width: 1000px; margin: 0 auto; }
+  .booking-content h2 { font-family: 'Playfair Display', serif; font-size: 40px; color: #4a2c17; margin-bottom: 22px; line-height: 1.15; }
+  .booking-content h2 em { color: #b87333; font-style: italic; }
+  .booking-content > p { color: #6b5236; font-size: 16px; margin-bottom: 30px; line-height: 1.7; }
+  .booking-features { list-style: none; }
+  .booking-features li { display: flex; gap: 14px; margin-bottom: 16px; font-size: 15px; color: #4a2c17; }
+  .booking-features li::before { content: '✓'; background: #b87333; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .booking-form { background: #fdf8f0; border-radius: 20px; padding: 45px 38px; border: 2px solid #ede0cf; }
+  .booking-form h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: #4a2c17; margin-bottom: 8px; font-weight: 700; }
+  .booking-form > p { font-size: 14px; color: #8b6f52; margin-bottom: 24px; }
+  .booking-form input, .booking-form select, .booking-form textarea { width: 100%; padding: 15px 18px; border: 2px solid #ede0cf; border-radius: 10px; font-size: 15px; font-family: inherit; margin-bottom: 12px; background: #fff; color: #4a2c17; transition: 0.3s; resize: none; }
+  .booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus { outline: none; border-color: #b87333; }
+  .booking-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .booking-form .form-row input, .booking-form .form-row select { margin-bottom: 12px; }
+  .booking-form button { width: 100%; background: #4a2c17; color: #fff; padding: 18px; border: none; border-radius: 100px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s; font-family: inherit; margin-top: 6px; }
+  .booking-form button:hover { background: #b87333; transform: translateY(-2px); }
+  .form-consent { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: #8b6f52; line-height: 1.5; cursor: pointer; text-align: left; margin: 6px 0 4px; }
+  .form-consent input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: #b87333; cursor: pointer; }
+  .form-consent a { color: #b87333; text-decoration: none; }
+  .form-consent a:hover { text-decoration: underline; }
+
+  /* ОТЗЫВЫ */
+  .reviews { background: #fdf8f0; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .review-card { background: #fff; padding: 34px; border-radius: 18px; box-shadow: 0 4px 20px rgba(74,44,23,0.05); }
+  .review-stars { color: #b87333; font-size: 18px; letter-spacing: 3px; margin-bottom: 18px; }
+  .review-card p { font-size: 15px; color: #4a2c17; line-height: 1.7; margin-bottom: 22px; }
+  .review-author { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px solid #ede0cf; }
+  .review-avatar { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, #8b5a2b, #4a2c17); color: #e8c99b; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 17px; }
+  .review-name { font-weight: 700; color: #4a2c17; font-size: 15px; }
+  .review-role { font-size: 13px; color: #8b6f52; }
+
+  /* FAQ */
+  .faq { background: #fff; }
+  .faq-list { max-width: 820px; margin: 0 auto; }
+  .faq-item { background: #fdf8f0; border-radius: 14px; margin-bottom: 14px; overflow: hidden; border: 2px solid transparent; transition: 0.3s; }
+  .faq-item.open { border-color: #b87333; }
+  .faq-q { padding: 22px 28px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #4a2c17; gap: 20px; }
+  .faq-icon { color: #b87333; font-size: 24px; font-weight: 300; transition: 0.3s; flex-shrink: 0; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: 0.4s; padding: 0 28px; color: #6b5236; font-size: 15px; line-height: 1.7; }
+  .faq-item.open .faq-a { max-height: 400px; padding: 0 28px 22px; }
+
+  /* КОНТАКТЫ */
+  .contacts { background: #fdf8f0; }
+  .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .contacts-info h2 { font-family: 'Playfair Display', serif; font-size: 40px; color: #4a2c17; margin-bottom: 22px; line-height: 1.15; }
+  .contacts-info h2 em { color: #b87333; font-style: italic; }
+  .contacts-info > p { color: #6b5236; font-size: 16px; margin-bottom: 30px; line-height: 1.7; }
+  .contact-item { display: flex; gap: 16px; margin-bottom: 22px; }
+  .contact-item-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 12px rgba(74,44,23,0.06); }
+  .contact-item h4 { font-size: 14px; color: #8b6f52; font-weight: 500; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .contact-item p, .contact-item a { font-size: 16px; color: #4a2c17; font-weight: 600; text-decoration: none; }
+  .contact-item a:hover { color: #b87333; }
+  .map-placeholder { height: 420px; background: linear-gradient(135deg, #6b4423, #4a2c17); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: #e8c99b; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; text-align: center; padding: 40px; }
+  .map-placeholder span { opacity: 0.7; }
+
+  /* ФУТЕР */
+  footer { background: #2a190e; color: #a89080; padding: 60px 0 30px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 40px; }
+  .footer-brand .logo { color: #fff; margin-bottom: 18px; }
+  .footer-brand p { font-size: 14px; line-height: 1.7; margin-bottom: 20px; }
+  .footer-social { display: flex; gap: 12px; }
+  .footer-social a { width: 40px; height: 40px; background: rgba(232,201,155,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #e8c99b; text-decoration: none; font-weight: 700; font-size: 14px; transition: 0.3s; }
+  .footer-social a:hover { background: #b87333; color: #fff; }
+  .footer-col h4 { color: #fff; font-size: 15px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+  .footer-col a, .footer-col p { color: #a89080; font-size: 14px; text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; }
+  .footer-col a:hover { color: #e8c99b; }
+  .footer-bottom { border-top: 1px solid rgba(232,201,155,0.1); padding-top: 25px; display: flex; justify-content: space-between; font-size: 13px; flex-wrap: wrap; gap: 12px; }
+
+  /* ============ АДАПТИВ ============ */
+  @media (max-width: 1024px) {
+    .hero h1 { font-size: 50px; }
+    .hero-grid { gap: 50px; }
+    .advantages-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    .reviews-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+    .gallery-item:nth-child(6) { grid-column: span 1; }
+  }
+
+  @media (max-width: 900px) {
+    section { padding: 65px 0; }
+    .container { padding: 0 18px; }
+    .menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fdf8f0; flex-direction: column; padding: 20px 24px; gap: 16px; border-bottom: 1px solid #ede0cf; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+    .menu.open { display: flex; }
+    .burger { display: block; }
+    .nav-status, .nav-btn { display: none; }
+    .nav { padding: 14px 0; }
+
+    /* Hero */
+    .hero { min-height: auto; padding: 55px 0; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero h1 { font-size: 38px; letter-spacing: -0.5px; }
+    .hero p { font-size: 16px; margin-bottom: 30px; }
+    .hero-tag { font-size: 11px; padding: 6px 14px; margin-bottom: 20px; }
+    .hero-feature { font-size: 14px; }
+    .hero-buttons { gap: 10px; width: 100%; }
+    .btn-primary, .btn-outline { padding: 15px 26px; font-size: 14px; width: 100%; text-align: center; }
+    .hero-card { padding: 30px 24px; }
+    .hero-card h3 { font-size: 22px; }
+    .hero-stats { gap: 22px; padding-top: 22px; margin-top: 26px; }
+    .hero-stat-num { font-size: 26px; }
+    .hero-stat-label { font-size: 12px; }
+    .hero::after { font-size: 200px; bottom: -40px; right: -30px; }
+
+    /* Заголовки */
+    .section-title { font-size: 28px; letter-spacing: -0.5px; }
+    .section-sub { font-size: 15px; margin-bottom: 40px; }
+
+    /* Преимущества */
+    .advantages { padding: 55px 0; }
+    .advantages-grid { grid-template-columns: 1fr; gap: 25px; }
+    .adv-icon { font-size: 38px; margin-bottom: 14px; }
+    .adv-item h4 { font-size: 17px; }
+
+    /* Табы меню */
+    .tabs-nav { gap: 8px; margin-bottom: 30px; }
+    .tab-btn { padding: 10px 20px; font-size: 13px; }
+    .menu-grid { grid-template-columns: 1fr; gap: 12px; }
+    .menu-item { padding: 18px 20px; }
+    .menu-item-info h4 { font-size: 17px; }
+    .menu-item-price { font-size: 18px; }
+
+    /* О нас */
+    .about-grid { grid-template-columns: 1fr; gap: 35px; }
+    .about-img { height: 320px; }
+    .about-content h2 { font-size: 28px; }
+    .about-content p { font-size: 15px; }
+
+    /* Галерея */
+    .gallery-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; aspect-ratio: 2/1; }
+    .gallery-item:nth-child(6) { grid-column: span 2; }
+    .gallery-item { font-size: 11px; }
+
+    /* Часы */
+    .hours-section { padding: 60px 0; }
+    .hours-section h2 { font-size: 28px; margin-bottom: 28px; }
+    .hours-grid { grid-template-columns: 1fr; gap: 10px; }
+    .hours-status { font-size: 13px; padding: 10px 18px; margin-bottom: 22px; }
+    .hours-row { padding: 14px 18px; font-size: 14px; }
+
+    /* Бронирование */
+    .booking-grid { grid-template-columns: 1fr; gap: 40px; }
+    .booking-content h2 { font-size: 28px; }
+    .booking-content > p { font-size: 15px; }
+    .booking-form { padding: 32px 24px; }
+    .booking-form h3 { font-size: 22px; }
+    .booking-form .form-row { grid-template-columns: 1fr; }
+    .booking-form input, .booking-form select, .booking-form textarea { padding: 13px 16px; font-size: 15px; }
+
+    /* Отзывы */
+    .reviews-grid { grid-template-columns: 1fr; gap: 15px; }
+    .review-card { padding: 26px; }
+
+    /* FAQ */
+    .faq-q { padding: 18px 22px; font-size: 15px; }
+    .faq-a { padding: 0 22px; font-size: 14px; }
+    .faq-item.open .faq-a { padding: 0 22px 18px; }
+
+    /* Контакты */
+    .contacts-grid { grid-template-columns: 1fr; gap: 35px; }
+    .contacts-info h2 { font-size: 28px; }
+    .contacts-info > p { font-size: 15px; }
+    .map-placeholder { height: 280px; font-size: 16px; }
+    .contact-item-icon { width: 42px; height: 42px; font-size: 19px; }
+
+    /* Футер */
+    footer { padding: 45px 0 25px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 25px; margin-bottom: 30px; }
+    .footer-bottom { flex-direction: column; text-align: center; gap: 12px; }
+  }
+
+  @media (max-width: 420px) {
+    .hero h1 { font-size: 30px; }
+    .section-title { font-size: 24px; }
+    .hero-stat-num { font-size: 22px; }
+    .tab-btn { padding: 9px 16px; font-size: 12px; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item:nth-child(1), .gallery-item:nth-child(6) { grid-column: span 1; aspect-ratio: 1/1; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo"><div class="logo-icon">Б</div>Бари<em>ста</em></div>
+    <ul class="menu">
+      <li><a href="#menu">Меню</a></li>
+      <li><a href="#about">О нас</a></li>
+      <li><a href="#booking">Бронирование</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-status" id="navStatus">
+        <span class="nav-status-dot"></span>
+        <span id="statusText">Открыто</span>
+      </div>
+      <a href="#booking" class="nav-btn">Забронировать</a>
+    </div>
+    <button class="burger" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-tag">Кофейня в Зеленогорске · с 2018 года</div>
+      <h1>Свежий кофе <em>и круассаны</em> каждое утро</h1>
+      <p>Начинаем варить кофе в 7:00. Обжариваем зерно сами, печём круассаны на месте. Приходите завтракать — или забегайте за чашкой по пути на работу.</p>
+      <div class="hero-features">
+        <div class="hero-feature">Своя обжарка зерна — свежесть каждую неделю</div>
+        <div class="hero-feature">Круассаны и выпечка собственного производства</div>
+        <div class="hero-feature">Wi-Fi, розетки, можно поработать</div>
+        <div class="hero-feature">Скидка 10% на кофе с собой до 9 утра</div>
+      </div>
+      <div class="hero-buttons">
+        <a href="#booking" class="btn-primary">Забронировать столик</a>
+        <a href="#menu" class="btn-outline">Смотреть меню</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Завтрак ждёт</h3>
+      <p>Забронируйте столик — встретим вас с горячим кофе</p>
+      <form onsubmit="event.preventDefault(); alert('Спасибо! Столик забронирован. Мы перезвоним для подтверждения.'); this.reset();">
+        <input type="text" placeholder="Ваше имя" required>
+        <input type="tel" placeholder="Телефон" required>
+        <button type="submit">Забронировать</button>
+        <small>Отвечаем в течение 10 минут</small>
+      </form>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">7:00</div>
+          <div class="hero-stat-label">открываемся</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">18</div>
+          <div class="hero-stat-label">видов кофе</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">4.9★</div>
+          <div class="hero-stat-label">рейтинг гостей</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="advantages">
+  <div class="container">
+    <div class="advantages-grid">
+      <div class="adv-item">
+        <div class="adv-icon">☕</div>
+        <h4>Своя обжарка</h4>
+        <p>Обжариваем зерно небольшими партиями — кофе всегда свежий</p>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">🥐</div>
+        <h4>Своя выпечка</h4>
+        <p>Круассаны, слойки и десерты печём на месте каждое утро</p>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">🪑</div>
+        <h4>Уютный зал</h4>
+        <p>32 места, много света, мягкие кресла у окна</p>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">💻</div>
+        <h4>Можно работать</h4>
+        <p>Wi-Fi, розетки на каждом столике, не выгоняем</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu-section" id="menu">
+  <div class="container">
+    <h2 class="section-title">Наше <em>меню</em></h2>
+    <p class="section-sub">Обновляем сезонно. Все позиции готовим на месте из свежих продуктов.</p>
+
+    <div class="tabs-nav">
+      <button class="tab-btn active" onclick="openTab(event, 'tab-coffee')">Кофе</button>
+      <button class="tab-btn" onclick="openTab(event, 'tab-breakfast')">Завтраки</button>
+      <button class="tab-btn" onclick="openTab(event, 'tab-bakery')">Выпечка</button>
+      <button class="tab-btn" onclick="openTab(event, 'tab-drinks')">Напитки</button>
+    </div>
+
+    <!-- Кофе -->
+    <div class="tab-panel active" id="tab-coffee">
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-info"><h4>Эспрессо</h4><p>Классика. 30 мл чистого вкуса</p></div><div class="menu-item-price">150 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Американо</h4><p>Эспрессо с горячей водой. Большой объём</p></div><div class="menu-item-price">180 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Капучино</h4><p>Эспрессо + молочная пена. Наш хит</p></div><div class="menu-item-price">230 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Латте</h4><p>Мягкий, с большим количеством молока</p></div><div class="menu-item-price">250 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Флэт уайт</h4><p>Двойной эспрессо + микропенка</p></div><div class="menu-item-price">270 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Раф ванильный</h4><p>Сливки, ваниль, эспрессо. Нежный</p></div><div class="menu-item-price">290 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Какао</h4><p>Настоящий бельгийский шоколад</p></div><div class="menu-item-price">240 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Фильтр-кофе</h4><p>Альтернатива. Меняем зерно каждую неделю</p></div><div class="menu-item-price">200 ₽</div></div>
+      </div>
+    </div>
+
+    <!-- Завтраки -->
+    <div class="tab-panel" id="tab-breakfast">
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-info"><h4>Круассан классический</h4><p>Свежеиспечённый, с хрустящей корочкой</p></div><div class="menu-item-price">180 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Круассан с миндалём</h4><p>С миндальным кремом и лепестками</p></div><div class="menu-item-price">230 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Завтрак «Бариста»</h4><p>Круассан + кофе на выбор + свежевыжатый сок</p></div><div class="menu-item-price">490 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Омлет с овощами</h4><p>3 яйца, помидоры, шпинат, сыр</p></div><div class="menu-item-price">320 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Сырники со сметаной</h4><p>Домашние, с ягодным соусом</p></div><div class="menu-item-price">340 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Авокадо-тост</h4><p>Хлеб на закваске, авокадо, яйцо пашот</p></div><div class="menu-item-price">380 ₽</div></div>
+      </div>
+    </div>
+
+    <!-- Выпечка -->
+    <div class="tab-panel" id="tab-bakery">
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-info"><h4>Круассан с шоколадом</h4><p>Бельгийский тёмный шоколад</p></div><div class="menu-item-price">210 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Синнабон</h4><p>С корицей и сливочной глазурью</p></div><div class="menu-item-price">250 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Тарт с ягодами</h4><p>Сезонные ягоды, заварной крем</p></div><div class="menu-item-price">290 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Чизкейк Нью-Йорк</h4><p>Классический, с ягодным соусом</p></div><div class="menu-item-price">320 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Маффин шоколадный</h4><p>С кусочками тёмного шоколада</p></div><div class="menu-item-price">180 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Печенье овсяное</h4><p>Домашнее, с изюмом и орехами</p></div><div class="menu-item-price">120 ₽</div></div>
+      </div>
+    </div>
+
+    <!-- Напитки -->
+    <div class="tab-panel" id="tab-drinks">
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-info"><h4>Свежевыжатый апельсиновый</h4><p>Из 3 апельсинов, без сахара</p></div><div class="menu-item-price">320 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Лимонад домашний</h4><p>Лимон, мята, тархун — на выбор</p></div><div class="menu-item-price">220 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Чай листовой</h4><p>Чёрный, зелёный, травяной — 8 видов</p></div><div class="menu-item-price">180 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Матча-латте</h4><p>Японская матча + молоко</p></div><div class="menu-item-price">290 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Какао с маршмеллоу</h4><p>Бельгийский шоколад, зефир</p></div><div class="menu-item-price">260 ₽</div></div>
+        <div class="menu-item"><div class="menu-item-info"><h4>Смузи ягодный</h4><p>Клубника, малина, банан, йогурт</p></div><div class="menu-item-price">340 ₽</div></div>
+      </div>
+    </div>
+
+    <p class="menu-note">* Полное меню — в кофейне. Сезонные позиции обновляем каждые 2-3 месяца.</p>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-img"><span>Фото: наш зал и бариста за работой</span></div>
+    <div class="about-content">
+      <h2>Мы варим кофе <em>с 2018 года</em></h2>
+      <p>«Бариста» — это маленькая кофейня в центре Зеленогорска. Мы открылись в 2018 году с одной идеей: чтобы в нашем городе было место, куда хочется зайти утром — за чашкой хорошего кофе и свежим круассаном.</p>
+      <p>За 7 лет мы обжарили больше 12 тонн зерна, испекли десятки тысяч круассанов и познакомились с половиной города. Многие гости стали друзьями.</p>
+      <ul class="about-list">
+        <li>Обжариваем зерно сами — небольшими партиями</li>
+        <li>Печём круассаны и десерты каждое утро</li>
+        <li>Работаем только со свежими продуктами</li>
+        <li>Не выгоняем гостей — можно сидеть сколько нужно</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <div class="container">
+    <h2 class="section-title">Атмосфера <em>кофейни</em></h2>
+    <p class="section-sub">Загляните, как у нас — свет, дерево, аромат кофе</p>
+    <div class="gallery-grid">
+      <div class="gallery-item">Фото: зал у окна</div>
+      <div class="gallery-item">Фото: бариста</div>
+      <div class="gallery-item">Фото: круассаны</div>
+      <div class="gallery-item">Фото: кофе</div>
+      <div class="gallery-item">Фото: барная стойка</div>
+      <div class="gallery-item">Фото: гости за столиком</div>
+      <div class="gallery-item">Фото: десерты</div>
+    </div>
+  </div>
+</section>
+
+<section class="hours-section">
+  <div class="container">
+    <div class="hours-inner">
+      <div class="hours-status" id="bigStatus">
+        <span class="hours-status-dot"></span>
+        <span id="bigStatusText">Сейчас открыто</span>
+      </div>
+      <h2>Мы <em>работаем</em></h2>
+      <div class="hours-grid" id="hoursGrid">
+        <div class="hours-row" data-day="1"><span class="hours-day">Понедельник</span><span class="hours-time">07:00 — 21:00</span></div>
+        <div class="hours-row" data-day="2"><span class="hours-day">Вторник</span><span class="hours-time">07:00 — 21:00</span></div>
+        <div class="hours-row" data-day="3"><span class="hours-day">Среда</span><span class="hours-time">07:00 — 21:00</span></div>
+        <div class="hours-row" data-day="4"><span class="hours-day">Четверг</span><span class="hours-time">07:00 — 21:00</span></div>
+        <div class="hours-row" data-day="5"><span class="hours-day">Пятница</span><span class="hours-time">07:00 — 22:00</span></div>
+        <div class="hours-row" data-day="6"><span class="hours-day">Суббота</span><span class="hours-time">08:00 — 22:00</span></div>
+        <div class="hours-row" data-day="0"><span class="hours-day">Воскресенье</span><span class="hours-time">08:00 — 21:00</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="booking-grid">
+      <div class="booking-content">
+        <h2>Забронируйте <em>столик</em></h2>
+        <p>Оставьте заявку — перезвоним в течение 10 минут и подтвердим бронь. Если у вас день рождения или важная встреча — скажите, подготовимся.</p>
+        <ul class="booking-features">
+          <li>Бронь на любое время работы кофейни</li>
+          <li>Можно заказать столик у окна или в тихом зале</li>
+          <li>Для групп от 6 человек — предупредите заранее</li>
+          <li>Бесплатная отмена брони за 2 часа</li>
+        </ul>
+      </div>
+      <div class="booking-form">
+        <h3>Оставить заявку</h3>
+        <p>Мы перезвоним и подтвердим бронь</p>
+        <form onsubmit="event.preventDefault(); alert('Спасибо! Заявка принята. Мы свяжемся с вами в течение 10 минут.'); this.reset();">
+          <input type="text" placeholder="Ваше имя" required>
+          <input type="tel" placeholder="Телефон" required>
+          <div class="form-row">
+            <input type="date" required>
+            <input type="time" required>
+          </div>
+          <select required>
+            <option value="">Сколько гостей?</option>
+            <option>1-2 человека</option>
+            <option>3-4 человека</option>
+            <option>5-6 человек</option>
+            <option>Больше 6 (свяжемся для уточнения)</option>
+          </select>
+          <textarea rows="3" placeholder="Комментарий (необязательно)"></textarea>
+          <label class="form-consent">
+            <input type="checkbox" required>
+            <span>Я согласен на обработку персональных данных и принимаю <a href="privacy.html" target="_blank">политику конфиденциальности</a></span>
+          </label>
+          <button type="submit">Забронировать столик</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="container">
+    <h2 class="section-title">Отзывы <em>гостей</em></h2>
+    <p class="section-sub">Что говорят те, кто заходит к нам каждое утро</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>Лучший капучино в Зеленогорске. Хожу сюда каждое утро перед работой уже два года. Бариста знают мой заказ наизусть.</p>
+        <div class="review-author">
+          <div class="review-avatar">А</div>
+          <div><div class="review-name">Анна</div><div class="review-role">Постоянный гость</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>Приходим с женой по выходным на завтраки. Круассаны — свежайшие, прямо из печи. Атмосфера уютная, никто не торопит.</p>
+        <div class="review-author">
+          <div class="review-avatar">Д</div>
+          <div><div class="review-name">Дмитрий</div><div class="review-role">Гость выходного дня</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>Работаю здесь удалённо пару раз в неделю. Wi-Fi стабильный, розетки есть, кофе вкусный, никто не выгоняет. Идеально для продуктивного дня.</p>
+        <div class="review-author">
+          <div class="review-avatar">М</div>
+          <div><div class="review-name">Мария</div><div class="review-role">Фрилансер</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <h2 class="section-title">Частые <em>вопросы</em></h2>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q">Можно ли забронировать столик?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Да. Оставьте заявку на сайте или позвоните. Бронируем на любое время работы. Для групп от 6 человек лучше предупредить заранее.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Есть ли у вас завтраки?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Да, с 7:00 до 12:00. Круассаны, омлеты, сырники, авокадо-тост. Есть комплексный завтрак «Бариста» — круассан + кофе + свежевыжатый сок.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Можно ли работать в кофейне?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Конечно. У нас стабильный Wi-Fi, розетки на каждом столике, никто не выгоняет. Многие гости работают здесь удалённо.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Готовите ли вы кофе с собой?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Да. Любой напиток можно взять с собой. Если заходите до 9 утра — даём скидку 10% на кофе с собой.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Есть ли вегетарианские позиции?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Да. Авокадо-тост, омлет с овощами, матча-латте, смузи, большинство десертов. Уточните у бариста — подскажем.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Можно ли заказать торт на праздник?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Да, принимаем заказы на торты и десерты за 2 дня. Обсудите детали с менеджером — учтём вкусы и оформление.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contacts" id="contacts">
+  <div class="container contacts-grid">
+    <div class="contacts-info">
+      <h2>Как нас <em>найти</em></h2>
+      <p>Мы в центре Зеленогорска. Мимо не пройдёте — вывеска «Бариста» видна с противоположной стороны улицы.</p>
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div><h4>Адрес</h4><p>г. Зеленогорск, ул. Ленина, 42</p></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📞</div>
+        <div><h4>Телефон</h4><a href="tel:+73913000000">+7 (391) 300-00-00</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">✉️</div>
+        <div><h4>Email</h4><a href="mailto:hello@barista.ru">hello@barista.ru</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">🕐</div>
+        <div><h4>Часы работы</h4><p>Пн-Чт 07:00–21:00 · Пт 07:00–22:00<br>Сб 08:00–22:00 · Вс 08:00–21:00</p></div>
+      </div>
+    </div>
+    <div class="map-placeholder"><span>Карта: г. Зеленогорск, ул. Ленина, 42</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><div class="logo-icon">Б</div>Бари<em>ста</em></div>
+        <p>Кофейня в Зеленогорске. Своя обжарка, свои круассаны, свежий кофе каждое утро с 2018 года.</p>
+        <div class="footer-social">
+          <a href="#" title="Telegram">T</a>
+          <a href="#" title="VK">V</a>
+          <a href="#" title="Instagram">I</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Разделы</h4>
+        <a href="#menu">Меню</a>
+        <a href="#about">О нас</a>
+        <a href="#booking">Бронирование</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+      <div class="footer-col">
+        <h4>Меню</h4>
+        <a href="#menu">Кофе</a>
+        <a href="#menu">Завтраки</a>
+        <a href="#menu">Выпечка</a>
+        <a href="#menu">Напитки</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <a href="tel:+73913000000">+7 (391) 300-00-00</a>
+        <a href="mailto:hello@barista.ru">hello@barista.ru</a>
+        <p>г. Зеленогорск, ул. Ленина, 42</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Бариста. Все права защищены.</span>
+      <span><a href="privacy.html" style="color:#a89080;text-decoration:none;">Политика конфиденциальности</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Табы меню
+  function openTab(evt, tabId) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    evt.currentTarget.classList.add('active');
+  }
+
+  // FAQ
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+  });
+
+  // Меню-бургер
+  document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.menu').classList.remove('open');
+    });
+  });
+
+  // Статус "открыто / закрыто"
+  function updateStatus() {
+    const now = new Date();
+    const day = now.getDay(); // 0 = воскресенье
+    const hour = now.getHours();
+    const minutes = now.getMinutes();
+    const time = hour + minutes / 60;
+
+    // Часы по дням: 1-4 (пн-чт) 7-21, 5 (пт) 7-22, 6 (сб) 8-22, 0 (вс) 8-21
+    const schedule = { 1: [7, 21], 2: [7, 21], 3: [7, 21], 4: [7, 21], 5: [7, 22], 6: [8, 22], 0: [8, 21] };
+    const [open, close] = schedule[day];
+    const isOpen = time >= open && time < close;
+
+    // Статус в шапке
+    const navStatus = document.getElementById('navStatus');
+    const statusText = document.getElementById('statusText');
+    if (isOpen) {
+      navStatus.classList.remove('closed');
+      statusText.textContent = 'Открыто';
+    } else {
+      navStatus.classList.add('closed');
+      statusText.textContent = 'Закрыто';
+    }
+
+    // Большой статус
+    const bigStatus = document.getElementById('bigStatus');
+    const bigStatusText = document.getElementById('bigStatusText');
+    if (isOpen) {
+      bigStatus.classList.remove('closed');
+      bigStatusText.textContent = 'Сейчас открыто · до ' + String(close).padStart(2, '0') + ':00';
+    } else {
+      bigStatus.classList.add('closed');
+      bigStatusText.textContent = 'Сейчас закрыто · откроемся в ' + String(open).padStart(2, '0') + ':00';
+    }
+
+    // Подсветка сегодняшнего дня
+    document.querySelectorAll('.hours-row').forEach(row => {
+      row.classList.remove('today');
+      if (parseInt(row.dataset.day) === day) row.classList.add('today');
+    });
+  }
+
+  updateStatus();
+  setInterval(updateStatus, 60000); // обновляем каждую минуту
+</script>
+
+</body>
+</html>

@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estet — Салон красоты полного цикла в Канске | Волосы, ногти, брови, косметология</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', 'Segoe UI', sans-serif; color: #e8e8e8; line-height: 1.65; background: #0a0a0a; overflow-x: hidden; font-weight: 300; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 110px 0; position: relative; }
+  .section-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 56px; text-align: center; margin-bottom: 20px; font-weight: 400; color: #fff; line-height: 1.1; letter-spacing: -0.5px; }
+  .section-title em { color: #c9a961; font-style: italic; }
+  .section-sub { text-align: center; color: #888; font-size: 16px; max-width: 620px; margin: 0 auto 65px; font-weight: 300; }
+  .section-eyebrow { display: block; text-align: center; font-size: 12px; font-weight: 600; color: #c9a961; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 20px; }
+
+  /* НАВИГАЦИЯ */
+  header { background: rgba(10,10,10,0.94); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(201,169,97,0.15); backdrop-filter: blur(15px); }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+  .logo { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: #fff; display: flex; align-items: center; gap: 12px; letter-spacing: 2px; text-transform: uppercase; }
+  .logo-mark { width: 36px; height: 36px; border: 1px solid #c9a961; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #c9a961; font-size: 17px; font-family: 'Cormorant Garamond', serif; font-weight: 700; font-style: italic; }
+  .logo em { color: #c9a961; font-style: italic; }
+  .menu { display: flex; gap: 38px; list-style: none; }
+  .menu a { color: #ccc; text-decoration: none; font-size: 13px; font-weight: 400; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; position: relative; }
+  .menu a:hover { color: #c9a961; }
+  .menu a::after { content: ''; position: absolute; bottom: -6px; left: 50%; width: 0; height: 1px; background: #c9a961; transition: 0.3s; transform: translateX(-50%); }
+  .menu a:hover::after { width: 100%; }
+  .nav-phone a { color: #fff; text-decoration: none; font-size: 14px; font-weight: 400; letter-spacing: 0.5px; margin-right: 20px; }
+  .nav-btn { background: transparent; color: #c9a961; padding: 11px 26px; border: 1px solid #c9a961; border-radius: 0; text-decoration: none; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+  .nav-btn:hover { background: #c9a961; color: #0a0a0a; }
+  .burger { display: none; background: none; border: none; color: #fff; font-size: 26px; cursor: pointer; }
+
+  /* ВИТРИНА (не hero) */
+  .vitrine { min-height: 100vh; background: #0a0a0a; display: flex; align-items: center; padding: 60px 0; position: relative; overflow: hidden; }
+  .vitrine::before { content: ''; position: absolute; top: 0; left: 0; width: 50%; height: 100%; background: radial-gradient(circle at 30% 50%, rgba(201,169,97,0.05), transparent 60%); pointer-events: none; }
+  .vitrine::after { content: ''; position: absolute; bottom: -10%; right: -10%; width: 40%; height: 60%; background: radial-gradient(circle, rgba(15,93,60,0.15), transparent 60%); pointer-events: none; }
+  .vitrine-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: center; position: relative; z-index: 2; width: 100%; }
+  .vitrine-content { }
+  .vitrine-tag { display: inline-block; font-size: 11px; font-weight: 500; color: #c9a961; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 30px; padding-left: 50px; position: relative; }
+  .vitrine-tag::before { content: ''; position: absolute; left: 0; top: 50%; width: 40px; height: 1px; background: #c9a961; }
+  .vitrine h1 { font-family: 'Cormorant Garamond', serif; font-size: 76px; line-height: 1.02; margin-bottom: 32px; font-weight: 400; color: #fff; letter-spacing: -1.5px; }
+  .vitrine h1 em { color: #c9a961; font-style: italic; display: block; }
+  .vitrine p { font-size: 17px; color: #a0a0a0; margin-bottom: 45px; max-width: 480px; line-height: 1.7; font-weight: 300; }
+  .vitrine-list { list-style: none; margin-bottom: 50px; }
+  .vitrine-list li { padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #ccc; }
+  .vitrine-list li:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+  .vitrine-list li span { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: #fff; font-style: italic; }
+  .vitrine-list li em { color: #c9a961; font-style: normal; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .vitrine-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-gold { display: inline-block; background: #c9a961; color: #0a0a0a; padding: 18px 42px; text-decoration: none; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; transition: 0.3s; border: none; cursor: pointer; font-family: inherit; }
+  .btn-gold:hover { background: #fff; transform: translateY(-2px); }
+  .btn-ghost { display: inline-block; background: transparent; color: #fff; padding: 18px 42px; text-decoration: none; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 3px; border: 1px solid rgba(201,169,97,0.5); cursor: pointer; transition: 0.3s; font-family: inherit; }
+  .btn-ghost:hover { border-color: #c9a961; color: #c9a961; }
+
+  .vitrine-visual { position: relative; height: 620px; }
+  .vitrine-img { position: absolute; inset: 0; background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%); border: 1px solid rgba(201,169,97,0.2); display: flex; align-items: center; justify-content: center; color: #444; font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; }
+  .vitrine-img::before { content: ''; position: absolute; top: 30px; left: 30px; right: -30px; bottom: -30px; border: 1px solid rgba(201,169,97,0.3); z-index: -1; }
+  .vitrine-quote { position: absolute; bottom: -40px; left: -40px; background: #0a0a0a; border: 1px solid rgba(201,169,97,0.3); padding: 32px 38px; max-width: 340px; z-index: 3; }
+  .vitrine-quote::before { content: '"'; position: absolute; top: 15px; left: 20px; font-family: 'Cormorant Garamond', serif; font-size: 60px; color: #c9a961; line-height: 1; opacity: 0.4; }
+  .vitrine-quote p { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; color: #fff; line-height: 1.5; padding-top: 20px; margin-bottom: 14px; }
+  .vitrine-quote .quote-author { font-size: 11px; color: #c9a961; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
+
+  /* СТАТИСТИКА */
+  .stats { background: #0a0a0a; padding: 70px 0; border-top: 1px solid rgba(201,169,97,0.1); border-bottom: 1px solid rgba(201,169,97,0.1); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 58px; font-weight: 400; color: #c9a961; line-height: 1; margin-bottom: 12px; letter-spacing: -1px; }
+  .stat-num em { font-style: italic; }
+  .stat-label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 3px; font-weight: 400; }
+
+  /* МАСТЕРА — ГЛАВНЫЙ БЛОК */
+  .masters { background: #0d0d0d; }
+  .masters-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(201,169,97,0.1); border: 1px solid rgba(201,169,97,0.1); }
+  .master-card { background: #0a0a0a; padding: 50px 32px; transition: 0.4s; position: relative; cursor: pointer; overflow: hidden; }
+  .master-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 0; background: linear-gradient(180deg, rgba(201,169,97,0.08), transparent); transition: 0.5s; }
+  .master-card:hover::before { height: 100%; }
+  .master-card:hover { transform: translateY(-6px); }
+  .master-photo { width: 130px; height: 130px; border-radius: 50%; background: linear-gradient(135deg, #1a1a1a, #0a0a0a); border: 1px solid rgba(201,169,97,0.3); margin: 0 auto 28px; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 44px; font-style: italic; color: #c9a961; transition: 0.4s; position: relative; z-index: 2; }
+  .master-card:hover .master-photo { border-color: #c9a961; box-shadow: 0 0 30px rgba(201,169,97,0.2); }
+  .master-card > * { position: relative; z-index: 2; }
+  .master-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #fff; text-align: center; margin-bottom: 8px; font-weight: 400; letter-spacing: 0.5px; }
+  .master-spec { text-align: center; font-size: 11px; color: #c9a961; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 22px; font-weight: 500; }
+  .master-desc { text-align: center; font-size: 13px; color: #888; line-height: 1.7; margin-bottom: 24px; min-height: 60px; }
+  .master-meta { display: flex; justify-content: space-between; padding-top: 22px; border-top: 1px solid rgba(201,169,97,0.15); font-size: 12px; }
+  .master-meta span { color: #888; }
+  .master-meta strong { color: #c9a961; font-weight: 500; display: block; font-family: 'Cormorant Garamond', serif; font-size: 18px; margin-top: 4px; }
+
+  /* УСЛУГИ — АККОРДЕОН ПО КАТЕГОРИЯМ */
+  .services { background: #0a0a0a; }
+  .service-cat { border-bottom: 1px solid rgba(201,169,97,0.15); }
+  .service-cat:first-child { border-top: 1px solid rgba(201,169,97,0.15); }
+  .cat-head { display: grid; grid-template-columns: 80px 1fr auto auto; align-items: center; gap: 30px; padding: 34px 20px; cursor: pointer; transition: 0.3s; }
+  .cat-head:hover { background: rgba(201,169,97,0.03); padding-left: 30px; }
+  .cat-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-style: italic; color: #c9a961; }
+  .cat-head h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: #fff; font-weight: 400; letter-spacing: 0.5px; }
+  .cat-count { font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 2px; }
+  .cat-icon { width: 46px; height: 46px; border: 1px solid rgba(201,169,97,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #c9a961; font-size: 24px; font-weight: 200; transition: 0.3s; }
+  .service-cat.open .cat-icon { background: #c9a961; color: #0a0a0a; transform: rotate(45deg); border-color: #c9a961; }
+  .cat-body { max-height: 0; overflow: hidden; transition: 0.5s; }
+  .service-cat.open .cat-body { max-height: 800px; }
+  .cat-body-inner { padding: 0 20px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 60px; }
+  .svc-item { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; border-bottom: 1px dotted rgba(201,169,97,0.2); }
+  .svc-item-name { font-size: 15px; color: #ccc; font-weight: 300; }
+  .svc-item-name small { display: block; font-size: 12px; color: #666; margin-top: 4px; }
+  .svc-item-price { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #c9a961; font-style: italic; white-space: nowrap; margin-left: 20px; }
+
+  /* ГАЛЕРЕЯ MASONRY */
+  .gallery-masonry { background: #0d0d0d; }
+  .masonry { columns: 3; column-gap: 16px; }
+  .masonry-item { break-inside: avoid; margin-bottom: 16px; position: relative; overflow: hidden; cursor: pointer; }
+  .masonry-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(10,10,10,0.85)); opacity: 0; transition: 0.4s; }
+  .masonry-item:hover::after { opacity: 1; }
+  .masonry-img { width: 100%; display: block; background: linear-gradient(135deg, #1a1a1a, #0a0a0a); border: 1px solid rgba(201,169,97,0.1); display: flex; align-items: center; justify-content: center; color: #444; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; transition: 0.4s; }
+  .masonry-item:hover .masonry-img { border-color: rgba(201,169,97,0.4); }
+  .masonry-img.h-1 { height: 320px; }
+  .masonry-img.h-2 { height: 440px; }
+  .masonry-img.h-3 { height: 260px; }
+  .masonry-img.h-4 { height: 380px; }
+  .masonry-img.h-5 { height: 300px; }
+  .masonry-img.h-6 { height: 420px; }
+  .masonry-caption { position: absolute; bottom: 20px; left: 24px; right: 24px; color: #fff; z-index: 2; opacity: 0; transition: 0.4s; transform: translateY(10px); }
+  .masonry-item:hover .masonry-caption { opacity: 1; transform: translateY(0); }
+  .masonry-caption h4 { font-family: 'Cormorant Garamond', serif; font-size: 20px; margin-bottom: 4px; font-weight: 400; }
+  .masonry-caption p { font-size: 11px; color: #c9a961; text-transform: uppercase; letter-spacing: 2px; }
+
+  /* ОТЗЫВЫ — КАРУСЕЛЬ С КРУПНЫМИ ЦИТАТАМИ */
+  .reviews-carousel { background: #0a0a0a; overflow: hidden; }
+  .carousel-viewport { overflow: hidden; position: relative; }
+  .carousel-slides { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+  .carousel-slide { flex: 0 0 100%; padding: 0 20px; }
+  .review-big { max-width: 820px; margin: 0 auto; text-align: center; }
+  .review-quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 120px; color: #c9a961; line-height: 0.5; opacity: 0.4; margin-bottom: 30px; }
+  .review-big-text { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-style: italic; color: #fff; line-height: 1.5; margin-bottom: 40px; font-weight: 400; }
+  .review-big-author { display: flex; align-items: center; justify-content: center; gap: 18px; }
+  .review-big-avatar { width: 60px; height: 60px; border-radius: 50%; border: 1px solid #c9a961; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #c9a961; font-style: italic; }
+  .review-big-name { font-size: 14px; color: #fff; text-align: left; letter-spacing: 1px; }
+  .review-big-name small { display: block; color: #c9a961; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; margin-top: 4px; }
+  .carousel-controls { display: flex; justify-content: center; gap: 16px; margin-top: 60px; }
+  .carousel-arrow { width: 56px; height: 56px; border-radius: 50%; background: transparent; border: 1px solid rgba(201,169,97,0.4); color: #c9a961; font-size: 20px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
+  .carousel-arrow:hover { background: #c9a961; color: #0a0a0a; border-color: #c9a961; }
+  .carousel-dots { display: flex; gap: 10px; align-items: center; padding: 0 20px; }
+  .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(201,169,97,0.3); cursor: pointer; transition: 0.3s; }
+  .carousel-dot.active { background: #c9a961; width: 28px; border-radius: 4px; }
+
+  /* WIZARD-ЗАПИСЬ */
+  .booking-wizard { background: #0d0d0d; }
+  .wizard-wrap { max-width: 900px; margin: 0 auto; }
+  .wizard-progress { display: flex; justify-content: space-between; margin-bottom: 60px; position: relative; }
+  .wizard-progress::before { content: ''; position: absolute; top: 22px; left: 8%; right: 8%; height: 1px; background: rgba(201,169,97,0.2); z-index: 1; }
+  .wiz-step { text-align: center; position: relative; z-index: 2; flex: 1; }
+  .wiz-step-num { width: 46px; height: 46px; border-radius: 50%; background: #0d0d0d; border: 1px solid rgba(201,169,97,0.3); color: #666; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; transition: 0.4s; }
+  .wiz-step.active .wiz-step-num { background: #c9a961; color: #0a0a0a; border-color: #c9a961; }
+  .wiz-step.done .wiz-step-num { background: transparent; color: #c9a961; border-color: #c9a961; }
+  .wiz-step.done .wiz-step-num::before { content: '✓'; }
+  .wiz-step.done .wiz-step-num span { display: none; }
+  .wiz-step-label { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 2px; font-weight: 400; }
+  .wiz-step.active .wiz-step-label { color: #c9a961; }
+
+  .wizard-content { background: #0a0a0a; border: 1px solid rgba(201,169,97,0.15); padding: 55px 50px; min-height: 420px; display: flex; flex-direction: column; }
+  .wiz-panel { display: none; flex: 1; }
+  .wiz-panel.active { display: block; animation: fadeWiz 0.4s ease; }
+  @keyframes fadeWiz { from { opacity: 0; transform: translateX(15px); } to { opacity: 1; transform: translateX(0); } }
+  .wiz-panel h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: #fff; margin-bottom: 12px; font-weight: 400; }
+  .wiz-panel > p { color: #888; font-size: 14px; margin-bottom: 32px; }
+  .wiz-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .wiz-option { background: transparent; border: 1px solid rgba(201,169,97,0.2); padding: 22px 24px; cursor: pointer; transition: 0.3s; text-align: left; color: #ccc; font-family: inherit; font-size: 15px; display: flex; justify-content: space-between; align-items: center; }
+  .wiz-option:hover { border-color: #c9a961; background: rgba(201,169,97,0.05); }
+  .wiz-option.selected { border-color: #c9a961; background: rgba(201,169,97,0.1); color: #fff; }
+  .wiz-option small { display: block; font-size: 12px; color: #666; margin-top: 4px; }
+  .wiz-option-price { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: #c9a961; font-style: italic; }
+  .wiz-input { width: 100%; padding: 16px 20px; background: transparent; border: 1px solid rgba(201,169,97,0.2); color: #fff; font-size: 15px; font-family: inherit; margin-bottom: 14px; transition: 0.3s; }
+  .wiz-input:focus { outline: none; border-color: #c9a961; }
+  .wiz-input::placeholder { color: #555; }
+  .wiz-actions { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(201,169,97,0.15); gap: 14px; flex-wrap: wrap; }
+  .wiz-btn-back { background: transparent; border: 1px solid rgba(255,255,255,0.15); color: #888; padding: 16px 36px; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s; font-family: inherit; }
+  .wiz-btn-back:hover { color: #fff; border-color: #fff; }
+  .wiz-btn-next { background: #c9a961; border: none; color: #0a0a0a; padding: 16px 42px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; transition: 0.3s; font-family: inherit; }
+  .wiz-btn-next:hover { background: #fff; }
+  .wiz-btn-next:disabled { opacity: 0.3; cursor: not-allowed; }
+  .wiz-btn-next:disabled:hover { background: #c9a961; }
+  .wiz-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .wiz-consent { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: #666; line-height: 1.6; cursor: pointer; margin-top: 14px; }
+  .wiz-consent input[type="checkbox"] { width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px; accent-color: #c9a961; cursor: pointer; }
+  .wiz-consent a { color: #c9a961; text-decoration: none; }
+  .wiz-consent a:hover { text-decoration: underline; }
+
+  /* ФУТЕР */
+  footer { background: #050505; padding: 80px 0 30px; border-top: 1px solid rgba(201,169,97,0.1); }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: 50px; margin-bottom: 60px; }
+  .footer-brand .logo { color: #fff; margin-bottom: 24px; }
+  .footer-brand p { font-size: 13px; color: #666; line-height: 1.8; margin-bottom: 24px; }
+  .footer-social { display: flex; gap: 12px; }
+  .footer-social a { width: 42px; height: 42px; border: 1px solid rgba(201,169,97,0.3); display: flex; align-items: center; justify-content: center; color: #c9a961; text-decoration: none; font-size: 13px; font-weight: 500; transition: 0.3s; }
+  .footer-social a:hover { background: #c9a961; color: #0a0a0a; }
+  .footer-col h4 { font-size: 11px; color: #c9a961; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 3px; font-weight: 500; }
+  .footer-col a, .footer-col p { color: #888; font-size: 14px; text-decoration: none; display: block; margin-bottom: 12px; transition: 0.3s; font-weight: 300; }
+  .footer-col a:hover { color: #c9a961; }
+  .footer-bottom { border-top: 1px solid rgba(201,169,97,0.1); padding-top: 30px; display: flex; justify-content: space-between; font-size: 12px; color: #555; flex-wrap: wrap; gap: 12px; letter-spacing: 0.5px; }
+
+  /* АДАПТИВ */
+  @media (max-width: 1024px) {
+    .vitrine h1 { font-size: 60px; }
+    .vitrine-grid { gap: 50px; }
+    .vitrine-visual { height: 520px; }
+    .masters-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 35px; }
+    .cat-body-inner { grid-template-columns: 1fr; gap: 0; }
+    .masonry { columns: 2; }
+  }
+
+  @media (max-width: 900px) {
+    section { padding: 70px 0; }
+    .container { padding: 0 18px; }
+    .menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #0a0a0a; flex-direction: column; padding: 24px; gap: 20px; border-bottom: 1px solid rgba(201,169,97,0.15); }
+    .menu.open { display: flex; }
+    .burger { display: block; }
+    .nav-phone, .nav-btn { display: none; }
+    .nav { padding: 16px 0; }
+    .logo { font-size: 24px; }
+
+    /* Витрина */
+    .vitrine { min-height: auto; padding: 50px 0; }
+    .vitrine-grid { grid-template-columns: 1fr; gap: 60px; }
+    .vitrine h1 { font-size: 42px; letter-spacing: -0.5px; }
+    .vitrine p { font-size: 15px; margin-bottom: 35px; }
+    .vitrine-tag { font-size: 10px; padding-left: 40px; }
+    .vitrine-list li { padding: 14px 0; font-size: 13px; }
+    .vitrine-list li span { font-size: 16px; }
+    .vitrine-buttons { gap: 10px; flex-direction: column; }
+    .btn-gold, .btn-ghost { padding: 16px 30px; font-size: 11px; text-align: center; width: 100%; }
+    .vitrine-visual { height: 380px; }
+    .vitrine-quote { position: relative; bottom: auto; left: auto; margin-top: 30px; max-width: 100%; padding: 26px 28px; }
+    .vitrine-quote p { font-size: 17px; }
+    .vitrine-img::before { display: none; }
+
+    /* Статистика */
+    .stats { padding: 50px 0; }
+    .stats-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .stat-num { font-size: 42px; }
+    .stat-label { font-size: 10px; letter-spacing: 2px; }
+
+    /* Заголовки */
+    .section-title { font-size: 34px; }
+    .section-sub { font-size: 14px; margin-bottom: 45px; }
+    .section-eyebrow { font-size: 11px; letter-spacing: 3px; margin-bottom: 14px; }
+
+    /* Мастера */
+    .masters-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
+    .master-card { padding: 35px 20px; }
+    .master-photo { width: 100px; height: 100px; font-size: 34px; margin-bottom: 20px; }
+    .master-name { font-size: 20px; }
+    .master-spec { font-size: 10px; letter-spacing: 2px; margin-bottom: 16px; }
+    .master-desc { font-size: 12px; min-height: auto; margin-bottom: 18px; }
+    .master-meta { padding-top: 16px; font-size: 11px; flex-direction: column; gap: 10px; }
+    .master-meta strong { font-size: 16px; }
+
+    /* Услуги */
+    .cat-head { grid-template-columns: 50px 1fr 36px; gap: 16px; padding: 24px 16px; }
+    .cat-count { display: none; }
+    .cat-head h3 { font-size: 22px; }
+    .cat-num { font-size: 22px; }
+    .cat-icon { width: 36px; height: 36px; font-size: 20px; }
+    .cat-body-inner { padding: 0 16px 28px; }
+    .svc-item { padding: 14px 0; }
+    .svc-item-name { font-size: 14px; }
+    .svc-item-price { font-size: 18px; }
+
+    /* Галерея */
+    .masonry { columns: 2; column-gap: 10px; }
+    .masonry-item { margin-bottom: 10px; }
+    .masonry-img.h-1, .masonry-img.h-2, .masonry-img.h-3, .masonry-img.h-4, .masonry-img.h-5, .masonry-img.h-6 { height: 200px; }
+
+    /* Отзывы */
+    .review-quote-mark { font-size: 80px; margin-bottom: 20px; }
+    .review-big-text { font-size: 22px; margin-bottom: 30px; }
+    .review-big-avatar { width: 50px; height: 50px; font-size: 20px; }
+    .review-big-name { font-size: 13px; }
+    .carousel-arrow { width: 48px; height: 48px; font-size: 18px; }
+    .carousel-controls { margin-top: 40px; }
+
+    /* Wizard */
+    .wizard-progress { margin-bottom: 40px; }
+    .wizard-progress::before { top: 18px; }
+    .wiz-step-num { width: 38px; height: 38px; font-size: 16px; }
+    .wiz-step-label { font-size: 9px; letter-spacing: 1px; }
+    .wizard-content { padding: 32px 22px; min-height: 380px; }
+    .wiz-panel h3 { font-size: 24px; }
+    .wiz-options { grid-template-columns: 1fr; }
+    .wiz-option { padding: 18px 20px; font-size: 14px; }
+    .wiz-form-row { grid-template-columns: 1fr; }
+    .wiz-actions { flex-direction: column-reverse; }
+    .wiz-btn-back, .wiz-btn-next { width: 100%; padding: 14px; }
+
+    /* Футер */
+    footer { padding: 55px 0 25px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 30px; margin-bottom: 35px; }
+    .footer-bottom { flex-direction: column; text-align: center; gap: 12px; }
+  }
+
+  @media (max-width: 480px) {
+    .vitrine h1 { font-size: 34px; }
+    .section-title { font-size: 28px; }
+    .masters-grid { grid-template-columns: 1fr; }
+    .masonry { columns: 1; }
+    .stat-num { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo"><div class="logo-mark">E</div>Est<em>et</em></div>
+    <ul class="menu">
+      <li><a href="#masters">Мастера</a></li>
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#gallery">Работы</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+    <div class="nav-phone">
+      <a href="tel:+73915000000">+7 (391) 500-00-00</a>
+      <a href="#booking" class="nav-btn">Записаться</a>
+    </div>
+    <button class="burger" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<section class="vitrine">
+  <div class="container vitrine-grid">
+    <div class="vitrine-content">
+      <div class="vitrine-tag">Салон красоты · Канск</div>
+      <h1>Ваша красота — <em>наша работа</em></h1>
+      <p>Полный цикл: волосы, ногти, брови, косметология. Один салон — все процедуры. Работаем с 2016 года, 6 мастеров, больше 3000 довольных гостей.</p>
+      <ul class="vitrine-list">
+        <li><span>Волосы</span><em>Стрижка · Окрашивание · Уход</em></li>
+        <li><span>Ногти</span><em>Маникюр · Педикюр · Дизайн</em></li>
+        <li><span>Брови и ресницы</span><em>Коррекция · Окрашивание · Ламинирование</em></li>
+        <li><span>Косметология</span><em>Чистки · Пилинги · Уходы</em></li>
+      </ul>
+      <div class="vitrine-buttons">
+        <a href="#booking" class="btn-gold">Записаться онлайн</a>
+        <a href="#masters" class="btn-ghost">Наши мастера</a>
+      </div>
+    </div>
+    <div class="vitrine-visual">
+      <div class="vitrine-img">Фото: атмосфера салона Estet</div>
+      <div class="vitrine-quote">
+        <p>Выхожу из Estet как будто заново родилась. Здесь не просто делают красиво — здесь про заботу.</p>
+        <div class="quote-author">— Анна, постоянный гость</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container stats-grid">
+    <div><div class="stat-num">9<em> лет</em></div><div class="stat-label">Работаем в Канске</div></div>
+    <div><div class="stat-num">6</div><div class="stat-label">Мастеров в команде</div></div>
+    <div><div class="stat-num">3000<em>+</em></div><div class="stat-label">Довольных гостей</div></div>
+    <div><div class="stat-num">4.9★</div><div class="stat-label">Средний рейтинг</div></div>
+  </div>
+</section>
+
+<section class="masters" id="masters">
+  <div class="container">
+    <span class="section-eyebrow">Наша команда</span>
+    <h2 class="section-title">Мастера, которым <em>доверяют</em></h2>
+    <p class="section-sub">Каждый мастер — с профильным образованием и опытом от 5 лет. Выбирайте своего — или доверьтесь нашему подбору.</p>
+
+    <div class="masters-grid">
+      <div class="master-card">
+        <div class="master-photo">Е</div>
+        <div class="master-name">Елена Кузнецова</div>
+        <div class="master-spec">Парикмахер-стилист</div>
+        <div class="master-desc">Окрашивание, сложные техники, восстановление волос. Работает с блондом любой сложности.</div>
+        <div class="master-meta">
+          <span>Опыт<strong>12 лет</strong></span>
+          <span>Стрижка<strong>от 1 800 ₽</strong></span>
+        </div>
+      </div>
+      <div class="master-card">
+        <div class="master-photo">М</div>
+        <div class="master-name">Мария Соколова</div>
+        <div class="master-spec">Ногтевой сервис</div>
+        <div class="master-desc">Маникюр, педикюр, наращивание, дизайн любой сложности. Стерильные инструменты, премиум-материалы.</div>
+        <div class="master-meta">
+          <span>Опыт<strong>8 лет</strong></span>
+          <span>Маникюр<strong>от 2 200 ₽</strong></span>
+        </div>
+      </div>
+      <div class="master-card">
+        <div class="master-photo">О</div>
+        <div class="master-name">Ольга Морозова</div>
+        <div class="master-spec">Брови и ресницы</div>
+        <div class="master-desc">Коррекция, окрашивание, ламинирование, наращивание ресниц. Подбирает форму под тип лица.</div>
+        <div class="master-meta">
+          <span>Опыт<strong>6 лет</strong></span>
+          <span>Брови<strong>от 1 500 ₽</strong></span>
+        </div>
+      </div>
+      <div class="master-card">
+        <div class="master-photo">И</div>
+        <div class="master-name">Ирина Волкова</div>
+        <div class="master-spec">Косметолог-эстетист</div>
+        <div class="master-desc">Чистки, пилинги, уходовые процедуры. Медицинское образование, работа с проблемной кожей.</div>
+        <div class="master-meta">
+          <span>Опыт<strong>10 лет</strong></span>
+          <span>Чистка<strong>от 3 500 ₽</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <span class="section-eyebrow">Прайс-лист</span>
+    <h2 class="section-title">Что мы <em>делаем</em></h2>
+    <p class="section-sub">Полный перечень услуг и цен. Точную стоимость мастер назовёт после консультации.</p>
+
+    <div class="service-cats">
+
+      <div class="service-cat open">
+        <div class="cat-head">
+          <span class="cat-num">01</span>
+          <h3>Волосы</h3>
+          <span class="cat-count">12 услуг</span>
+          <span class="cat-icon">+</span>
+        </div>
+        <div class="cat-body">
+          <div class="cat-body-inner">
+            <div class="svc-item"><div class="svc-item-name">Женская стрижка<small>Мытьё, стрижка, укладка</small></div><div class="svc-item-price">от 1 800 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Мужская стрижка<small>Машинка + ножницы, укладка</small></div><div class="svc-item-price">от 1 200 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Окрашивание в один тон<small>Краска премиум-класса</small></div><div class="svc-item-price">от 3 500 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Сложное окрашивание<small>Балаяж, шатуш, airtouch</small></div><div class="svc-item-price">от 7 500 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Уход Olaplex / K18<small>Восстановление структуры</small></div><div class="svc-item-price">от 2 500 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Кератиновое выпрямление<small>Гладкость до 6 месяцев</small></div><div class="svc-item-price">от 6 500 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Укладка / локоны<small>На вечер или событие</small></div><div class="svc-item-price">от 1 500 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Свадебная причёска<small>С репетицией</small></div><div class="svc-item-price">от 5 000 ₽</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-cat">
+        <div class="cat-head">
+          <span class="cat-num">02</span>
+          <h3>Ногти</h3>
+          <span class="cat-count">8 услуг</span>
+          <span class="cat-icon">+</span>
+        </div>
+        <div class="cat-body">
+          <div class="cat-body-inner">
+            <div class="svc-item"><div class="svc-item-name">Маникюр классический<small>Без покрытия</small></div><div class="svc-item-price">от 1 200 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Маникюр + гель-лак<small>Покрытие любого цвета</small></div><div class="svc-item-price">от 2 200 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Наращивание ногтей<small>Гель или акригель</small></div><div class="svc-item-price">от 3 500 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Дизайн<small>Стразы, роспись, френч</small></div><div class="svc-item-price">от 500 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Педикюр + покрытие<small>Полная обработка стоп</small></div><div class="svc-item-price">от 2 800 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Снятие покрытия<small>Аккуратно, без вреда</small></div><div class="svc-item-price">от 500 ₽</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-cat">
+        <div class="cat-head">
+          <span class="cat-num">03</span>
+          <h3>Брови и ресницы</h3>
+          <span class="cat-count">6 услуг</span>
+          <span class="cat-icon">+</span>
+        </div>
+        <div class="cat-body">
+          <div class="cat-body-inner">
+            <div class="svc-item"><div class="svc-item-name">Коррекция бровей<small>Форма под тип лица</small></div><div class="svc-item-price">от 800 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Окрашивание бровей<small>Краска или хна</small></div><div class="svc-item-price">от 1 500 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Ламинирование бровей<small>Долговременная укладка</small></div><div class="svc-item-price">от 2 500 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Ламинирование ресниц<small>Изгиб и питание</small></div><div class="svc-item-price">от 2 800 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Наращивание ресниц<small>Классика, 2D, 3D</small></div><div class="svc-item-price">от 3 500 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Ботокс для ресниц<small>Восстановление</small></div><div class="svc-item-price">от 1 800 ₽</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-cat">
+        <div class="cat-head">
+          <span class="cat-num">04</span>
+          <h3>Косметология</h3>
+          <span class="cat-count">7 услуг</span>
+          <span class="cat-icon">+</span>
+        </div>
+        <div class="cat-body">
+          <div class="cat-body-inner">
+            <div class="svc-item"><div class="svc-item-name">Уходовая чистка лица<small>Мягкое очищение</small></div><div class="svc-item-price">от 3 500 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Комбинированная чистка<small>Глубокая, с распариванием</small></div><div class="svc-item-price">от 5 000 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Пилинг<small>Кислотный, ферментативный</small></div><div class="svc-item-price">от 4 000 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Массаж лица<small>Лимфодренажный, 30 мин</small></div><div class="svc-item-price">от 2 500 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Уход по типу кожи<small>Индивидуальный подбор</small></div><div class="svc-item-price">от 3 000 ₽</div></div>
+            <div class="svc-item"><div class="svc-item-name">Маска-плёнка / альгинат<small>Экспресс-эффект</small></div><div class="svc-item-price">от 2 000 ₽</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="gallery-masonry" id="gallery">
+  <div class="container">
+    <span class="section-eyebrow">Портфолио</span>
+    <h2 class="section-title">Наши <em>работы</em></h2>
+    <p class="section-sub">Реальные результаты до / после. Больше работ — в нашем Instagram.</p>
+
+    <div class="masonry">
+      <div class="masonry-item">
+        <div class="masonry-img h-2">Фото: сложное окрашивание</div>
+        <div class="masonry-caption"><h4>Балаяж на тёмные волосы</h4><p>Мастер: Елена Кузнецова</p></div>
+      </div>
+      <div class="masonry-item">
+        <div class="masonry-img h-1">Фото: маникюр</div>
+        <div class="masonry-caption"><h4>Гель-лак с дизайном</h4><p>Мастер: Мария Соколова</p></div>
+      </div>
+      <div class="masonry-item">
+        <div class="masonry-img h-3">Фото: брови</div>
+        <div class="masonry-caption"><h4>Ламинирование бровей</h4><p>Мастер: Ольга Морозова</p></div>
+      </div>
+      <div class="masonry-item">
+        <div class="masonry-img h-4">Фото: укладка</div>
+        <div class="masonry-caption"><h4>Вечерняя укладка</h4><p>Мастер: Елена Кузнецова</p></div>
+      </div>
+      <div class="masonry-item">
+        <div class="masonry-img h-5">Фото: косметология</div>
+        <div class="masonry-caption"><h4>Чистка лица</h4><p>Мастер: Ирина Волкова</p></div>
+      </div>
+      <div class="masonry-item">
+        <div class="masonry-img h-6">Фото: наращивание ресниц</div>
+        <div class="masonry-caption"><h4>Наращивание 2D</h4><p>Мастер: Ольга Морозова</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews-carousel" id="reviews">
+  <div class="container">
+    <span class="section-eyebrow">Отзывы</span>
+    <h2 class="section-title">Что говорят <em>гости</em></h2>
+    <p class="section-sub">Реальные отзывы из Яндекс.Карт и 2ГИС</p>
+
+    <div class="carousel-viewport">
+      <div class="carousel-slides" id="reviewSlides">
+        <div class="carousel-slide">
+          <div class="review-big">
+            <div class="review-quote-mark">"</div>
+            <p class="review-big-text">Хожу к Елене на окрашивание уже второй год. Блонд — идеальный, волосы живые. Лучший мастер в Канске, я серьёзно.</p>
+            <div class="review-big-author">
+              <div class="review-big-avatar">А</div>
+              <div class="review-big-name">Анна<small>Постоянный гость</small></div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="review-big">
+            <div class="review-quote-mark">"</div>
+            <p class="review-big-text">Делаю маникюр у Марии больше трёх лет. Ни разу не было нареканий. Стерильно, аккуратно, всегда попадает в мой вкус.</p>
+            <div class="review-big-author">
+              <div class="review-big-avatar">Е</div>
+              <div class="review-big-name">Екатерина<small>Постоянный гость</small></div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="review-big">
+            <div class="review-quote-mark">"</div>
+            <p class="review-big-text">Пришла в Estet первый раз на чистку лица. Ирина — профессионал, всё объяснила, кожа сияет. Теперь хожу каждый месяц.</p>
+            <div class="review-big-author">
+              <div class="review-big-avatar">М</div>
+              <div class="review-big-name">Марина<small>Косметология</small></div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="review-big">
+            <div class="review-quote-mark">"</div>
+            <p class="review-big-text">Не думала, что в Канске есть салон такого уровня. Атмосфера, сервис, результат — всё на пять. Рекомендую всем подругам.</p>
+            <div class="review-big-author">
+              <div class="review-big-avatar">О</div>
+              <div class="review-big-name">Ольга<small>Комплекс услуг</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-controls">
+      <button class="carousel-arrow" onclick="prevReview()">←</button>
+      <div class="carousel-dots" id="reviewDots"></div>
+      <button class="carousel-arrow" onclick="nextReview()">→</button>
+    </div>
+  </div>
+</section>
+
+<section class="booking-wizard" id="booking">
+  <div class="container">
+    <span class="section-eyebrow">Запись онлайн</span>
+    <h2 class="section-title">Запишитесь <em>за 30 секунд</em></h2>
+    <p class="section-sub">Четыре простых шага. Мастер перезвонит и подтвердит время.</p>
+
+    <div class="wizard-wrap">
+      <div class="wizard-progress">
+        <div class="wiz-step active" data-step="1"><div class="wiz-step-num"><span>1</span></div><div class="wiz-step-label">Услуга</div></div>
+        <div class="wiz-step" data-step="2"><div class="wiz-step-num"><span>2</span></div><div class="wiz-step-label">Мастер</div></div>
+        <div class="wiz-step" data-step="3"><div class="wiz-step-num"><span>3</span></div><div class="wiz-step-label">Дата и время</div></div>
+        <div class="wiz-step" data-step="4"><div class="wiz-step-num"><span>4</span></div><div class="wiz-step-label">Контакты</div></div>
+      </div>
+
+      <div class="wizard-content">
+
+        <div class="wiz-panel active" data-panel="1">
+          <h3>Что будем делать?</h3>
+          <p>Выберите категорию — подберём мастера на следующем шаге</p>
+          <div class="wiz-options">
+            <button class="wiz-option" data-wiz="service" data-value="Волосы"><span>Волосы<small>Стрижка, окрашивание, уход</small></span><span class="wiz-option-price">от 1 200 ₽</span></button>
+            <button class="wiz-option" data-wiz="service" data-value="Ногти"><span>Ногти<small>Маникюр, педикюр, дизайн</small></span><span class="wiz-option-price">от 1 200 ₽</span></button>
+            <button class="wiz-option" data-wiz="service" data-value="Брови и ресницы"><span>Брови и ресницы<small>Коррекция, ламинирование</small></span><span class="wiz-option-price">от 800 ₽</span></button>
+            <button class="wiz-option" data-wiz="service" data-value="Косметология"><span>Косметология<small>Чистки, пилинги, уходы</small></span><span class="wiz-option-price">от 2 000 ₽</span></button>
+          </div>
+        </div>
+
+        <div class="wiz-panel" data-panel="2">
+          <h3>К кому хотите записаться?</h3>
+          <p>Выберите мастера — или доверьтесь нашему подбору</p>
+          <div class="wiz-options">
+            <button class="wiz-option" data-wiz="master" data-value="Елена Кузнецова"><span>Елена Кузнецова<small>Парикмахер-стилист · 12 лет</small></span></button>
+            <button class="wiz-option" data-wiz="master" data-value="Мария Соколова"><span>Мария Соколова<small>Ногтевой сервис · 8 лет</small></span></button>
+            <button class="wiz-option" data-wiz="master" data-value="Ольга Морозова"><span>Ольга Морозова<small>Брови и ресницы · 6 лет</small></span></button>
+            <button class="wiz-option" data-wiz="master" data-value="Ирина Волкова"><span>Ирина Волкова<small>Косметолог · 10 лет</small></span></button>
+            <button class="wiz-option" data-wiz="master" data-value="Не важно — подберите"><span>Подберите за меня<small>Покажем ближайшее свободное время</small></span></button>
+          </div>
+        </div>
+
+        <div class="wiz-panel" data-panel="3">
+          <h3>Когда вам удобно?</h3>
+          <p>Укажите желаемую дату и время — проверим свободное окно</p>
+          <div class="wiz-form-row">
+            <input type="date" class="wiz-input" data-wiz="date">
+            <input type="time" class="wiz-input" data-wiz="time">
+          </div>
+          <input type="text" class="wiz-input" placeholder="Комментарий (необязательно)" data-wiz="comment">
+        </div>
+
+        <div class="wiz-panel" data-panel="4">
+          <h3>Куда перезвонить?</h3>
+          <p>Подтвердим запись в течение 15 минут</p>
+          <input type="text" class="wiz-input" placeholder="Ваше имя" data-wiz="name">
+          <input type="tel" class="wiz-input" placeholder="Телефон" data-wiz="phone">
+          <label class="wiz-consent">
+            <input type="checkbox" id="wizConsent">
+            <span>Я согласен на обработку персональных данных и принимаю <a href="privacy.html" target="_blank">политику конфиденциальности</a></span>
+          </label>
+        </div>
+
+        <div class="wiz-actions">
+          <button class="wiz-btn-back" id="wizBack" onclick="wizPrev()" style="visibility: hidden;">← Назад</button>
+          <button class="wiz-btn-next" id="wizNext" onclick="wizNext()" disabled>Далее →</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><div class="logo-mark">E</div>Est<em>et</em></div>
+        <p>Салон красоты полного цикла в Канске. Волосы, ногти, брови, косметология. Работаем с 2016 года.</p>
+        <div class="footer-social">
+          <a href="#" title="Telegram">TG</a>
+          <a href="#" title="VK">VK</a>
+          <a href="#" title="WhatsApp">WA</a>
+          <a href="#" title="Instagram">IG</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Услуги</h4>
+        <a href="#services">Волосы</a>
+        <a href="#services">Ногти</a>
+        <a href="#services">Брови и ресницы</a>
+        <a href="#services">Косметология</a>
+      </div>
+      <div class="footer-col">
+        <h4>Салон</h4>
+        <a href="#masters">Мастера</a>
+        <a href="#gallery">Работы</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#booking">Записаться</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <a href="tel:+73915000000">+7 (391) 500-00-00</a>
+        <a href="mailto:hello@estet.ru">hello@estet.ru</a>
+        <p>г. Канск, ул. Ленина, 15, 2 этаж</p>
+        <p>Ежедневно 09:00–21:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Estet. Салон красоты в Канске.</span>
+      <span><a href="privacy.html" style="color:#555;text-decoration:none;">Политика конфиденциальности</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // АККОРДЕОН УСЛУГ
+  document.querySelectorAll('.cat-head').forEach(head => {
+    head.addEventListener('click', () => {
+      const cat = head.parentElement;
+      const wasOpen = cat.classList.contains('open');
+      document.querySelectorAll('.service-cat').forEach(c => c.classList.remove('open'));
+      if (!wasOpen) cat.classList.add('open');
+    });
+  });
+
+  // МЕНЮ-БУРГЕР
+  document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.menu').classList.remove('open');
+    });
+  });
+
+  // КАРУСЕЛЬ ОТЗЫВОВ
+  let currentReview = 0;
+  const slides = document.getElementById('reviewSlides');
+  const totalSlides = document.querySelectorAll('.carousel-slide').length;
+  const dotsContainer = document.getElementById('reviewDots');
+
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goToReview(i);
+    dotsContainer.appendChild(dot);
+  }
+
+  function goToReview(n) {
+    currentReview = n;
+    slides.style.transform = 'translateX(-' + (n * 100) + '%)';
+    document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === n));
+  }
+  function nextReview() { goToReview((currentReview + 1) % totalSlides); }
+  function prevReview() { goToReview((currentReview - 1 + totalSlides) % totalSlides); }
+
+  // Автоматическое переключение каждые 7 секунд
+  let autoReview = setInterval(nextReview, 7000);
+  slides.addEventListener('mouseenter', () => clearInterval(autoReview));
+  slides.addEventListener('mouseleave', () => { autoReview = setInterval(nextReview, 7000); });
+
+  // WIZARD ЗАПИСЬ
+  let wizCurrent = 1;
+  const wizData = { service: '', master: '', date: '', time: '', comment: '', name: '', phone: '' };
+  const wizNextBtn = document.getElementById('wizNext');
+  const wizBackBtn = document.getElementById('wizBack');
+
+  function updateWizButtons() {
+    // Проверяем, что текущий шаг заполнен
+    let filled = false;
+    if (wizCurrent === 1) filled = !!wizData.service;
+    else if (wizCurrent === 2) filled = !!wizData.master;
+    else if (wizCurrent === 3) filled = !!(wizData.date && wizData.time);
+    else if (wizCurrent === 4) filled = !!(wizData.name && wizData.phone && document.getElementById('wizConsent').checked);
+
+    wizNextBtn.disabled = !filled;
+    wizBackBtn.style.visibility = wizCurrent === 1 ? 'hidden' : 'visible';
+    wizNextBtn.textContent = wizCurrent === 4 ? 'Записаться ✓' : 'Далее →';
+  }
+
+  function wizNext() {
+    if (wizCurrent === 4) {
+      // Финальная отправка
+      alert('Спасибо, ' + wizData.name + '! Заявка принята.\n\nУслуга: ' + wizData.service + '\nМастер: ' + wizData.master + '\nДата: ' + wizData.date + ' в ' + wizData.time + '\n\nМы перезвоним в течение 15 минут для подтверждения.');
+      // Сброс
+      wizCurrent = 1;
+      Object.keys(wizData).forEach(k => wizData[k] = '');
+      document.querySelectorAll('.wiz-option').forEach(o => o.classList.remove('selected'));
+      document.querySelectorAll('.wiz-input').forEach(i => i.value = '');
+      document.getElementById('wizConsent').checked = false;
+      showWizPanel();
+      return;
+    }
+    if (wizCurrent < 4) {
+      wizCurrent++;
+      showWizPanel();
+    }
+  }
+
+  function wizPrev() {
+    if (wizCurrent > 1) {
+      wizCurrent--;
+      showWizPanel();
+    }
+  }
+
+  function showWizPanel() {
+    document.querySelectorAll('.wiz-panel').forEach(p => p.classList.remove('active'));
+    document.querySelector('.wiz-panel[data-panel="' + wizCurrent + '"]').classList.add('active');
+    document.querySelectorAll('.wiz-step').forEach(s => {
+      const n = parseInt(s.dataset.step);
+      s.classList.remove('active', 'done');
+      if (n < wizCurrent) s.classList.add('done');
+      if (n === wizCurrent) s.classList.add('active');
+    });
+    updateWizButtons();
+  }
+
+  // Выбор опций
+  document.querySelectorAll('.wiz-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const type = opt.dataset.wiz;
+      const value = opt.dataset.value;
+      // Снимаем выделение с опций того же типа
+      document.querySelectorAll('.wiz-option[data-wiz="' + type + '"]').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      wizData[type] = value;
+      updateWizButtons();
+    });
+  });
+
+  // Ввод данных
+  document.querySelectorAll('.wiz-input').forEach(input => {
+    input.addEventListener('input', () => {
+      const field = input.dataset.wiz;
+      if (field) {
+        wizData[field] = input.value;
+        updateWizButtons();
+      }
+    });
+  });
+  document.getElementById('wizConsent').addEventListener('change', updateWizButtons);
+
+  updateWizButtons();
+</script>
+
+</body>
+</html>
