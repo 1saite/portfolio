@@ -618,19 +618,20 @@
       <div class="section-eyebrow">Контакты</div>
       <h2 class="section-title" style="text-align:center;">Обсудим <em>ваш проект?</em></h2>
       <p class="section-sub" style="text-align:center;margin:0 auto 50px;max-width:560px;">Оставьте заявку — отвечу в течение часа. Расскажу, что и как можно сделать, назову сроки и стоимость.</p>
-      <form class="cta-form" onsubmit="event.preventDefault(); alert('Спасибо! Я свяжусь с вами в течение часа.'); this.reset();">
-        <div class="form-row">
-          <input type="text" placeholder="Ваше имя" required>
-          <input type="tel" placeholder="Телефон или Telegram" required>
-        </div>
-        <textarea rows="4" placeholder="Расскажите о задаче: что за бизнес, какой сайт нужен, есть ли примеры"></textarea>
-        <label class="form-consent">
-          <input type="checkbox" required>
-          <span>Я согласен на обработку персональных данных и принимаю <a href="privacy.html" target="_blank">политику конфиденциальности</a></span>
-        </label>
-        <button type="submit">Отправить заявку</button>
-      </form>
-    </div>
+      <form class="cta-form" action="https://formspree.io/f/mdeakprb" method="POST">
+  <input type="hidden" name="_subject" value="Заявка с личного сайта Владимира">
+  <div class="form-row">
+    <input type="text" name="name" placeholder="Ваше имя" required>
+    <input type="tel" name="phone" placeholder="Телефон или Telegram" required>
+  </div>
+  <textarea name="message" rows="4" placeholder="Расскажите о задаче: что за бизнес, какой сайт нужен, есть ли примеры"></textarea>
+  <label class="form-consent">
+    <input type="checkbox" name="consent" required>
+    <span>Я согласен на обработку персональных данных и принимаю <a href="privacy.html" target="_blank">политику конфиденциальности</a></span>
+  </label>
+  <button type="submit">Отправить заявку</button>
+</form>  
+  </div>
   </div>
 </section>
 
@@ -649,7 +650,7 @@
         <a href="mailto:runkelov@gmail.com">runkelov@gmail.com</a>
         <span>Красноярск · удалённо по России</span>
       </div>
-      <div>© 2025 Владимир Рункелов. Все права защищены.</div>
+      <div>© 2025 ИП Рункелов В.Н. · ИНН 246519692500</div>
     </div>
   </div>
 </footer>
