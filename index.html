@@ -61,7 +61,28 @@
   .section-title { font-size: 58px; line-height: 1.02; font-weight: 900; letter-spacing: -2px; color: #111; margin-bottom: 22px; }
   .section-title em { color: #ff5722; font-style: normal; }
   .section-sub { font-size: 19px; color: #666; line-height: 1.55; }
+  /* О СЕБЕ */
+  .about-me { background: #fff; }
+  .about-me-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 70px; align-items: center; }
+  .about-me-photo { position: relative; }
+  .about-me-photo img { width: 100%; height: auto; border-radius: 24px; display: block; object-fit: cover; aspect-ratio: 4/5; }
+  .about-me-photo::before { content: ''; position: absolute; top: 20px; left: 20px; right: -20px; bottom: -20px; border: 2px solid #ff5722; border-radius: 24px; z-index: -1; }
+  .about-me-name { font-size: 48px; font-weight: 900; letter-spacing: -1.5px; color: #111; margin-bottom: 20px; line-height: 1.1; }
+  .about-me-lead { font-size: 20px; font-weight: 600; color: #111; line-height: 1.5; margin-bottom: 24px; }
+  .about-me-text { font-size: 16px; color: #666; line-height: 1.7; margin-bottom: 18px; }
+  .about-me-tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 30px 0 35px; }
+  .about-me-tags span { background: #fff5f0; color: #ff5722; padding: 8px 16px; border-radius: 100px; font-size: 13px; font-weight: 700; }
 
+  @media (max-width: 900px) {
+    .about-me-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-me-photo { max-width: 380px; margin: 0 auto; }
+    .about-me-photo::before { display: none; }
+    .about-me-name { font-size: 32px; letter-spacing: -0.5px; }
+    .about-me-lead { font-size: 17px; }
+    .about-me-text { font-size: 15px; }
+    .about-me-tags { margin: 22px 0 28px; }
+    .about-me-tags span { font-size: 12px; padding: 7px 14px; }
+  }
   .packages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
   .package { background: #fff; border: 2px solid #f0f0f0; border-radius: 28px; padding: 44px 36px; transition: 0.3s; position: relative; display: flex; flex-direction: column; }
   .package:hover { border-color: #111; transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
@@ -409,6 +430,30 @@
   </div>
 </div>
 
+<section class="about-me">
+  <div class="container">
+    <div class="about-me-grid">
+      <div class="about-me-photo">
+        <img src="vladimir.jpg" alt="Владимир Рункелов">
+      </div>
+      <div class="about-me-content">
+        <div class="section-eyebrow">О себе</div>
+        <h2 class="about-me-name">Владимир Рункелов</h2>
+        <p class="about-me-lead">Делаю сайты и тексты для локального бизнеса — которые приносят заявки, а не просто «красивые страницы».</p>
+        <p class="about-me-text">Работаю с малым бизнесом: от анализа ниши и структуры до готового сайта под ключ. Специализируюсь на строительстве, авто, кафе, салонах и услугах — но если вашего бизнеса нет в списке, это не проблема. Главное — понять задачу и аудиторию.</p>
+        <p class="about-me-text">Живу в Красноярске, работаю с клиентами по всей России — удалённо.</p>
+        <div class="about-me-tags">
+          <span>Строительство</span>
+          <span>Авто</span>
+          <span>Кафе</span>
+          <span>Салоны</span>
+          <span>Услуги</span>
+        </div>
+        <a href="#contact" class="btn-primary">Обсудить проект</a>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="packages">
   <div class="container">
     <div class="section-head">
