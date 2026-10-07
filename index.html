@@ -63,9 +63,9 @@
   .section-sub { font-size: 19px; color: #666; line-height: 1.55; }
   /* О СЕБЕ */
   .about-me { background: #fff; }
-    .about-me-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; align-items: center; }
+  .about-me-grid { display: grid; grid-template-columns: 0.6fr 1.4fr; gap: 70px; align-items: center; }  
   .about-me-photo { position: relative; }
-    .about-me-photo { max-width: 380px; margin: 0 auto; }
+  .about-me-photo { max-width: 380px; margin: 0 auto; }
   .about-me-photo img { width: 100%; height: auto; border-radius: 24px; display: block; object-fit: cover; aspect-ratio: 4/5; }
     .about-me-photo::before { content: ''; position: absolute; top: 14px; left: 14px; right: -14px; bottom: -14px; border: 2px solid #ff5722; border-radius: 24px; z-index: -1; }
   .about-me-name { font-size: 48px; font-weight: 900; letter-spacing: -1.5px; color: #111; margin-bottom: 20px; line-height: 1.1; }
@@ -76,7 +76,7 @@
 
   @media (max-width: 900px) {
     .about-me-grid { grid-template-columns: 1fr; gap: 40px; }
-    .about-me-photo { max-width: 380px; margin: 0 auto; }
+    .about-me-photo { max-width: 260px; margin: 0 auto; }
     .about-me-photo::before { display: none; }
     .about-me-name { font-size: 32px; letter-spacing: -0.5px; }
     .about-me-lead { font-size: 17px; }
