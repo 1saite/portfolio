@@ -16,7 +16,7 @@
   header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid #f0f0f0; }
   .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
   .logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: #111; text-decoration: none; display: flex; align-items: center; gap: 10px; }
-    .logo-dot { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; box-shadow: 0 0 0 3px rgba(34,197,94,0.2); }
+      .logo-dot { width: 10px; height: 10px; background: #ff5722; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
   @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.85); } }
   .menu { display: flex; gap: 36px; list-style: none; }
   .menu a { color: #555; text-decoration: none; font-size: 15px; font-weight: 500; transition: 0.2s; }
@@ -46,11 +46,30 @@
   .btn-primary:hover::after { transform: translateX(5px); }
   .btn-outline { display: inline-block; background: #fff; color: #111; padding: 20px 38px; border-radius: 100px; text-decoration: none; font-size: 16px; font-weight: 700; transition: 0.25s; border: 2px solid #eee; }
   .btn-outline:hover { border-color: #111; }
+  .hero-guarantees { display: flex; gap: 24px; margin-bottom: 60px; flex-wrap: wrap; }
+  .hero-guarantee { display: inline-flex; align-items: center; gap: 10px; background: #fff; border: 1.5px solid #f0f0f0; color: #111; padding: 12px 20px; border-radius: 100px; font-size: 14px; font-weight: 600; transition: 0.25s; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+  .hero-guarantee:hover { border-color: #ff5722; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,87,34,0.1); }
+  .hero-guarantee span { color: #ff5722; font-weight: 900; font-size: 16px; }
   .hero-trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 700px; }
   .trust-num { font-size: 42px; font-weight: 900; color: #111; letter-spacing: -2px; line-height: 1; margin-bottom: 8px; }
   .trust-num em { color: #ff5722; font-style: normal; }
   .trust-label { font-size: 14px; color: #888; line-height: 1.4; }
+  /* БЕСПЛАТНЫЙ СОЗВОН */
+  .free-call { background: #fff; padding: 50px 0; }
+  .free-call-inner { background: linear-gradient(135deg, #fff5f0 0%, #fff 100%); border: 2px solid #ffe4d9; border-radius: 24px; padding: 40px 45px; display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; }
+  .free-call-text { flex: 1; min-width: 280px; }
+  .free-call-text h3 { font-size: 26px; font-weight: 900; color: #111; letter-spacing: -0.8px; line-height: 1.2; margin-bottom: 12px; }
+  .free-call-text p { font-size: 16px; color: #666; line-height: 1.55; max-width: 520px; }
+  .free-call-btn { display: inline-flex; align-items: center; gap: 8px; background: #ff5722; color: #fff; padding: 18px 36px; border-radius: 100px; text-decoration: none; font-size: 16px; font-weight: 700; transition: 0.25s; white-space: nowrap; flex-shrink: 0; }
+  .free-call-btn:hover { background: #111; transform: translateY(-3px); box-shadow: 0 15px 35px rgba(255,87,34,0.3); }
 
+  @media (max-width: 768px) {
+    .free-call { padding: 35px 0; }
+    .free-call-inner { padding: 28px 24px; gap: 24px; flex-direction: column; align-items: flex-start; }
+    .free-call-text h3 { font-size: 20px; letter-spacing: -0.3px; }
+    .free-call-text p { font-size: 14px; }
+    .free-call-btn { width: 100%; justify-content: center; padding: 16px 24px; font-size: 15px; }
+  }
   .marquee { background: #111; padding: 26px 0; overflow: hidden; white-space: nowrap; }
   .marquee-track { display: inline-flex; gap: 60px; animation: scroll 40s linear infinite; font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
   .marquee-track span { display: inline-flex; align-items: center; gap: 60px; }
@@ -304,6 +323,9 @@
     .hero-badge { font-size: 12px; padding: 8px 16px; margin-bottom: 22px; }
     .hero-buttons { gap: 10px; margin-bottom: 50px; width: 100%; }
     .btn-primary, .btn-outline { padding: 16px 26px; font-size: 15px; width: 100%; justify-content: center; text-align: center; }
+    .hero-guarantees { gap: 10px; margin-bottom: 40px; }
+    .hero-guarantee { font-size: 12px; padding: 9px 14px; }
+    .hero-guarantee span { font-size: 14px; }
     .hero-trust { grid-template-columns: 1fr; gap: 22px; max-width: 100%; }
     .trust-num { font-size: 36px; }
     .marquee { padding: 18px 0; }
@@ -401,6 +423,12 @@
         <a href="#contact" class="btn-primary">Обсудить проект</a>
         <a href="#portfolio" class="btn-outline">Смотреть работы</a>
       </div>
+
+      <div class="hero-guarantees">
+        <div class="hero-guarantee"><span>✓</span> Срок 5-7 дней</div>
+        <div class="hero-guarantee"><span>✓</span> Фикс-цена в договоре</div>
+        <div class="hero-guarantee"><span>✓</span> 2 раунда правок</div>
+      </div>
       <div class="hero-trust">
         <div>
           <div class="trust-num">6<em>+</em></div>
@@ -419,6 +447,17 @@
   </div>
 </section>
 
+<section class="free-call">
+  <div class="container">
+    <div class="free-call-inner">
+      <div class="free-call-text">
+        <h3>Нужен сайт, но не знаете с чего начать?</h3>
+        <p>Бесплатный 15-минутный созвон — обсудим задачу, подскажу что делать. Без обязательств.</p>
+      </div>
+      <a href="tel:+79233207878" class="free-call-btn">Созвониться →</a>
+    </div>
+  </div>
+</section>
 <div class="marquee">
   <div class="marquee-track">
     <span>Тексты, которые продают</span>
@@ -767,8 +806,8 @@
     <div class="benefits-grid">
       <div class="benefit"><div class="benefit-num">01</div><div><h3>Под ключ — без посредников</h3><p>Текст, дизайн, вёрстка — всё в одних руках. Не нужно искать отдельно копирайтера, дизайнера и верстальщика.</p></div></div>
       <div class="benefit"><div class="benefit-num">02</div><div><h3>Пишу про результат, а не «креатив»</h3><p>Задача текста — не понравиться, а заставить оставить заявку. Пишу конкретно, без воды и «уникальных предложений».</p></div></div>
-      <div class="benefit"><div class="benefit-num">03</div><div><h3>Сроки, которые соблюдаю</h3><p>Лендинг под ключ — за 5-7 дней. Тексты для сайта — 2-3 дня. Обсуждаем сроки заранее и держим их.</p></div></div>
-      <div class="benefit"><div class="benefit-num">04</div><div><h3>Правки без нервов</h3><p>Включены 2 раунда правок. Если что-то не так — поправлю спокойно, без «это уже вне договора».</p></div></div>
+      <div class="benefit"><div class="benefit-num">03</div><div><h3>Работаю сам, не конвейер</h3><p>Не студия с потоком клиентов. Каждый проект веду лично — от первого созвона до сдачи.</p></div></div>
+      <div class="benefit"><div class="benefit-num">04</div><div><h3>Отвечаю лично, не менеджер</h3><p>Пишете мне — отвечаю я. Не «ваш запрос передан специалисту», а живой человек на связи.</p></div></div>
     </div>
   </div>
 </section>
