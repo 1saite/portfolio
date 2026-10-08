@@ -7,11 +7,11 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23111'/%3E%3Ctext x='50' y='72' font-family='Inter,Arial,sans-serif' font-size='70' font-weight='900' fill='%23ff5722' text-anchor='middle'%3EВ%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  img { max-width: 100%; height: auto; }
-  * { min-width: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; min-width: 0; }
+img { max-width: 100%; height: auto; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', -apple-system, sans-serif; color: #111; line-height: 1.6; background: #fff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+ html { overflow-x: hidden; }
+body { font-family: 'Inter', -apple-system, sans-serif; color: #111; line-height: 1.6; background: #fff; -webkit-font-smoothing: antialiased; }
   .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
   section { padding: 120px 0; position: relative; }
 header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); border-bottom: 1px solid #f0f0f0; }
@@ -62,7 +62,6 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.
   .free-call { background: #fff; padding: 50px 0; }
     .free-call-inner { background: linear-gradient(135deg, #fff5f0 0%, #fff 100%); border: 2px solid #ffe4d9; border-radius: 24px; padding: 40px 45px; display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; min-width: 0; }
   .free-call-text { flex: 1 1 280px; min-width: 0; }
-  .free-call-text { flex: 1; min-width: 280px; }
   .free-call-text h3 { font-size: 26px; font-weight: 900; color: #111; letter-spacing: -0.8px; line-height: 1.2; margin-bottom: 12px; }
   .free-call-text p { font-size: 16px; color: #666; line-height: 1.55; max-width: 520px; }
   .free-call-btn { display: inline-flex; align-items: center; gap: 8px; background: #ff5722; color: #fff; padding: 18px 36px; border-radius: 100px; text-decoration: none; font-size: 16px; font-weight: 700; transition: 0.25s; white-space: nowrap; flex-shrink: 0; }
@@ -86,7 +85,40 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.
   .section-title { font-size: 58px; line-height: 1.02; font-weight: 900; letter-spacing: -2px; color: #111; margin-bottom: 22px; }
   .section-title em { color: #ff5722; font-style: normal; }
   .section-sub { font-size: 19px; color: #666; line-height: 1.55; }
-   /* ПОЧЕМУ КОД */
+     /* ЧТО ВХОДИТ */
+  .whats-included { background: #fff; }
+  .included-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 50px; }
+  .included-card { background: #fafafa; border-radius: 20px; padding: 32px 28px; border: 1.5px solid transparent; transition: 0.3s; }
+  .included-card:hover { border-color: #111; background: #fff; transform: translateY(-6px); box-shadow: 0 20px 45px rgba(0,0,0,0.08); }
+  .included-icon { width: 56px; height: 56px; background: #fff5f0; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 18px; }
+  .included-card h3 { font-size: 19px; font-weight: 800; color: #111; margin-bottom: 10px; letter-spacing: -0.3px; }
+  .included-card p { font-size: 14px; color: #666; line-height: 1.65; }
+
+  .extra-service { background: linear-gradient(135deg, #111 0%, #1a1a1a 100%); border-radius: 24px; padding: 40px 45px; display: flex; align-items: center; gap: 30px; flex-wrap: wrap; position: relative; overflow: hidden; min-width: 0; }
+  .extra-service::before { content: ''; position: absolute; top: -50%; right: -10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,87,34,0.15), transparent 70%); border-radius: 50%; pointer-events: none; }
+  .extra-service-icon { width: 64px; height: 64px; background: #ff5722; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 30px; flex-shrink: 0; position: relative; z-index: 2; }
+  .extra-service-text { flex: 1 1 320px; min-width: 0; position: relative; z-index: 2; }
+  .extra-service-text h3 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 10px; letter-spacing: -0.3px; }
+  .extra-service-text p { font-size: 15px; color: #b0b0b0; line-height: 1.6; }
+  .extra-service-text strong { color: #ff5722; font-weight: 700; }
+  .extra-service-btn { display: inline-flex; align-items: center; gap: 8px; background: #ff5722; color: #fff; padding: 16px 32px; border-radius: 100px; text-decoration: none; font-size: 15px; font-weight: 700; transition: 0.3s; white-space: nowrap; flex-shrink: 0; position: relative; z-index: 2; }
+  .extra-service-btn:hover { background: #fff; color: #111; transform: translateY(-3px); }
+
+  @media (max-width: 1024px) {
+    .included-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    .included-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 30px; }
+    .included-card { padding: 26px 22px; }
+    .included-icon { width: 48px; height: 48px; font-size: 22px; margin-bottom: 14px; }
+    .included-card h3 { font-size: 17px; }
+    .extra-service { padding: 30px 24px; gap: 20px; flex-direction: column; align-items: flex-start; }
+    .extra-service-icon { width: 56px; height: 56px; font-size: 26px; }
+    .extra-service-text h3 { font-size: 19px; }
+    .extra-service-text p { font-size: 14px; }
+    .extra-service-btn { width: 100%; justify-content: center; padding: 14px 24px; font-size: 14px; }
+  }
+/* ПОЧЕМУ КОД */
   .code-section { background: #fafafa; }
   .code-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .code-card { background: #fff; border-radius: 20px; padding: 36px 32px; border: 1.5px solid transparent; transition: 0.3s; }
@@ -107,8 +139,7 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.
  /* О СЕБЕ */
   .about-me { background: #fff; }
   .about-me-grid { display: grid; grid-template-columns: 0.6fr 1.4fr; gap: 70px; align-items: center; }  
-  .about-me-photo { position: relative; }
-  .about-me-photo { max-width: 380px; margin: 0 auto; }
+ .about-me-photo { position: relative; max-width: 380px; margin: 0 auto; }
     .about-me-photo img { width: 100%; height: auto; border-radius: 24px; display: block; object-fit: cover; aspect-ratio: 4/5; filter: brightness(108%) contrast(102%); }
     .about-me-photo::before { content: ''; position: absolute; top: 14px; left: 14px; right: -14px; bottom: -14px; border: 2px solid #ff5722; border-radius: 24px; z-index: -1; }
   .about-me-name { font-size: 48px; font-weight: 900; letter-spacing: -1.5px; color: #111; margin-bottom: 20px; line-height: 1.1; }
@@ -451,10 +482,10 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.
       </div>
 
       <div class="hero-guarantees">
-        <div class="hero-guarantee"><span>✓</span> Срок 5-7 дней</div>
-        <div class="hero-guarantee"><span>✓</span> Фикс-цена в договоре</div>
-        <div class="hero-guarantee"><span>✓</span> 2 раунда правок</div>
-      </div>
+  <div class="hero-guarantee"><span>✓</span> Фикс-цена в договоре</div>
+  <div class="hero-guarantee"><span>✓</span> Отвечаю лично, не менеджер</div>
+  <div class="hero-guarantee"><span>✓</span> Работаю сам, без конвейера</div>
+</div>
       <div class="hero-trust">
         <div>
           <div class="trust-num">6<em>+</em></div>
@@ -912,6 +943,58 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.
     </div>
   </div>
 </section>
+
+<section class="whats-included">
+  <div class="container">
+    <div class="section-head" style="text-align:center;margin:0 auto 60px;">
+      <div class="section-eyebrow">Что входит</div>
+      <h2 class="section-title">Что вы получите, <em>кроме сайта</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Один человек — весь цикл работ. Не надо искать копирайтера, дизайнера, верстальщика.</p>
+    </div>
+
+    <div class="included-grid">
+      <div class="included-card">
+        <div class="included-icon">📄</div>
+        <h3>Текст</h3>
+        <p>Напишу продающий текст под ваш бизнес. Не шаблонный, а под задачу.</p>
+      </div>
+      <div class="included-card">
+        <div class="included-icon">🎨</div>
+        <h3>Дизайн</h3>
+        <p>Разработаю уникальный дизайн под ваш бренд. Не шаблон с заменённым логотипом.</p>
+      </div>
+      <div class="included-card">
+        <div class="included-icon">💻</div>
+        <h3>Вёрстка</h3>
+        <p>Сайт работает на телефоне, планшете и компе. Адаптив — под все устройства.</p>
+      </div>
+      <div class="included-card">
+        <div class="included-icon">🔗</div>
+        <h3>Домен и хостинг</h3>
+        <p>Помогу подключить домен и разместить сайт. Объясню, что и как.</p>
+      </div>
+      <div class="included-card">
+        <div class="included-icon">📊</div>
+        <h3>Яндекс.Метрика</h3>
+        <p>Настрою счётчик. Будете видеть, сколько людей зашло и откуда.</p>
+      </div>
+      <div class="included-card">
+        <div class="included-icon">📱</div>
+        <h3>Помощь с соцсетями</h3>
+        <p>Напишу тексты для постов, описания профиля, сценарии для сторис. По желанию — с контент-планом.</p>
+      </div>
+    </div>
+
+    <div class="extra-service">
+      <div class="extra-service-icon">🎯</div>
+      <div class="extra-service-text">
+        <h3>Настрою рекламу в Яндекс.Директ</h3>
+        <p>Сайт без рекламы = сайт, который никто не видит. Настрою рекламу <strong>на поиске</strong> и в <strong>РСЯ</strong> (рекламная сеть Яндекса). Приведу первых клиентов из интернета. Обсуждается отдельно.</p>
+      </div>
+      <a href="#contact" class="extra-service-btn">Обсудить →</a>
+    </div>
+  </div>
+</section>
 <section id="reviews" style="background:#fff;">
   <div class="container">
     <div class="section-head">
@@ -943,10 +1026,10 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.
       <h2 class="section-title">Частые <em>вопросы</em></h2>
     </div>
     <div class="faq-list">
-      <div class="faq-item open"><div class="faq-q">Сколько стоит лендинг под ключ?<span class="faq-icon">+</span></div><div class="faq-a">Зависит от пакета. «Старт» — 15 000 ₽, «Стандарт» — 25 000 ₽, «Под ключ» — 40 000 ₽. Всё фиксируется в договоре, доплат в процессе нет.</div></div>
+      <div class="faq-item open"><div class="faq-q">Можно посмотреть ещё примеры работ?<span class="faq-icon">+</span></div><div class="faq-a">Да, в портфолио — 6 сайтов для разных ниш: строительство, авто, кафе, салоны. Плюс 3 подробных кейса. Если нужен пример в вашей нише — напишите, покажу похожий проект.</div></div>
       <div class="faq-item"><div class="faq-q">Сколько времени занимает работа?<span class="faq-icon">+</span></div><div class="faq-a">«Старт» — 3-4 дня. «Стандарт» — 5-7 дней. «Под ключ» — около 10 дней. Тексты для существующего сайта — 2-3 дня.</div></div>
       <div class="faq-item"><div class="faq-q">Как проходит оплата?<span class="faq-icon">+</span></div><div class="faq-a">50% предоплата, 50% после сдачи. Для крупных проектов возможна оплата по этапам. Работаю с физлицами и ИП.</div></div>
-      <div class="faq-item"><div class="faq-q">Что если мне не понравится результат?<span class="faq-icon">+</span></div><div class="faq-a">Включены 2 раунда правок. Если после правок что-то осталось не так — обсудим и поправим. Я заинтересован в том, чтобы вы остались довольны.</div></div>
+      <div class="faq-item"><div class="faq-q">Как вы работаете с правками?<span class="faq-icon">+</span></div><div class="faq-a">Показываю промежуточные версии — вы говорите, что нравится, что нет. После сдачи — 2 бесплатных раунда правок. Поправлю всё, что не устроит, — спокойно, без «это уже вне договора».</div></div>
       <div class="faq-item"><div class="faq-q">Вы работаете только в Красноярске?<span class="faq-icon">+</span></div><div class="faq-a">Нет. Основные клиенты — локальный бизнес Красноярска, но с удалёнными проектами работаю тоже. Всё общение — по видеосвязи и в мессенджерах.</div></div>
       <div class="faq-item"><div class="faq-q">Что нужно от меня для старта?<span class="faq-icon">+</span></div><div class="faq-a">Рассказать о задаче — что за бизнес, для кого сайт, что хотите получить. Всё остальное — моя работа. Бриф и вопросы пришлю сам.</div></div>
     </div>
