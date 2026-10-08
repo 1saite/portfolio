@@ -17,7 +17,10 @@
   .section-eyebrow { display: block; text-align: center; font-size: 12px; font-weight: 600; color: #c9a961; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 20px; }
 
   /* НАВИГАЦИЯ */
-  header { background: rgba(10,10,10,0.94); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(201,169,97,0.15); backdrop-filter: blur(15px); }
+  header { background: rgba(10,10,10,0.94); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(201,169,97,0.15); }
+@supports (backdrop-filter: blur(15px)) {
+  header { backdrop-filter: blur(15px); }
+}
   .nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
   .logo { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: #fff; display: flex; align-items: center; gap: 12px; letter-spacing: 2px; text-transform: uppercase; }
   .logo-mark { width: 36px; height: 36px; border: 1px solid #c9a961; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #c9a961; font-size: 17px; font-family: 'Cormorant Garamond', serif; font-weight: 700; font-style: italic; }

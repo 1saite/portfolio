@@ -14,9 +14,11 @@
   body { font-family: 'Inter', -apple-system, sans-serif; color: #111; line-height: 1.6; background: #fff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
   section { padding: 120px 0; position: relative; }
-
-  header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid #f0f0f0; }
-  .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); border-bottom: 1px solid #f0f0f0; }
+@supports (backdrop-filter: blur(20px)) {
+  header { background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); }
+}
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
   .logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: #111; text-decoration: none; display: flex; align-items: center; gap: 10px; }
       .logo-dot { width: 10px; height: 10px; background: #ff5722; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
   @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.85); } }
