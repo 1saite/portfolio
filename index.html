@@ -8,6 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  img { max-width: 100%; height: auto; }
+  * { min-width: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Inter', -apple-system, sans-serif; color: #111; line-height: 1.6; background: #fff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
@@ -56,7 +58,8 @@
   .trust-label { font-size: 14px; color: #888; line-height: 1.4; }
   /* БЕСПЛАТНЫЙ СОЗВОН */
   .free-call { background: #fff; padding: 50px 0; }
-  .free-call-inner { background: linear-gradient(135deg, #fff5f0 0%, #fff 100%); border: 2px solid #ffe4d9; border-radius: 24px; padding: 40px 45px; display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; }
+    .free-call-inner { background: linear-gradient(135deg, #fff5f0 0%, #fff 100%); border: 2px solid #ffe4d9; border-radius: 24px; padding: 40px 45px; display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; min-width: 0; }
+  .free-call-text { flex: 1 1 280px; min-width: 0; }
   .free-call-text { flex: 1; min-width: 280px; }
   .free-call-text h3 { font-size: 26px; font-weight: 900; color: #111; letter-spacing: -0.8px; line-height: 1.2; margin-bottom: 12px; }
   .free-call-text p { font-size: 16px; color: #666; line-height: 1.55; max-width: 520px; }
@@ -193,7 +196,10 @@
   .case-result-row span { color: #666; }
   .case-result-row strong { color: #111; font-weight: 800; }
   @media (max-width: 1024px) {
-    .cases-grid { grid-template-columns: 1fr; gap: 20px; max-width: 600px; margin: 0 auto; }
+        .cases-grid { grid-template-columns: 1fr; gap: 20px; width: 100%; }
+    .case-card { padding: 28px 22px; }
+    .case-result-row { flex-wrap: wrap; gap: 6px; }
+    .case-result-row strong { text-align: right; }
   }
   @media (max-width: 768px) {
     .case-card { padding: 30px 24px; border-radius: 20px; }
@@ -348,8 +354,8 @@
     .process-grid { grid-template-columns: 1fr; gap: 16px; }
     .process-card { padding: 30px 24px; }
     .process-num { font-size: 46px; margin-bottom: 14px; }
-    .portfolio-filters { gap: 8px; margin-bottom: 30px; }
-    .filter-btn { padding: 9px 18px; font-size: 13px; }
+    .portfolio-filters { gap: 8px; margin-bottom: 30px; flex-wrap: wrap; justify-content: center; }
+    .filter-btn { padding: 9px 14px; font-size: 12px; }
     .portfolio-grid { grid-template-columns: 1fr; gap: 16px; }
     .portfolio-thumb { height: 200px; }
     .portfolio-thumb-text { font-size: 42px; }
