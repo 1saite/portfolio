@@ -87,7 +87,7 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.
   .marquee-track span { display: inline-flex; align-items: center; gap: 60px; }
   .marquee-track span::after { content: '★'; color: #ff5722; font-size: 18px; }
   @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
+@-webkit-keyframes scroll { from { -webkit-transform: translateX(0); transform: translateX(0); } to { -webkit-transform: translateX(-50%); transform: translateX(-50%); } }
   .section-head { margin-bottom: 70px; max-width: 720px; }
   .section-eyebrow { display: inline-block; font-size: 13px; font-weight: 800; color: #ff5722; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; padding: 6px 14px; background: #fff5f0; border-radius: 100px; }
   .section-title { font-size: 58px; line-height: 1.02; font-weight: 900; letter-spacing: -2px; color: #111; margin-bottom: 22px; }
