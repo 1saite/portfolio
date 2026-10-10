@@ -62,8 +62,9 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.
   .trust-label { font-size: 14px; color: #888; line-height: 1.4; }
   /* БЕСПЛАТНЫЙ СОЗВОН */
   .free-call { background: #fff; padding: 50px 0; }
-    .free-call-inner { background: linear-gradient(135deg, #fff5f0 0%, #fff 100%); border: 2px solid #ffe4d9; border-radius: 24px; padding: 40px 45px; display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; min-width: 0; }
-  .free-call-text { flex: 1 1 280px; min-width: 0; }
+.free-call-inner { background: linear-gradient(135deg, #fff5f0 0%, #fff 100%); border: 2px solid #ffe4d9; border-radius: 24px; padding: 40px 45px; display: block; min-width: 0; }
+.free-call-text { width: 100%; margin-bottom: 24px; }
+.free-call-btn { display: inline-block; }
   .free-call-text h3 { font-size: 26px; font-weight: 900; color: #111; letter-spacing: -0.8px; line-height: 1.2; margin-bottom: 12px; }
   .free-call-text p { font-size: 16px; color: #666; line-height: 1.55; max-width: 520px; }
   .free-call-btn { display: inline-flex; align-items: center; gap: 8px; background: #ff5722; color: #fff; padding: 18px 36px; border-radius: 100px; text-decoration: none; font-size: 16px; font-weight: 700; transition: 0.25s; white-space: nowrap; flex-shrink: 0; }
@@ -71,13 +72,14 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.
 
   @media (max-width: 768px) {
     .free-call { padding: 35px 0; }
-    .free-call-inner { padding: 28px 24px; gap: 24px; flex-direction: column; align-items: flex-start; }
+.free-call-inner { padding: 28px 24px; }
     .free-call-text h3 { font-size: 20px; letter-spacing: -0.3px; }
     .free-call-text p { font-size: 14px; }
     .free-call-btn { width: 100%; justify-content: center; padding: 16px 24px; font-size: 15px; }
   }
   .marquee { background: #111; padding: 26px 0; overflow: hidden; white-space: nowrap; }
-  .marquee-track { display: inline-flex; gap: 60px; animation: scroll 40s linear infinite; font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+  .marquee-track { display: inline-flex; gap: 60px; animation: scroll 40s linear infinite; -webkit-animation: scroll 40s linear infinite; font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+@-webkit-keyframes scroll { from { -webkit-transform: translateX(0); transform: translateX(0); } to { -webkit-transform: translateX(-50%); transform: translateX(-50%); } }
   .marquee-track span { display: inline-flex; align-items: center; gap: 60px; }
   .marquee-track span::after { content: '★'; color: #ff5722; font-size: 18px; }
   @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
