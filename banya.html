@@ -703,6 +703,25 @@
     });
   });
 </script>
+<div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #111; color: #fff; padding: 16px 24px; z-index: 9999; display: none; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; box-shadow: 0 -4px 20px rgba(0,0,0,0.15);">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+    <p style="margin: 0; flex: 1; min-width: 260px;">
+      Мы используем cookie для аналитики. Оставаясь на сайте, вы соглашаетесь с <a href="privacy.html" style="color: #ff5722; text-decoration: underline;">политикой конфиденциальности</a>.
+    </p>
+    <button onclick="acceptCookies()" style="background: #ff5722; color: #fff; border: none; padding: 12px 28px; border-radius: 100px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; white-space: nowrap;">Принять</button>
+  </div>
+</div>
 
+<script>
+  (function() {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookie-banner').style.display = 'block';
+    }
+  })();
+  function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+</script>
 </body>
 </html>
