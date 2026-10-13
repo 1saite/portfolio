@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /*.html.html$
+Disallow: /index.html.html
+Disallow: /*?*utm_
+Disallow: /*?*from=
 
 Sitemap: https://runkelov.ru/sitemap.xml
+Host: https://runkelov.ru
