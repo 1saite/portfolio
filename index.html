@@ -652,6 +652,133 @@
     .nav-cta { display: none; }
     .nav { padding: 16px 0; }
   }
+/* ===== POPUP ПОМОЩЬ ===== */
+.popup-help {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  width: 320px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  padding: 20px;
+  z-index: 997;
+  display: none;
+}
+
+.popup-help.show {
+  display: block;
+  animation: popupSlide 0.4s ease-out;
+}
+
+@keyframes popupSlide {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: #999;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: 0.2s;
+}
+
+.popup-close:hover { color: #111; }
+
+.popup-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 12px;
+  border: 2px solid #ff5722;
+}
+
+.popup-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.popup-name {
+  font-weight: 800;
+  font-size: 16px;
+  color: #111;
+  margin-bottom: 2px;
+}
+
+.popup-status {
+  font-size: 12px;
+  color: #22c55e;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.popup-text {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.popup-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.popup-btn {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.popup-btn-primary {
+  background: #ff5722;
+  color: #fff;
+}
+
+.popup-btn-primary:hover {
+  background: #111;
+  transform: translateY(-2px);
+}
+
+.popup-btn-outline {
+  background: #fff;
+  color: #111;
+  border: 2px solid #eee;
+}
+
+.popup-btn-outline:hover {
+  border-color: #111;
+}
+
+@media (max-width: 768px) {
+  .popup-help {
+    width: calc(100% - 32px);
+    right: 16px;
+    bottom: 90px;
+    padding: 16px;
+  }
+  .popup-avatar {
+    width: 44px;
+    height: 44px;
+  }
+  .popup-text { font-size: 13px; }
+  .popup-btn { padding: 10px; font-size: 13px; }
+}
 </style>
 </head>
 <body>
@@ -1400,6 +1527,80 @@
     localStorage.setItem('cookiesAccepted', 'true');
     document.getElementById('cookie-banner').style.display = 'none';
   }
+</script>
+<!-- POPUP ПОМОЩЬ -->
+<div class="popup-help" id="popupHelp">
+  <button class="popup-close" onclick="closePopupHelp()" aria-label="Закрыть">×</button>
+  <div class="popup-avatar">
+    <img src="vladimir.jpg" alt="Владимир Рункелов">
+  </div>
+  <div class="popup-content">
+    <div class="popup-name">Владимир Рункелов</div>
+    <div class="popup-status">● онлайн</div>
+    <div class="popup-text">Вижу, вы смотрите сайт. Есть вопросы? Напишите — отвечу лично.</div>
+    <div class="popup-actions">
+      <a href="https://t.me/vladimir_runkelov" target="_blank" class="popup-btn popup-btn-primary">Написать в Telegram</a>
+      <a href="tel:+79233207878" class="popup-btn popup-btn-outline">Позвонить</a>
+    </div>
+  </div>
+</div>
+<script>
+/* ===== POPUP ПОМОЩЬ ===== */
+(function () {
+  var frequency = 'session'; // 'always' / 'session' / 'day'
+
+  var popup = document.getElementById('popupHelp');
+  if (!popup) return;
+
+  function shouldShow() {
+    if (frequency === 'always') return true;
+    if (frequency === 'session') {
+      return sessionStorage.getItem('popupShown') !== 'yes';
+    }
+    if (frequency === 'day') {
+      var last = localStorage.getItem('popupShownDate');
+      if (!last) return true;
+      var lastDate = new Date(parseInt(last));
+      var now = new Date();
+      var diffDays = (now - lastDate) / (1000 * 60 * 60 * 24);
+      return diffDays >= 1;
+    }
+    return true;
+  }
+
+  if (!shouldShow()) return;
+
+  var shown = false;
+
+  function showPopup() {
+    if (shown) return;
+    shown = true;
+    popup.classList.add('show');
+
+    if (frequency === 'session') {
+      sessionStorage.setItem('popupShown', 'yes');
+    }
+    if (frequency === 'day') {
+      localStorage.setItem('popupShownDate', Date.now().toString());
+    }
+  }
+
+  // Триггер 1: 30 секунд
+  var timer = setTimeout(showPopup, 30000);
+
+  // Триггер 2: скролл 50%
+  window.addEventListener('scroll', function () {
+    var scrollPercent = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+    if (scrollPercent > 0.5) {
+      clearTimeout(timer);
+      showPopup();
+    }
+  });
+
+  window.closePopupHelp = function () {
+    popup.classList.remove('show');
+  };
+})();
 </script>
 </body>
 </html>
