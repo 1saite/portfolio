@@ -1546,10 +1546,12 @@
     <p style="margin: 0; flex: 1; min-width: 260px;">
       Мы используем cookie для аналитики. Оставаясь на сайте, вы соглашаетесь с <a href="privacy.html" style="color: #ff5722; text-decoration: underline;">политикой конфиденциальности</a>.
     </p>
-    <button onclick="acceptCookies()" style="background: #ff5722; color: #fff; border: none; padding: 12px 28px; border-radius: 100px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; white-space: nowrap;">Принять</button>
+    <div style="display: flex; gap: 10px;">
+      <button onclick="document.getElementById('cookie-banner').style.display='none'" style="background: transparent; color: #fff; border: 1px solid #555; padding: 12px 20px; border-radius: 100px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit;">Отклонить</button>
+      <button onclick="acceptCookies()" style="background: #ff5722; color: #fff; border: none; padding: 12px 28px; border-radius: 100px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit;">Принять</button>
+    </div>
   </div>
 </div>
-
 <script>
   (function() {
     if (!localStorage.getItem('cookiesAccepted')) {
