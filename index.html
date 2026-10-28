@@ -1541,27 +1541,9 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/113512839" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #111; color: #fff; padding: 16px 24px; z-index: 9999; display: none; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; box-shadow: 0 -4px 20px rgba(0,0,0,0.15);">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
-    <p style="margin: 0; flex: 1; min-width: 260px;">
-      Мы используем cookie для аналитики. Оставаясь на сайте, вы соглашаетесь с <a href="privacy.html" style="color: #ff5722; text-decoration: underline;">политикой конфиденциальности</a>.
-    </p>
-    <div style="display: flex; gap: 10px;">
-      <button onclick="document.getElementById('cookie-banner').style.display='none'" style="background: transparent; color: #fff; border: 1px solid #555; padding: 12px 20px; border-radius: 100px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit;">Отклонить</button>
-      <button onclick="acceptCookies()" style="background: #ff5722; color: #fff; border: none; padding: 12px 28px; border-radius: 100px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit;">Принять</button>
-    </div>
-  </div>
-</div>
 <script>
   (function() {
-    if (!localStorage.getItem('cookiesAccepted')) {
-      document.getElementById('cookie-banner').style.display = 'block';
-    }
-  })();
-  function acceptCookies() {
-    localStorage.setItem('cookiesAccepted', 'true');
-    document.getElementById('cookie-banner').style.display = 'none';
-  }
+    
 </script>
 <!-- POPUP ПОМОЩЬ -->
 <div class="popup-help" id="popupHelp">
@@ -1637,5 +1619,18 @@
   };
 })();
 </script>
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #111; color: #fff; padding: 16px 24px; z-index: 99999; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; box-shadow: 0 -4px 20px rgba(0,0,0,0.15);">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+    <p style="margin: 0; flex: 1; min-width: 260px;">
+      Мы используем cookie для аналитики. Оставаясь на сайте, вы соглашаетесь с <a href="privacy.html" style="color: #ff5722; text-decoration: underline;">политикой конфиденциальности</a>.
+    </p>
+    <div style="display: flex; gap: 10px;">
+      <button onclick="this.parentElement.parentElement.parentElement.style.display='none'" style="background: transparent; color: #fff; border: 1px solid #555; padding: 12px 20px; border-radius: 100px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit;">Отклонить</button>
+      <button onclick="this.parentElement.parentElement.parentElement.style.display='none'" style="background: #ff5722; color: #fff; border: none; padding: 12px 28px; border-radius: 100px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit;">Принять</button>
+    </div>
+  </div>
+</div>
+<!-- /COOKIE BANNER -->
 </body>
 </html>
